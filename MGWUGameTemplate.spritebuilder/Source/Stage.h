@@ -11,6 +11,7 @@
 
 @interface Stage : NSObject
 
+//chart object reference.
 @property Chart* theChart;
 
 @property NSDictionary* parameters;
