@@ -36,6 +36,11 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F381A97E23A00C4C6E1 /* Stage.m */; };
+		F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3B1A97E29E00C4C6E1 /* Chart.m */; };
+		F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */; };
+		F3048F431A97E3F800C4C6E1 /* ChartLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F421A97E3F800C4C6E1 /* ChartLoader.m */; };
+		F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F451A97E43D00C4C6E1 /* TitleScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,16 @@
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
+		F3048F371A97E23A00C4C6E1 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Source/Stage.h; sourceTree = "<group>"; };
+		F3048F381A97E23A00C4C6E1 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Source/Stage.m; sourceTree = "<group>"; };
+		F3048F3A1A97E29E00C4C6E1 /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Source/Chart.h; sourceTree = "<group>"; };
+		F3048F3B1A97E29E00C4C6E1 /* Chart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Chart.m; path = Source/Chart.m; sourceTree = "<group>"; };
+		F3048F3E1A97E3C500C4C6E1 /* ChartObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartObject.h; path = Source/ChartObject.h; sourceTree = "<group>"; };
+		F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartObject.m; path = Source/ChartObject.m; sourceTree = "<group>"; };
+		F3048F411A97E3F800C4C6E1 /* ChartLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChartLoader.h; path = Source/ChartLoader.h; sourceTree = "<group>"; };
+		F3048F421A97E3F800C4C6E1 /* ChartLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChartLoader.m; path = Source/ChartLoader.m; sourceTree = "<group>"; };
+		F3048F441A97E43D00C4C6E1 /* TitleScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleScene.h; path = Source/TitleScene.h; sourceTree = "<group>"; };
+		F3048F451A97E43D00C4C6E1 /* TitleScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleScene.m; path = Source/TitleScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +140,11 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				F3181EAD1A951FB5004B0887 /* utility */,
+				F3181EAB1A951F59004B0887 /* graphic */,
+				F3181EA91A951F2C004B0887 /* core */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
-				B7378992180767190076A88C /* MainScene.h */,
-				B7378993180767190076A88C /* MainScene.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -217,6 +233,39 @@
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3181EA91A951F2C004B0887 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				F3048F371A97E23A00C4C6E1 /* Stage.h */,
+				F3048F381A97E23A00C4C6E1 /* Stage.m */,
+				F3048F3A1A97E29E00C4C6E1 /* Chart.h */,
+				F3048F3B1A97E29E00C4C6E1 /* Chart.m */,
+				F3048F3E1A97E3C500C4C6E1 /* ChartObject.h */,
+				F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */,
+			);
+			name = core;
+			sourceTree = "<group>";
+		};
+		F3181EAB1A951F59004B0887 /* graphic */ = {
+			isa = PBXGroup;
+			children = (
+				B7378992180767190076A88C /* MainScene.h */,
+				B7378993180767190076A88C /* MainScene.m */,
+				F3048F441A97E43D00C4C6E1 /* TitleScene.h */,
+				F3048F451A97E43D00C4C6E1 /* TitleScene.m */,
+			);
+			name = graphic;
+			sourceTree = "<group>";
+		};
+		F3181EAD1A951FB5004B0887 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				F3048F411A97E3F800C4C6E1 /* ChartLoader.h */,
+				F3048F421A97E3F800C4C6E1 /* ChartLoader.m */,
+			);
+			name = utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,9 +389,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */,
+				F3048F431A97E3F800C4C6E1 /* ChartLoader.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
+				F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
