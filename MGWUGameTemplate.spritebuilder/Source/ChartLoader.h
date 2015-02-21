@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "chart.h"
 
 @interface ChartLoader : NSObject
+
+@property Chart* theChart;
+
+-(BOOL) loadChartFromFile:(NSString*) filename;
 
 @end

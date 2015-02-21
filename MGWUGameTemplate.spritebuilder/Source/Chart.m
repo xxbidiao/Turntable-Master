@@ -10,4 +10,11 @@
 
 @implementation Chart
 
+-(id)init
+{
+    _objects = [[NSMutableArray alloc]init];
+    _chartInfo = [[NSMutableDictionary alloc]init];
+    return self;
+}
+
 @end

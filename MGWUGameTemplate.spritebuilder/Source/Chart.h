@@ -11,9 +11,9 @@
 @interface Chart : NSObject
 
 //Objects in the chart.
-@property NSArray* objects;
+@property NSMutableArray* objects;
 
 //Other related information about the chart (difficulty, BPM, etc)
-@property NSDictionary* chartInfo;
+@property NSMutableDictionary* chartInfo;
 
 @end

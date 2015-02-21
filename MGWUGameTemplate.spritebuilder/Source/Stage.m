@@ -10,4 +10,12 @@
 
 @implementation Stage
 
+-(id)init
+{
+    _theChart = [[Chart alloc]init];
+    _parameters = [[NSMutableDictionary alloc]init];
+    _scores = [[NSMutableDictionary alloc]init];
+    return self;
+}
+
 @end

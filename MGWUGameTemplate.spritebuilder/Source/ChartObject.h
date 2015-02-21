@@ -18,7 +18,7 @@
 @property double startingTime;
 
 // Location where object data like where it appears is stored.
-@property NSDictionary* objectPosition;
+@property NSMutableDictionary* objectPosition;
 
 
 

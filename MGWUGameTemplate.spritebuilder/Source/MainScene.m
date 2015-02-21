@@ -7,7 +7,22 @@
 //
 
 #import "MainScene.h"
+#import "ChartLoader.h"
 
 @implementation MainScene
+{
+    CCLabelTTF* _testText;
+}
+
+
+
+-(void) didLoadFromCCB
+{
+    ChartLoader* theCL = [[ChartLoader alloc]init];
+    [theCL loadChartFromFile:@"test"];
+    NSString* str = theCL.theChart.chartInfo[@"Difficulty"];
+    NSLog(str);
+    [_testText setString:str];
+}
 
 @end

@@ -14,9 +14,9 @@
 //chart object reference.
 @property Chart* theChart;
 
-@property NSDictionary* parameters;
+@property NSMutableDictionary* parameters;
 
-@property NSDictionary* scores;
+@property NSMutableDictionary* scores;
 
 
 

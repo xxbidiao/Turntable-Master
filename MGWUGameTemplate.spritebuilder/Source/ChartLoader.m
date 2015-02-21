@@ -10,4 +10,18 @@
 
 @implementation ChartLoader
 
+-(id)init
+{
+    _theChart = [[Chart alloc]init];
+    return self;
+}
+
+-(BOOL) loadChartFromFile:(NSString*) filename
+{
+    _theChart = [[Chart alloc] init];
+    _theChart.chartInfo[@"Difficulty"]=@"1";
+    return true;
+    
+}
+
 @end
