@@ -15,7 +15,15 @@
     _objectType = 0;
     _startingTime = 0;
     _objectPosition = [[NSMutableDictionary alloc]init];
+    _appeared = false;
+    _playerPerformance = [[NSMutableDictionary alloc]init];
     return self;
+    
+}
+
+-(double)length
+{
+    return 0;
 }
 
 @end

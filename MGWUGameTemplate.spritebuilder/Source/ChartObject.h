@@ -20,6 +20,15 @@
 // Location where object data like where it appears is stored.
 @property NSMutableDictionary* objectPosition;
 
+// A flag to tell program whether it is already processed by graphic part
+@property bool appeared;
+
+// Record playing offset.
+@property NSMutableDictionary* playerPerformance;
+
+// what the total length the note is.
+-(double) length;
+
 
 
 @end
