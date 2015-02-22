@@ -179,8 +179,8 @@
         double timeForMiss = [[judgmentParameters objectAtIndex:0] doubleValue];
         if(time>obj.startingTime+[obj length]+timeForMiss)
         {
+            obj.disappeared = true;
             [objectOnScreen removeObject:obj];
-            
             [self displayJudgment:0];
             return true;
         }

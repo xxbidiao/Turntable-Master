@@ -16,6 +16,7 @@
     _startingTime = 0;
     _objectPosition = [[NSMutableDictionary alloc]init];
     _appeared = false;
+    _disappeared = false;
     _playerPerformance = [[NSMutableDictionary alloc]init];
     return self;
     

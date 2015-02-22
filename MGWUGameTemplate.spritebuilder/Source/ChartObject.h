@@ -22,6 +22,7 @@
 
 // A flag to tell program whether it is already processed by graphic part
 @property bool appeared;
+@property bool disappeared;
 
 // Record playing offset.
 @property NSMutableDictionary* playerPerformance;
