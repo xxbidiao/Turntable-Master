@@ -7,6 +7,7 @@
 //
 
 #import "ChartLoader.h"
+#import "ChartObject.h"
 
 @implementation ChartLoader
 
@@ -18,8 +19,15 @@
 
 -(BOOL) loadChartFromFile:(NSString*) filename
 {
-    _theChart = [[Chart alloc] init];
+    
+    
     _theChart.chartInfo[@"Difficulty"]=@"1";
+    for(int i = 0; i < 10000; i++)
+    {
+        ChartObject* theObj = [[ChartObject alloc]init];
+        theObj.startingTime = i;
+        [_theChart.objects addObject:theObj];
+    }
     return true;
     
 }

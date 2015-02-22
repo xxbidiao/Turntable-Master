@@ -16,4 +16,8 @@
 //Other related information about the chart (difficulty, BPM, etc)
 @property NSMutableDictionary* chartInfo;
 
+-(NSMutableArray*) getObjectsRangedInTime:(double)min second:(double)max;
+
+-(int) findFirstObjectAfterStartingTime:(double) time;
+
 @end
