@@ -54,15 +54,18 @@
     
     //hard code judgments temporarily
     [judgmentParameters addObject:@0.120];
+    [judgmentParameters addObject:@0.120];
     [judgmentParameters addObject:@0.060];
     [judgmentParameters addObject:@0.030];
     [judgmentParameters addObject:@-1];
+    
     
     //hard code judgments temporarily
     [judgmentNames addObject:@"Miss"];
     [judgmentNames addObject:@"Guard"];
     [judgmentNames addObject:@"Hit"];
     [judgmentNames addObject:@"Critical"];
+    [judgmentNames addObject:@"IMPOSSIBLE"];
     
     
     
@@ -163,15 +166,25 @@
 
 - (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint
 {
-    if(zoneID == 0)
-    [_testText setString:@"Left Turntable Turned Successful"];
-    else if(zoneID == 1)
-    {
-            [_testText setString:@"Right Turntable Turned Successful"];
-    }
-    else     [_testText setString:@"Other place has been touched."];
+    [self doJudgment:[theBGMManager getPlaybackTime]withObject:[self getProperNotesForJudgment:zoneID withTime:[theBGMManager getPlaybackTime]] onlyTooLate:false];
 }
 
+- (ChartObject*) getProperNotesForJudgment:(int)type withTime:(double)time
+{
+    for(int i = 0; i < [objectOnScreen count]; i++)
+    {
+        ChartObject* theObj = [objectOnScreen objectAtIndex:i];
+        if(theObj.disappeared) continue;
+        if(theObj.objectType == type)
+        {
+            return theObj;
+        }
+    }
+    NSLog(@"Wow,Nil returned");
+    return nil;
+}
+
+// only timing judgments
 - (bool) doJudgment:(double) time withObject:(ChartObject*) obj onlyTooLate:(bool) flag
 {
     if(flag)
@@ -186,11 +199,36 @@
         }
         return false;
     }
-    return false;
+    else
+    {
+        int bestJudgment = -1;
+        for(int i = 0; i < [judgmentParameters count]; i++)
+        {
+
+            double realTime = fabs(time - obj.startingTime);
+            double judgmentTime = [[judgmentParameters objectAtIndex:i] doubleValue];
+                        //NSLog([NSString stringWithFormat:@"%f vs %f", realTime,judgmentTime]);
+            if(realTime < judgmentTime)
+            {
+                bestJudgment = i;
+            }
+        }
+        if(bestJudgment >= 0)
+        {
+            obj.disappeared = true;
+            [objectOnScreen removeObject:obj];
+            [self displayJudgment:bestJudgment];
+            return true;
+        }
+        return false;
+    }
+    //return false;
 }
 
 - (void) displayJudgment:(int) type
 {
+    NSString* judgment = [judgmentNames objectAtIndex:type];
+    NSLog(judgment);
     return;
 }
 
