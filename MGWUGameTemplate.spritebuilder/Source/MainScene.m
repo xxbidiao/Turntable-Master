@@ -24,6 +24,7 @@
 {
     
     CCLabelTTF* _testText;
+    CCLabelTTF* _testText2;
     CCNode* _operationZone;
     CCNode* _leftTurntable;
     CCNode* _rightTurntable;
@@ -146,6 +147,8 @@
         if(theObject.appeared == false)
         {
             SingleNote* theNote = [CCBReader load:@"SingleNote" owner:self];
+            [theNote setScaleX:0.5f];
+            [theNote setScaleY:0.5f];
             theNote.note = theObject;
             [objectOnScreen addObject:theNote];
             theObject.appeared = true;
@@ -158,7 +161,15 @@
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
         SingleNote* theNote = [objectOnScreen objectAtIndex:i];
-        theNote.position = ccp((5-theNote.note.startingTime+bgmLocation)*100+0,200);
+        theNote.positionType = CCPositionTypeNormalized;
+        if(theNote.note.objectType == 0)
+        {
+            theNote.position = ccp((5-theNote.note.startingTime+bgmLocation)*0.1+0,0.25);
+        }
+        else
+        {
+            theNote.position = ccp((5-theNote.note.startingTime+bgmLocation)*-0.1+1,0.25);
+        }
     }
     
     
@@ -273,6 +284,7 @@
 {
     NSString* judgment = [judgmentNames objectAtIndex:type];
     NSLog(judgment);
+    [_testText2 setString:judgment];
     return;
 }
 

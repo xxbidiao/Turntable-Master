@@ -26,6 +26,7 @@
     {
         ChartObject* theObj = [[ChartObject alloc]init];
         theObj.startingTime = i;
+        theObj.objectType = i%2;
         [_theChart.objects addObject:theObj];
     }
     return true;
