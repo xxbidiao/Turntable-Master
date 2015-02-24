@@ -12,6 +12,7 @@
 #import "Chart.h"
 #import "ChartObject.h"
 #import "BGMManager.h"
+#import "SingleNote.h"
 
 @interface MainScene()
 
@@ -21,6 +22,7 @@
 
 @implementation MainScene
 {
+    
     CCLabelTTF* _testText;
     CCNode* _operationZone;
     CCNode* _leftTurntable;
@@ -38,6 +40,11 @@
     
     NSMutableArray* objectOnScreen;
     double latestObjectOnScreen;
+    
+    //test
+    SingleNote* noteNode;
+    
+    
 }
 
 
@@ -96,13 +103,20 @@
     else
         NSLog (@"File not found");
     
-    self.userInteractionEnabled = TRUE;
+
     theBGMManager = [[BGMManager alloc ]init];
     [theBGMManager initializeBGM:path];
     [theBGMManager playBGM];
     objectOnScreen = [[NSMutableArray alloc]init];
     
-    
+    /*
+    // loads the Penguin.ccb we have set up in Spritebuilder
+    SingleNote* note = [CCBReader load:@"SingleNote" owner:self];
+    // position the penguin at the bowl of the catapult
+    note.position = ccp(100,100);
+    [self addChild:note];
+    */
+    self.userInteractionEnabled = TRUE;
     
 }
 
@@ -131,16 +145,27 @@
         ChartObject* theObject = [possibleNewObjects objectAtIndex:i];
         if(theObject.appeared == false)
         {
-            [objectOnScreen addObject:theObject];
+            SingleNote* theNote = [CCBReader load:@"SingleNote" owner:self];
+            theNote.note = theObject;
+            [objectOnScreen addObject:theNote];
             theObject.appeared = true;
+            [self addChild:theNote];
         }
+    }
+    
+    //refresh note locations
+    //temporarily hard-code it here
+    for(int i = 0; i < [objectOnScreen count]; i++)
+    {
+        SingleNote* theNote = [objectOnScreen objectAtIndex:i];
+        theNote.position = ccp((5-theNote.note.startingTime+bgmLocation)*100+0,200);
     }
     
     
     bool doJudgmentReturnVal= true;
     while (doJudgmentReturnVal) {
-        ChartObject* theObject = [objectOnScreen objectAtIndex:0];
-        doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theObject onlyTooLate:true];
+        SingleNote* theNote = [objectOnScreen objectAtIndex:0];
+        doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
     }
     
     
@@ -148,7 +173,7 @@
     
 }
 
--(void) touchBegan:(UITouch*)touch withEvent:(UIEvent *)event
+-(void) touchBegan:(CCTouch*)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:_operationZone];
     
@@ -173,7 +198,7 @@
 {
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
-        ChartObject* theObj = [objectOnScreen objectAtIndex:i];
+        ChartObject* theObj = ((SingleNote*)[objectOnScreen objectAtIndex:i]).note;
         if(theObj.disappeared) continue;
         if(theObj.objectType == type)
         {
@@ -193,9 +218,18 @@
         if(time>obj.startingTime+[obj length]+timeForMiss)
         {
             obj.disappeared = true;
-            [objectOnScreen removeObject:obj];
-            [self displayJudgment:0];
-            return true;
+            for(int i = 0; i < [objectOnScreen count]; i++)
+            {
+                SingleNote* theNote = [objectOnScreen objectAtIndex:i];
+                if(theNote.note == obj)
+                {
+                    [objectOnScreen removeObject:theNote];
+                    [self displayJudgment:0];
+                                        [self removeChild:theNote];
+                    return true;
+                }
+                
+            }
         }
         return false;
     }
@@ -216,9 +250,19 @@
         if(bestJudgment >= 0)
         {
             obj.disappeared = true;
-            [objectOnScreen removeObject:obj];
-            [self displayJudgment:bestJudgment];
-            return true;
+            for(int i = 0; i < [objectOnScreen count]; i++)
+            {
+                SingleNote* theNote = [objectOnScreen objectAtIndex:i];
+                if(theNote.note == obj)
+                {
+                    [objectOnScreen removeObject:theNote];
+                    [self removeChild:theNote];
+                    [self displayJudgment:bestJudgment];
+                    return true;
+                }
+
+            }
+
         }
         return false;
     }
@@ -231,6 +275,7 @@
     NSLog(judgment);
     return;
 }
+
 
 @end
 

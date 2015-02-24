@@ -7,7 +7,10 @@
 //
 
 #import "CCNode.h"
+#import "ChartObject.h"
 
-@interface SingleNote : CCNode
+@interface SingleNote : CCSprite
+
+@property ChartObject* note;
 
 @end

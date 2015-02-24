@@ -167,6 +167,55 @@
 			remoteGlobalIDString = 1D6058910D05DD3D006BFB54;
 			remoteInfo = SpeakHere;
 		};
+		F30B8B1F1A9A8442009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3048FFA1A99B47F00C4C6E1 /* Chipmunk7-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A40369519DE39C8007B6E8F;
+			remoteInfo = "ObjectiveChipmunk-Android";
+		};
+		F30B8B211A9A8442009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3048FFA1A99B47F00C4C6E1 /* Chipmunk7-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A5948D819E3795700F65F90;
+			remoteInfo = "ObjectiveChipmunk-Mac";
+		};
+		F30B8B261A9A8442009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2FEB74F194F6C9E00FC0574;
+			remoteInfo = cocos2dAndroid;
+		};
+		F30B8B281A9A8442009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A4037A819E37038007B6E8F;
+			remoteInfo = "cocos2d-mac";
+		};
+		F30B8B2E1A9A8442009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F30490D51A99B47F00C4C6E1 /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2FEB74F194F6C9E00FC0574;
+			remoteInfo = cocos2dAndroid;
+		};
+		F30B8B301A9A8442009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F30490D51A99B47F00C4C6E1 /* cocos2d-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7A4037A819E37038007B6E8F;
+			remoteInfo = "cocos2d-mac";
+		};
+		F30B8B321A9AAC9B009FAC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3048FFA1A99B47F00C4C6E1 /* Chipmunk7-ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D309B21217EFE2EF00AA52C8;
+			remoteInfo = "ObjectiveChipmunk-iPhone";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -643,7 +692,7 @@
 		F30491171A99B48000C4C6E1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F30491181A99B48000C4C6E1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		F30491191A99B48000C4C6E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F304911A1A99B48000C4C6E1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		F304911A1A99B48000C4C6E1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = iTunesArtwork; sourceTree = "<group>"; };
 		F304911B1A99B48000C4C6E1 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F304911C1A99B48000C4C6E1 /* MainMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F304911E1A99B48000C4C6E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1458,7 +1507,7 @@
 		F30494A41A99B48200C4C6E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30494A51A99B48200C4C6E1 /* Info350.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info350.plist; sourceTree = "<group>"; };
 		F30494A61A99B48200C4C6E1 /* InfoWithStatusBar.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = InfoWithStatusBar.plist; sourceTree = "<group>"; };
-		F30494A71A99B48200C4C6E1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		F30494A71A99B48200C4C6E1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = iTunesArtwork; sourceTree = "<group>"; };
 		F30494A91A99B48200C4C6E1 /* issue1344-test1-hd.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "issue1344-test1-hd.txt"; sourceTree = "<group>"; };
 		F30494AA1A99B48200C4C6E1 /* issue1344-test1-ipad.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "issue1344-test1-ipad.txt"; sourceTree = "<group>"; };
 		F30494AB1A99B48200C4C6E1 /* issue1344-test1-ipadhd.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "issue1344-test1-ipadhd.txt"; sourceTree = "<group>"; };
@@ -1760,7 +1809,7 @@
 		F30496331A99B4DF00C4C6E1 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		F30496341A99B4DF00C4C6E1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F30496351A99B4DF00C4C6E1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		F30496361A99B4DF00C4C6E1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		F30496361A99B4DF00C4C6E1 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = iTunesArtwork; sourceTree = "<group>"; };
 		F30496371A99B4DF00C4C6E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F30496381A99B4DF00C4C6E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F30496391A99B4DF00C4C6E1 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -1831,6 +1880,8 @@
 			isa = PBXGroup;
 			children = (
 				B737894B180761A90076A88C /* libcocos2d.a */,
+				F30B8B271A9A8442009FAC45 /* libcocos2dAndroid.a */,
+				F30B8B291A9A8442009FAC45 /* libcocos2d-mac.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2231,6 +2282,8 @@
 			isa = PBXGroup;
 			children = (
 				F30495E61A99B48500C4C6E1 /* libObjectiveChipmunk-iPhone.a */,
+				F30B8B201A9A8442009FAC45 /* libObjectiveChipmunk-Android.a */,
+				F30B8B221A9A8442009FAC45 /* libObjectiveChipmunk-Mac.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2509,6 +2562,8 @@
 			isa = PBXGroup;
 			children = (
 				F30495FF1A99B48500C4C6E1 /* libcocos2d.a */,
+				F30B8B2F1A9A8442009FAC45 /* libcocos2dAndroid.a */,
+				F30B8B311A9A8442009FAC45 /* libcocos2d-mac.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4906,6 +4961,7 @@
 			);
 			dependencies = (
 				B7378989180764180076A88C /* PBXTargetDependency */,
+				F30B8B331A9AAC9B009FAC45 /* PBXTargetDependency */,
 			);
 			name = MGWUGameTemplate;
 			productName = Example;
@@ -5096,6 +5152,48 @@
 			remoteRef = F30496491A99B4DF00C4C6E1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		F30B8B201A9A8442009FAC45 /* libObjectiveChipmunk-Android.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libObjectiveChipmunk-Android.a";
+			remoteRef = F30B8B1F1A9A8442009FAC45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F30B8B221A9A8442009FAC45 /* libObjectiveChipmunk-Mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libObjectiveChipmunk-Mac.a";
+			remoteRef = F30B8B211A9A8442009FAC45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F30B8B271A9A8442009FAC45 /* libcocos2dAndroid.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2dAndroid.a;
+			remoteRef = F30B8B261A9A8442009FAC45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F30B8B291A9A8442009FAC45 /* libcocos2d-mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-mac.a";
+			remoteRef = F30B8B281A9A8442009FAC45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F30B8B2F1A9A8442009FAC45 /* libcocos2dAndroid.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcocos2dAndroid.a;
+			remoteRef = F30B8B2E1A9A8442009FAC45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F30B8B311A9A8442009FAC45 /* libcocos2d-mac.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d-mac.a";
+			remoteRef = F30B8B301A9A8442009FAC45 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -5167,6 +5265,11 @@
 			isa = PBXTargetDependency;
 			name = cocos2d;
 			targetProxy = B7378988180764180076A88C /* PBXContainerItemProxy */;
+		};
+		F30B8B331A9AAC9B009FAC45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ObjectiveChipmunk-iPhone";
+			targetProxy = F30B8B321A9AAC9B009FAC45 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

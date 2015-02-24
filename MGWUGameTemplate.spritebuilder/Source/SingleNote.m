@@ -12,7 +12,17 @@
 
 -(id) init
 {
+    self = [super init];
     NSLog(@"Hello from SingleNote");
+    return self;
+}
+
+-(id) initWithNote:(ChartObject*) obj
+{
+    self = [super init];
+    NSLog(@"Initialized with chartobject");
+    self.note = obj;
+    return self;
 }
 
 @end
