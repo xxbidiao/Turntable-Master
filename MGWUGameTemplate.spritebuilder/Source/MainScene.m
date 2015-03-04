@@ -75,9 +75,6 @@
     [judgmentNames addObject:@"Critical"];
     [judgmentNames addObject:@"IMPOSSIBLE"];
     
-    
-    
-    
     theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
     /*
@@ -174,7 +171,13 @@
     
     
     bool doJudgmentReturnVal= true;
+
     while (doJudgmentReturnVal) {
+        if([objectOnScreen count] == 0)
+        {
+            doJudgmentReturnVal = false;
+            break;
+        }
         SingleNote* theNote = [objectOnScreen objectAtIndex:0];
         doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
     }
@@ -236,7 +239,8 @@
                 {
                     [objectOnScreen removeObject:theNote];
                     [self displayJudgment:0];
-                                        [self removeChild:theNote];
+                    [self refreshScoreList:0];
+                    [self removeChild:theNote];
                     return true;
                 }
                 
@@ -269,6 +273,7 @@
                     [objectOnScreen removeObject:theNote];
                     [self removeChild:theNote];
                     [self displayJudgment:bestJudgment];
+                    [self refreshScoreList:bestJudgment];
                     return true;
                 }
 
@@ -286,6 +291,11 @@
     NSLog(judgment);
     [_testText2 setString:judgment];
     return;
+}
+
+- (void) refreshScoreList:(int)type
+{
+    
 }
 
 

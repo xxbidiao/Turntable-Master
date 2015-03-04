@@ -22,7 +22,7 @@
     
     
     _theChart.chartInfo[@"Difficulty"]=@"1";
-    for(int i = 3; i < 100; i++)
+    for(int i = 3; i < 10; i++)
     {
         ChartObject* theObj = [[ChartObject alloc]init];
         theObj.startingTime = i;
