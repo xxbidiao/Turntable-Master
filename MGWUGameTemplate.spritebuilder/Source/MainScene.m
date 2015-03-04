@@ -13,6 +13,7 @@
 #import "ChartObject.h"
 #import "BGMManager.h"
 #import "SingleNote.h"
+#import "Stage.h"
 
 @interface MainScene()
 
@@ -32,6 +33,7 @@
     double totalTime;
     double totalTime2;
     ChartLoader* theCL;
+    Stage* theStage;
     BGMManager* theBGMManager;
     
     NSMutableArray* judgmentParameters;
@@ -75,46 +77,28 @@
     [judgmentNames addObject:@"Critical"];
     [judgmentNames addObject:@"IMPOSSIBLE"];
     
-    theCL = [[ChartLoader alloc]init];
-    [theCL loadChartFromFile:@"test"];
-    /*
-    NSString* str = theCL.theChart.chartInfo[@"Difficulty"];
-    NSLog(str);
-     */
-    //NSString * applicationPath = [[NSBundle mainBundle] bundlePath];
-    //NSLog(applicationPath);
-    [_testText setString:@"Load Successful"];
-    
-    NSFileManager *filemgr;
-    
-    
-    
-    NSString* path;
-    
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    path = [mainBundle pathForResource: @"test" ofType: @"mp3"];
-    
-    filemgr = [NSFileManager defaultManager];
-    
-    if ([filemgr fileExistsAtPath: path ] == YES)
-        NSLog (@"File exists");
-    else
-        NSLog (@"File not found");
-    
+    [self initializeStage];
 
     theBGMManager = [[BGMManager alloc ]init];
-    [theBGMManager initializeBGM:path];
+    [theBGMManager initializeBGM:theStage.parameters[@"BGMpath"]];
     [theBGMManager playBGM];
     objectOnScreen = [[NSMutableArray alloc]init];
-    
-    /*
-    // loads the Penguin.ccb we have set up in Spritebuilder
-    SingleNote* note = [CCBReader load:@"SingleNote" owner:self];
-    // position the penguin at the bowl of the catapult
-    note.position = ccp(100,100);
-    [self addChild:note];
-    */
+
     self.userInteractionEnabled = TRUE;
+    
+}
+
+- (void) initializeStage
+{
+    theCL = [[ChartLoader alloc]init];
+    [theCL loadChartFromFile:@"test"];
+    NSFileManager *filemgr;
+    NSString* path;
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    path = [mainBundle pathForResource: @"test" ofType: @"mp3"];
+    theStage = [[Stage alloc] init];
+    theStage.theChart = theCL.theChart;
+    theStage.parameters[@"BGMpath"] = path;
     
 }
 
@@ -124,7 +108,6 @@
     count += 1;
     totalTime += delta;
     totalTime2 += delta;
-    //NSMutableArray *objectsInRange = [theCL.theChart getObjectsRangedInTime:totalTime2 second:totalTime2*2];
     NSString *test1 = [NSString stringWithFormat:@"%.2f %f %lu", count/totalTime, [theBGMManager getPlaybackTime],(unsigned long)[objectOnScreen count]];
     double bgmLocation = [theBGMManager getPlaybackTime];
     [_testText setString:test1];
@@ -137,7 +120,7 @@
     //check if a new note is needed to add onto screen
     double lifetime = 5 / speedFactor;
     
-    NSMutableArray* possibleNewObjects = [theCL.theChart getObjectsRangedInTime:bgmLocation second:bgmLocation+lifetime];
+    NSMutableArray* possibleNewObjects = [theStage.theChart getObjectsRangedInTime:bgmLocation second:bgmLocation+lifetime];
     for(int i = 0; i < [possibleNewObjects count]; i++)
     {
         ChartObject* theObject = [possibleNewObjects objectAtIndex:i];
