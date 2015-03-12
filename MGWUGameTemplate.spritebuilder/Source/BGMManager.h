@@ -20,4 +20,8 @@
 
 -(double) getPlaybackTime;
 
+-(BOOL) isFinished;
+
+-(void) clearFinishStatus;
+
 @end

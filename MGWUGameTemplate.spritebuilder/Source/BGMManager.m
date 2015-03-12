@@ -46,5 +46,15 @@
     return [gb getPlaybackLocation];
 }
 
+-(BOOL) isFinished
+{
+    return [gb isFinished];
+}
+
+-(void) clearFinishStatus
+{
+    [gb clearFinishStatus];
+}
+
 
 @end

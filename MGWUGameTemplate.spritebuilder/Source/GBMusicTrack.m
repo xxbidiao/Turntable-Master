@@ -158,6 +158,7 @@ static void BufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBuffe
 
 - (void)play
 {
+    finished = false;
     if (trackClosed)
         return;
     
@@ -251,6 +252,19 @@ static void BufferCallback(void *inUserData, AudioQueueRef inAQ, AudioQueueBuffe
     // if we're here then we're in the main thread as specified by the callback, so now we can post notification that
     // the track is done without the notification observer(s) having to worry about thread safety and autorelease pools
     [[NSNotificationCenter defaultCenter] postNotificationName:GBMusicTrackFinishedPlayingNotification object:self];
+    finished = true;
+}
+
+BOOL finished;
+
+- (BOOL) isFinished
+{
+    return finished;
+}
+
+- (BOOL) clearFinishStatus
+{
+    finished = false;
 }
 
 - (UInt32)readPacketsIntoBuffer:(AudioQueueBufferRef)buffer

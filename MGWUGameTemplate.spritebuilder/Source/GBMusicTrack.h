@@ -33,6 +33,9 @@
 - (void)pause;
 - (double)getPlaybackLocation;
 
+- (BOOL)isFinished;
+- (BOOL)clearFinishStatus;
+
 // close is called automatically in GBMusicTrack's dealloc method, but it is recommended
 // to call close first, so that the associated Audio Queue is released immediately, instead
 // of having to wait for a possible autorelease, which may cause some conflict

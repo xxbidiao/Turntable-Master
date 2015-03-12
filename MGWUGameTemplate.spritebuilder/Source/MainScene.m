@@ -82,6 +82,8 @@
     theBGMManager = [[BGMManager alloc ]init];
     [theBGMManager initializeBGM:theStage.parameters[@"BGMpath"]];
     [theBGMManager playBGM];
+    
+    
     objectOnScreen = [[NSMutableArray alloc]init];
 
     self.userInteractionEnabled = TRUE;
@@ -165,6 +167,10 @@
         doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
     }
     
+    if([theBGMManager isFinished])
+    {
+        [self afterStage:0];
+    }
     
     
     
@@ -276,10 +282,39 @@
     return;
 }
 
+// type = -1 means only refresh score.
+// type >= 0 means add a judgment and refresh score.
 - (void) refreshScoreList:(int)type
 {
-    
+    if(type >= 0)
+    {
+        NSString *judgmentName = @"judgment";
+        NSString *judgmentName2 = [[NSNumber numberWithInt:type] stringValue];
+        NSString *coordinates = [NSString stringWithFormat:@"%@,%@", judgmentName, judgmentName2];
+
+        if ([theStage.scores objectForKey:coordinates] == nil)
+        {
+            theStage.scores[coordinates] = [NSNumber numberWithInt:1];
+        }
+        else
+        {
+            int temp = [((NSNumber*)theStage.scores[coordinates]) intValue];
+            temp += 1;
+            [theStage.scores setObject:[NSNumber numberWithInt:temp] forKey:coordinates];
+        }
+    }
 }
+
+#pragma mark postMusicFinish
+
+-(void) afterStage:(int)type
+{
+    NSLog(@"Music has finished!");
+    [theBGMManager clearFinishStatus];
+}
+
+
+
 
 
 @end
