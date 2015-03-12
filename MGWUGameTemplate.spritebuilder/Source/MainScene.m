@@ -29,6 +29,7 @@
     CCNode* _operationZone;
     CCNode* _leftTurntable;
     CCNode* _rightTurntable;
+    CCSprite* _judgmentPicture;
     int count;
     double totalTime;
     double totalTime2;
@@ -71,10 +72,10 @@
     
     
     //hard code judgments temporarily
-    [judgmentNames addObject:@"Miss"];
-    [judgmentNames addObject:@"Guard"];
-    [judgmentNames addObject:@"Hit"];
-    [judgmentNames addObject:@"Critical"];
+    [judgmentNames addObject:@"miss"];
+    [judgmentNames addObject:@"guard"];
+    [judgmentNames addObject:@"hit"];
+    [judgmentNames addObject:@"critical"];
     [judgmentNames addObject:@"IMPOSSIBLE"];
     
     [self initializeStage];
@@ -279,6 +280,12 @@
     NSString* judgment = [judgmentNames objectAtIndex:type];
     NSLog(judgment);
     [_testText2 setString:judgment];
+    
+    CCTexture* tex = [CCTexture textureWithFile:[NSString stringWithFormat:@"Resources/judgment/judgment-%@.png",judgment]];
+    
+    [_judgmentPicture setTexture:tex];
+    [_judgmentPicture setTextureRect:CGRectMake(0, 0, tex.contentSize.width, tex.contentSize.height)];
+    
     return;
 }
 
@@ -305,11 +312,28 @@
     }
 }
 
+-(int) getJudgmentCount:(int) judgmentType
+{
+    NSString *judgmentName = @"judgment";
+    NSString *judgmentName2 = [[NSNumber numberWithInt:judgmentType] stringValue];
+    NSString *coordinates = [NSString stringWithFormat:@"%@,%@", judgmentName, judgmentName2];
+    
+    if ([theStage.scores objectForKey:coordinates] == nil)
+    {
+        return 0;
+    }
+    else
+    {
+        return [((NSNumber*)theStage.scores[coordinates]) intValue];
+    }
+    
+}
+
 #pragma mark postMusicFinish
 
 -(void) afterStage:(int)type
 {
-    NSLog(@"Music has finished!");
+    NSLog([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]]);
     [theBGMManager clearFinishStatus];
 }
 
