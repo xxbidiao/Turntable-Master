@@ -46,6 +46,8 @@
 		F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F34C5ECB1A99C9DB005968CC /* test.mp3 */; };
 		F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C5ECE1A9A488F005968CC /* SingleNote.m */; };
 		F3E0E4A01AB234670010CD94 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E49F1AB234670010CD94 /* MainMenu.m */; };
+		F3E0E4AC1AB7495A0010CD94 /* Results.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E4AB1AB7495A0010CD94 /* Results.m */; };
+		F3E0E4AF1AB74A200010CD94 /* Judgment.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E4AE1AB74A200010CD94 /* Judgment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1834,6 +1836,10 @@
 		F34C5ECE1A9A488F005968CC /* SingleNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleNote.m; path = Source/SingleNote.m; sourceTree = "<group>"; };
 		F3E0E49E1AB234670010CD94 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F3E0E49F1AB234670010CD94 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		F3E0E4AA1AB7495A0010CD94 /* Results.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Results.h; path = Source/Results.h; sourceTree = "<group>"; };
+		F3E0E4AB1AB7495A0010CD94 /* Results.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Results.m; path = Source/Results.m; sourceTree = "<group>"; };
+		F3E0E4AD1AB74A200010CD94 /* Judgment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Judgment.h; path = Source/Judgment.h; sourceTree = "<group>"; };
+		F3E0E4AE1AB74A200010CD94 /* Judgment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Judgment.m; path = Source/Judgment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4916,6 +4922,8 @@
 				F3048F3B1A97E29E00C4C6E1 /* Chart.m */,
 				F3048F3E1A97E3C500C4C6E1 /* ChartObject.h */,
 				F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */,
+				F3E0E4AD1AB74A200010CD94 /* Judgment.h */,
+				F3E0E4AE1AB74A200010CD94 /* Judgment.m */,
 			);
 			name = core;
 			sourceTree = "<group>";
@@ -4923,6 +4931,8 @@
 		F3181EAB1A951F59004B0887 /* graphic */ = {
 			isa = PBXGroup;
 			children = (
+				F3E0E4AA1AB7495A0010CD94 /* Results.h */,
+				F3E0E4AB1AB7495A0010CD94 /* Results.m */,
 				F3048F471A9991E300C4C6E1 /* MainSceneElements */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
@@ -5254,12 +5264,14 @@
 				F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				F3E0E4AF1AB74A200010CD94 /* Judgment.m in Sources */,
 				F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */,
 				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
 				F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F30C60511A99B593005B977D /* BGMManager.m in Sources */,
 				F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */,
+				F3E0E4AC1AB7495A0010CD94 /* Results.m in Sources */,
 				F3E0E4A01AB234670010CD94 /* MainMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

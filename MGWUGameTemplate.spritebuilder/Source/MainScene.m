@@ -14,6 +14,7 @@
 #import "BGMManager.h"
 #import "SingleNote.h"
 #import "Stage.h"
+#import "Judgment.h"
 
 @interface MainScene()
 
@@ -55,28 +56,16 @@
 
 -(void) didLoadFromCCB
 {
+    [_testText setString:@"Loading..."];
     count = 0;
     totalTime = 0;
     totalTime2 = 0;
     speedFactor = 1;
     
-    judgmentParameters = [[NSMutableArray alloc]init];
-    judgmentNames = [[NSMutableArray alloc]init];
+    Judgment *theJudgment = [[Judgment alloc]init];
+    judgmentParameters = theJudgment.judgmentParameters;
+    judgmentNames = theJudgment.judgmentNames;
     
-    //hard code judgments temporarily
-    [judgmentParameters addObject:@0.120];
-    [judgmentParameters addObject:@0.120];
-    [judgmentParameters addObject:@0.060];
-    [judgmentParameters addObject:@0.030];
-    [judgmentParameters addObject:@-1];
-    
-    
-    //hard code judgments temporarily
-    [judgmentNames addObject:@"miss"];
-    [judgmentNames addObject:@"guard"];
-    [judgmentNames addObject:@"hit"];
-    [judgmentNames addObject:@"critical"];
-    [judgmentNames addObject:@"IMPOSSIBLE"];
     
     [self initializeStage];
 
@@ -86,7 +75,7 @@
     
     
     objectOnScreen = [[NSMutableArray alloc]init];
-
+    [_testText setString:@"Loaded!"];
     self.userInteractionEnabled = TRUE;
     
 }
