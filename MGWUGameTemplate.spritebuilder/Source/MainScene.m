@@ -15,6 +15,7 @@
 #import "SingleNote.h"
 #import "Stage.h"
 #import "Judgment.h"
+#import "Results.h"
 
 @interface MainScene()
 
@@ -37,6 +38,7 @@
     ChartLoader* theCL;
     Stage* theStage;
     BGMManager* theBGMManager;
+    Judgment* theJudgment;
     
     NSMutableArray* judgmentParameters;
     NSMutableArray* judgmentNames;
@@ -62,7 +64,7 @@
     totalTime2 = 0;
     speedFactor = 1;
     
-    Judgment *theJudgment = [[Judgment alloc]init];
+    theJudgment = [[Judgment alloc]init];
     judgmentParameters = theJudgment.judgmentParameters;
     judgmentNames = theJudgment.judgmentNames;
     
@@ -324,6 +326,13 @@
 {
     NSLog([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]]);
     [theBGMManager clearFinishStatus];
+    CCScene *resultScene = (Results*)[CCBReader loadAsScene:@"Results"];
+    Results *customObject = [[resultScene children] firstObject];
+    
+    customObject.theJudgment = theJudgment;
+    customObject.theStage = theStage;
+    
+    [[CCDirector sharedDirector] replaceScene:resultScene];
 }
 
 

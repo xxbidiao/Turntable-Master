@@ -7,9 +7,12 @@
 //
 
 #import "CCScene.h"
+#import "Stage.h"
+#import "Judgment.h"
 
 @interface Results : CCScene
-
+@property Stage* theStage;
+@property Judgment* theJudgment;
 
 
 @end
