@@ -16,6 +16,7 @@
     self.movingDistance = 0;
     self.moveStatus = movingNone;
     self.theTouch = nil;
+    self.effect = nil;
     return self;
 }
 

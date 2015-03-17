@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, movingDirection) {
 @property double lastY;
 @property double movingDistance;
 @property unsigned long hashNumber;
+@property CCParticleSystem * effect;
 
 -(void)generateHash;
 @end

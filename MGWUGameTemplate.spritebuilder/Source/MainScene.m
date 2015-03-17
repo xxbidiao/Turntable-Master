@@ -184,6 +184,9 @@
     thisTouch.theTouch = touch;
     thisTouch.origX = thisTouch.lastX = touchLocation.x;
     thisTouch.origY = thisTouch.lastY = touchLocation.y;
+    thisTouch.effect = (CCParticleSystem *)[CCBReader load:@"Effects/holdEffectIdle"];
+    thisTouch.effect.position = touchLocation;
+    [self addChild:thisTouch.effect];
     [thisTouch generateHash];
     [holdedTouches addObject:thisTouch];
 }
@@ -209,7 +212,10 @@
     
     holdedTouch* relatedTouch = (holdedTouch*)holdedTouches[touchNumber];
     
+    
+    
     CGPoint touchLocation = [touch locationInNode:_operationZone];
+    relatedTouch.effect.position = touchLocation;
     int moveY = touchLocation.y-relatedTouch.lastY;
     bool isMovingUp = moveY>0?YES:NO;
     movingDirection newStatus = relatedTouch.moveStatus;
@@ -286,6 +292,8 @@
             break;
         }
     }
+    holdedTouch* theTouch = (holdedTouch*)holdedTouches[touchNumber];
+    [self removeChild:theTouch.effect];
     [holdedTouches removeObjectAtIndex:touchNumber];
     NSLog(@"TouchEnded");
 }
@@ -302,6 +310,8 @@
             break;
         }
     }
+    holdedTouch* theTouch = (holdedTouch*)holdedTouches[touchNumber];
+    [self removeChild:theTouch.effect];
     [holdedTouches removeObjectAtIndex:touchNumber];
 }
 
@@ -309,15 +319,23 @@
 
 - (void) triggerOperation:(CGPoint) touchLocation withType:(int)hitType
 {
-    // If inside the operation zone
-    if (CGRectContainsPoint([_leftTurntable boundingBox], touchLocation))
+    if(hitType == 0)
     {
-        [self operation:0 touchLocation:touchLocation];
+        CCParticleSystem* theSystem = (CCParticleSystem *)[CCBReader load:@"Effects/actionEffect"];
+        theSystem.position = touchLocation;
+        theSystem.autoRemoveOnFinish = true;
+        [self addChild:theSystem];
+        // If inside the operation zone
+        if (CGRectContainsPoint([_leftTurntable boundingBox], touchLocation))
+        {
+            [self operation:0 touchLocation:touchLocation];
+        }
+        if (CGRectContainsPoint([_rightTurntable boundingBox],touchLocation))
+        {
+            [self operation:1 touchLocation:touchLocation];
+        }
     }
-    if (CGRectContainsPoint([_rightTurntable boundingBox],touchLocation))
-    {
-        [self operation:1 touchLocation:touchLocation];
-    }
+
 }
 
 - (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint
