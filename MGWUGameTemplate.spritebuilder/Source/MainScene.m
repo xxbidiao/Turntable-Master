@@ -16,6 +16,7 @@
 #import "Stage.h"
 #import "Judgment.h"
 #import "Results.h"
+#import "holdedTouch.h"
 
 @interface MainScene()
 
@@ -39,6 +40,7 @@
     Stage* theStage;
     BGMManager* theBGMManager;
     Judgment* theJudgment;
+    double minimumValueToTriggerSP;
     
     NSMutableArray* judgmentParameters;
     NSMutableArray* judgmentNames;
@@ -47,6 +49,8 @@
     
     NSMutableArray* objectOnScreen;
     double latestObjectOnScreen;
+   
+    NSMutableArray* holdedTouches;
     
     //test
     SingleNote* noteNode;
@@ -54,11 +58,11 @@
     
 }
 
-
-
+#pragma mark initialization
 -(void) didLoadFromCCB
 {
     [_testText setString:@"Loading..."];
+    minimumValueToTriggerSP = 20;
     count = 0;
     totalTime = 0;
     totalTime2 = 0;
@@ -80,19 +84,22 @@
     [_testText setString:@"Loaded!"];
     self.userInteractionEnabled = TRUE;
     
+    
+    [self setMultipleTouchEnabled:YES];
+    
 }
 
 - (void) initializeStage
 {
     theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
-    NSFileManager *filemgr;
     NSString* path;
     NSBundle *mainBundle = [NSBundle mainBundle];
     path = [mainBundle pathForResource: @"test" ofType: @"mp3"];
     theStage = [[Stage alloc] init];
     theStage.theChart = theCL.theChart;
     theStage.parameters[@"BGMpath"] = path;
+    holdedTouches = [[NSMutableArray alloc]init];
     
 }
 
@@ -168,10 +175,140 @@
     
 }
 
+#pragma mark touches
+
 -(void) touchBegan:(CCTouch*)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:_operationZone];
+    holdedTouch * thisTouch = [[holdedTouch alloc]init];
+    thisTouch.theTouch = touch;
+    thisTouch.origX = thisTouch.lastX = touchLocation.x;
+    thisTouch.origY = thisTouch.lastY = touchLocation.y;
+    [thisTouch generateHash];
+    [holdedTouches addObject:thisTouch];
+}
+
+- (void) touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    int touchNumber = -1;
+    for(int i = 0; i < holdedTouches.count; i++)
+    {
+        holdedTouch* comparer = (holdedTouch*)holdedTouches[i];
+        if(comparer.hashNumber == touch.uiTouch.hash)
+        {
+            touchNumber = i;
+            break;
+        }
+    }
     
+    if(touchNumber == -1)
+    {
+        NSLog(@"Oh no! touchNumber == -1!");
+        return;
+    }
+    
+    holdedTouch* relatedTouch = (holdedTouch*)holdedTouches[touchNumber];
+    
+    CGPoint touchLocation = [touch locationInNode:_operationZone];
+    int moveY = touchLocation.y-relatedTouch.lastY;
+    bool isMovingUp = moveY>0?YES:NO;
+    movingDirection newStatus = relatedTouch.moveStatus;
+    relatedTouch.movingDistance += moveY;
+    if(relatedTouch.moveStatus == movingNone)
+    {
+        if(isMovingUp)
+        {
+            newStatus = movingUp;
+            relatedTouch.isMoveStillValid=true;
+            //NSLog(@"Moving up");
+        }
+        else
+        {
+            newStatus = movingDown;
+            relatedTouch.isMoveStillValid=true;
+            //NSLog(@"Moving down");
+        }
+    }
+    else if(relatedTouch.moveStatus == movingUp)
+    {
+        if(isMovingUp)
+        {
+            if(relatedTouch.movingDistance>minimumValueToTriggerSP&&relatedTouch.isMoveStillValid)//test
+            {
+                NSLog(@"Move up enough to trigger action");
+                [self triggerOperation:touchLocation withType:0];
+                relatedTouch.isMoveStillValid=false;
+            }
+        }
+        else
+        {
+                //NSLog(@"Reversed...");
+                newStatus = movingDown;
+                relatedTouch.isMoveStillValid = true;
+                relatedTouch.movingDistance = 0;
+        }
+    }
+    else if(relatedTouch.moveStatus == movingDown)
+    {
+        if(!isMovingUp)
+        {
+            if(relatedTouch.movingDistance<-minimumValueToTriggerSP&&relatedTouch.isMoveStillValid)//test
+            {
+                NSLog(@"Move down enough to trigger action");
+                [self triggerOperation:touchLocation withType:0];
+                relatedTouch.isMoveStillValid=false;
+            }
+        }
+        else
+        {
+            //NSLog(@"Reversed...");
+            newStatus = movingUp;
+            relatedTouch.isMoveStillValid = true;
+            relatedTouch.movingDistance = 0;
+        }
+    }
+    
+    relatedTouch.moveStatus = newStatus;
+    relatedTouch.lastX = touchLocation.x;
+    relatedTouch.lastY = touchLocation.y;
+    //NSLog([NSString stringWithFormat:@"%lu/%lu", (unsigned long)touchNumber,holdedTouches.count]);
+}
+
+- (void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    int touchNumber = -1;
+    for(int i = 0; i < holdedTouches.count; i++)
+    {
+        holdedTouch* comparer = (holdedTouch*)holdedTouches[i];
+        if(comparer.hashNumber == touch.uiTouch.hash)
+        {
+            touchNumber = i;
+            break;
+        }
+    }
+    [holdedTouches removeObjectAtIndex:touchNumber];
+    NSLog(@"TouchEnded");
+}
+
+-(void) touchCancelled:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    int touchNumber = -1;
+    for(int i = 0; i < holdedTouches.count; i++)
+    {
+        holdedTouch* comparer = (holdedTouch*)holdedTouches[i];
+        if(comparer.hashNumber == touch.uiTouch.hash)
+        {
+            touchNumber = i;
+            break;
+        }
+    }
+    [holdedTouches removeObjectAtIndex:touchNumber];
+}
+
+#pragma mark after-touch funcs
+
+- (void) triggerOperation:(CGPoint) touchLocation withType:(int)hitType
+{
     // If inside the operation zone
     if (CGRectContainsPoint([_leftTurntable boundingBox], touchLocation))
     {
@@ -181,7 +318,6 @@
     {
         [self operation:1 touchLocation:touchLocation];
     }
-    
 }
 
 - (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint
