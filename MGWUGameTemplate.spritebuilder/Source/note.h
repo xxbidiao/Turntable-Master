@@ -11,9 +11,11 @@
 #import <Foundation/Foundation.h>
 #import "ChartObject.h"
 
-@interface note : CCSprite
+@interface note : NSObject 
 
 @property ChartObject* note;
+
+@property CCSprite* sprite;
 
 -(void) setupSprite;
 

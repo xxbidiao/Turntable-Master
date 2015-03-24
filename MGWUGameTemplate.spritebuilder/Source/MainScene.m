@@ -127,13 +127,11 @@
         ChartObject* theObject = [possibleNewObjects objectAtIndex:i];
         if(theObject.appeared == false)
         {
-            SingleNote* theNote = [CCBReader load:@"SingleNote" owner:self];
-            [theNote setScaleX:0.5f];
-            [theNote setScaleY:0.5f];
+            SingleNote* theNote = [[SingleNote alloc] init];
             theNote.note = theObject;
             [objectOnScreen addObject:theNote];
             theObject.appeared = true;
-            [self addChild:theNote];
+            [self addChild:theNote.sprite];
 
         }
     }
@@ -143,14 +141,14 @@
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
         SingleNote* theNote = [objectOnScreen objectAtIndex:i];
-        theNote.positionType = CCPositionTypeNormalized;
+        theNote.sprite.positionType = CCPositionTypeNormalized;
         if(theNote.note.objectType == 0)
         {
-            theNote.position = ccp((5-theNote.note.startingTime+bgmLocation)*0.1+0,0.25);
+            theNote.sprite.position = ccp((5-theNote.note.startingTime+bgmLocation)*0.1+0,0.25);
         }
         else
         {
-            theNote.position = ccp((5-theNote.note.startingTime+bgmLocation)*-0.1+1,0.25);
+            theNote.sprite.position = ccp((5-theNote.note.startingTime+bgmLocation)*-0.1+1,0.25);
         }
     }
     
@@ -376,7 +374,7 @@
                     [objectOnScreen removeObject:theNote];
                     [self displayJudgment:0];
                     [self refreshScoreList:0];
-                    [self removeChild:theNote];
+                    [self removeChild:theNote.sprite];
                     return true;
                 }
                 
@@ -407,7 +405,7 @@
                 if(theNote.note == obj)
                 {
                     [objectOnScreen removeObject:theNote];
-                    [self removeChild:theNote];
+                    [self removeChild:theNote.sprite];
                     [self displayJudgment:bestJudgment];
                     [self refreshScoreList:bestJudgment];
                     return true;

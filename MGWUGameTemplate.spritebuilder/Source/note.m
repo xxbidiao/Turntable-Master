@@ -12,14 +12,12 @@
 
 -(id) init
 {
-    self = [super init];
     NSLog(@"Hello from note");
     return self;
 }
 
 -(id) initWithNote:(ChartObject*) obj
 {
-    self = [super init];
     NSLog(@"Initialized with chartobject");
     self.note = obj;
     return self;

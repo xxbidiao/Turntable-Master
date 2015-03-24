@@ -12,10 +12,9 @@
 
 -(id) init
 {
-    self=[super init];
-    //self= (SingleNote*)[CCBReader load:@"SingleNote"];
-    //[self setScaleX:0.5f];
-    //[self setScaleY:0.5f];
+    self.sprite= (SingleNote*)[CCBReader load:@"SingleNote"];
+    [self.sprite setScaleX:0.5f];
+    [self.sprite setScaleY:0.5f];
     return self;
 }
 
