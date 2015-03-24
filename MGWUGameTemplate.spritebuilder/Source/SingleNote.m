@@ -12,20 +12,23 @@
 
 -(id) init
 {
-    self.sprite= (SingleNote*)[CCBReader load:@"SingleNote"];
-    [self.sprite setScaleX:0.5f];
-    [self.sprite setScaleY:0.5f];
     return self;
 }
 
 -(void) setupSprite
 {
-
+    self.sprite= (SingleNote*)[CCBReader load:@"SingleNote"];
+    [self.sprite setScaleX:0.5f];
+    [self.sprite setScaleY:0.5f];
+    self.sprite.positionType = CCPositionTypeNormalized;
 }
 
 -(void) refreshSprite:(double) currentTime
 {
-    
+    if(self.note.objectType == 0)
+    self.sprite.position = ccp((5-self.note.startingTime+currentTime)*0.1+0,0.25);
+    else
+    self.sprite.position = ccp((5-self.note.startingTime+currentTime)*-0.1+1,0.25);
 }
 
 @end

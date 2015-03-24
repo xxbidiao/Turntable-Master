@@ -128,6 +128,7 @@
         if(theObject.appeared == false)
         {
             SingleNote* theNote = [[SingleNote alloc] init];
+            [theNote setupSprite];
             theNote.note = theObject;
             [objectOnScreen addObject:theNote];
             theObject.appeared = true;
@@ -141,15 +142,7 @@
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
         SingleNote* theNote = [objectOnScreen objectAtIndex:i];
-        theNote.sprite.positionType = CCPositionTypeNormalized;
-        if(theNote.note.objectType == 0)
-        {
-            theNote.sprite.position = ccp((5-theNote.note.startingTime+bgmLocation)*0.1+0,0.25);
-        }
-        else
-        {
-            theNote.sprite.position = ccp((5-theNote.note.startingTime+bgmLocation)*-0.1+1,0.25);
-        }
+        [theNote refreshSprite:bgmLocation];
     }
     
     
