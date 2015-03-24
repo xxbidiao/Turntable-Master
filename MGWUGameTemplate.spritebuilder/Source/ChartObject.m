@@ -27,4 +27,22 @@
     return 0;
 }
 
+-(NSMutableDictionary*) serialize
+{
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc]init];
+    dict[@"objectType"] = [NSNumber numberWithInt:_objectType];
+    dict[@"objectSubType"] = [NSNumber numberWithInt:_objectSubType];
+    dict[@"startingTime"] = [NSNumber numberWithDouble:_startingTime];
+    dict[@"objectPosition"] = _objectPosition;
+    return dict;
+}
+
+-(void) deserialize:(NSMutableDictionary*) obj
+{
+    _objectType = [(NSNumber*)obj[@"objectType"] intValue];
+    _objectSubType = [(NSNumber*)obj[@"objectSubType"] intValue];
+    _startingTime = [(NSNumber*)obj[@"startingTime"] doubleValue];
+    _objectPosition = obj[@"objectPosition"];
+}
+
 @end

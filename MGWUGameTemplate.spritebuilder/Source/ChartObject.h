@@ -36,6 +36,9 @@ typedef NS_ENUM(NSInteger, noteType) {
 // what the total length the note is.
 -(double) length;
 
+// for json serialization
+-(NSMutableDictionary*) serialize;
 
+-(void) deserialize:(NSMutableDictionary*) obj;
 
 @end

@@ -93,7 +93,9 @@
 - (void) initializeStage
 {
     theCL = [[ChartLoader alloc]init];
-    [theCL loadChartFromFile:@"test"];
+    //[theCL loadChartFromFile:@"test"];
+    //[theCL saveChartToFile:@"test.tcf"];
+    [theCL loadChartFromFile:@"test.tcf"];
     NSString* path;
     NSBundle *mainBundle = [NSBundle mainBundle];
     path = [mainBundle pathForResource: @"test" ofType: @"mp3"];

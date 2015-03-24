@@ -15,4 +15,6 @@
 
 -(BOOL) loadChartFromFile:(NSString*) filename;
 
+-(BOOL) saveChartToFile:(NSString*) filename;
+
 @end
