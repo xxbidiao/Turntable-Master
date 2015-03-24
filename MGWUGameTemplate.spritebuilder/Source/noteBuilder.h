@@ -12,6 +12,6 @@
 
 @interface noteBuilder : NSObject
 
--(note*) getNote:(ChartObject*) obj;
++(note*) getNote:(ChartObject*) obj;
 
 @end

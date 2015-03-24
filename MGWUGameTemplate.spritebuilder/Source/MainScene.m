@@ -17,6 +17,7 @@
 #import "Judgment.h"
 #import "Results.h"
 #import "holdedTouch.h"
+#import "noteBuilder.h"
 
 @interface MainScene()
 
@@ -127,9 +128,8 @@
         ChartObject* theObject = [possibleNewObjects objectAtIndex:i];
         if(theObject.appeared == false)
         {
-            SingleNote* theNote = [[SingleNote alloc] init];
+            note* theNote = [noteBuilder getNote:theObject];
             [theNote setupSprite];
-            theNote.note = theObject;
             [objectOnScreen addObject:theNote];
             theObject.appeared = true;
             [self addChild:theNote.sprite];
@@ -141,7 +141,7 @@
     //temporarily hard-code it here
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
-        SingleNote* theNote = [objectOnScreen objectAtIndex:i];
+        note* theNote = [objectOnScreen objectAtIndex:i];
         [theNote refreshSprite:bgmLocation];
     }
     
@@ -154,7 +154,7 @@
             doJudgmentReturnVal = false;
             break;
         }
-        SingleNote* theNote = [objectOnScreen objectAtIndex:0];
+        note* theNote = [objectOnScreen objectAtIndex:0];
         doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
     }
     

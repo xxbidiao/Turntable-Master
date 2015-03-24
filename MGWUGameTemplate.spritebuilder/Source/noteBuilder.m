@@ -11,7 +11,7 @@
 
 @implementation noteBuilder
 
--(note*) getNote:(ChartObject*) obj
++(note*) getNote:(ChartObject*) obj
 {
     if(obj.objectType == noteSingleNote)
     {

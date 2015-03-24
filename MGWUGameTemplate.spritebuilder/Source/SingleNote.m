@@ -25,7 +25,7 @@
 
 -(void) refreshSprite:(double) currentTime
 {
-    if(self.note.objectType == 0)
+    if(self.note.objectSubType == 0)
     self.sprite.position = ccp((5-self.note.startingTime+currentTime)*0.1+0,0.25);
     else
     self.sprite.position = ccp((5-self.note.startingTime+currentTime)*-0.1+1,0.25);
