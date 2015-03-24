@@ -43,6 +43,8 @@
 		F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F451A97E43D00C4C6E1 /* TitleScene.m */; };
 		F30C60511A99B593005B977D /* BGMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C60501A99B593005B977D /* BGMManager.m */; };
 		F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C60531A99B933005B977D /* GBMusicTrack.m */; };
+		F34085191ABE8114009FE4AE /* noteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085181ABE8114009FE4AE /* noteBuilder.m */; };
+		F34085251ABE81DF009FE4AE /* note.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085241ABE81DF009FE4AE /* note.m */; };
 		F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F34C5ECB1A99C9DB005968CC /* test.mp3 */; };
 		F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C5ECE1A9A488F005968CC /* SingleNote.m */; };
 		F3C5931F1AB8A44300864CEA /* holdedTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C5931E1AB8A44300864CEA /* holdedTouch.m */; };
@@ -1832,6 +1834,10 @@
 		F30C60501A99B593005B977D /* BGMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGMManager.m; path = Source/BGMManager.m; sourceTree = "<group>"; };
 		F30C60521A99B933005B977D /* GBMusicTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBMusicTrack.h; path = Source/GBMusicTrack.h; sourceTree = "<group>"; };
 		F30C60531A99B933005B977D /* GBMusicTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBMusicTrack.m; path = Source/GBMusicTrack.m; sourceTree = "<group>"; };
+		F34085171ABE8114009FE4AE /* noteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = noteBuilder.h; path = Source/noteBuilder.h; sourceTree = "<group>"; };
+		F34085181ABE8114009FE4AE /* noteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = noteBuilder.m; path = Source/noteBuilder.m; sourceTree = "<group>"; };
+		F34085231ABE81DF009FE4AE /* note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = note.h; path = Source/note.h; sourceTree = "<group>"; };
+		F34085241ABE81DF009FE4AE /* note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = note.m; path = Source/note.m; sourceTree = "<group>"; };
 		F34C5ECB1A99C9DB005968CC /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		F34C5ECD1A9A488F005968CC /* SingleNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleNote.h; path = Source/SingleNote.h; sourceTree = "<group>"; };
 		F34C5ECE1A9A488F005968CC /* SingleNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleNote.m; path = Source/SingleNote.m; sourceTree = "<group>"; };
@@ -1987,6 +1993,10 @@
 				F3C5931D1AB8A44300864CEA /* holdedTouch.h */,
 				F3C5931E1AB8A44300864CEA /* holdedTouch.m */,
 				F34C5ECE1A9A488F005968CC /* SingleNote.m */,
+				F34085171ABE8114009FE4AE /* noteBuilder.h */,
+				F34085181ABE8114009FE4AE /* noteBuilder.m */,
+				F34085231ABE81DF009FE4AE /* note.h */,
+				F34085241ABE81DF009FE4AE /* note.m */,
 			);
 			name = MainSceneElements;
 			sourceTree = "<group>";
@@ -5269,6 +5279,8 @@
 				F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
+				F34085191ABE8114009FE4AE /* noteBuilder.m in Sources */,
+				F34085251ABE81DF009FE4AE /* note.m in Sources */,
 				F3E0E4AF1AB74A200010CD94 /* Judgment.m in Sources */,
 				F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */,
 				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
@@ -5435,8 +5447,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5469,8 +5481,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;

@@ -134,6 +134,7 @@
             [objectOnScreen addObject:theNote];
             theObject.appeared = true;
             [self addChild:theNote];
+
         }
     }
     

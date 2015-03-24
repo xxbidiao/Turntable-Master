@@ -8,9 +8,8 @@
 
 #import "CCNode.h"
 #import "ChartObject.h"
+#import "note.h"
 
-@interface SingleNote : CCSprite
-
-@property ChartObject* note;
+@interface SingleNote : note
 
 @end

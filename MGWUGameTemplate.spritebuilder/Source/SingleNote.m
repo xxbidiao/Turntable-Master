@@ -12,17 +12,21 @@
 
 -(id) init
 {
-    self = [super init];
-    NSLog(@"Hello from SingleNote");
+    self=[super init];
+    //self= (SingleNote*)[CCBReader load:@"SingleNote"];
+    //[self setScaleX:0.5f];
+    //[self setScaleY:0.5f];
     return self;
 }
 
--(id) initWithNote:(ChartObject*) obj
+-(void) setupSprite
 {
-    self = [super init];
-    NSLog(@"Initialized with chartobject");
-    self.note = obj;
-    return self;
+
+}
+
+-(void) refreshSprite:(double) currentTime
+{
+    
 }
 
 @end

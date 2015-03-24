@@ -10,8 +10,14 @@
 
 @interface ChartObject : NSObject
 
+typedef NS_ENUM(NSInteger, noteType) {
+    noteSingleNote,
+    noteLongNote
+};
+
 // field for other objects to recognize which kind of chart object it is
 @property int objectType;
+@property int objectSubType;
 
 // field for its starting time.
 // Some note may only have a starting time, other notes have more properties.
