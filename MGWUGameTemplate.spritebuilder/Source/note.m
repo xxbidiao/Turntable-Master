@@ -33,4 +33,5 @@
     NSAssert(NO,@"pure virtual function in note called!");
 }
 
+
 @end

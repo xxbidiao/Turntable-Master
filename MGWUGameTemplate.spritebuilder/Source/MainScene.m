@@ -34,6 +34,11 @@
     CCNode* _leftTurntable;
     CCNode* _rightTurntable;
     CCSprite* _judgmentPicture;
+    
+    CCClippingNode* rightMask;
+    CCClippingNode* leftMask;
+    
+    //in-scene variables
     int count;
     double totalTime;
     double totalTime2;
@@ -63,6 +68,61 @@
 -(void) didLoadFromCCB
 {
     [_testText setString:@"Loading..."];
+    
+    //setup stentils
+    double stentilWidthL = _leftTurntable.contentSize.width;
+    
+    //temporarily hardcode it here
+    //stentilWidthL -= 0.05;
+    
+    double stentilHeightL = _leftTurntable.contentSize.height;
+    CCNodeColor *scissorRectLeft = [CCNodeColor nodeWithColor:[CCColor clearColor] width:stentilWidthL height:stentilHeightL];
+    [scissorRectLeft setContentSizeType:CCSizeTypeNormalized];
+    [self addChild: scissorRectLeft];
+    [scissorRectLeft setAnchorPoint:[_leftTurntable anchorPoint]];
+    [scissorRectLeft setPositionType:CCPositionTypeNormalized];
+    [scissorRectLeft setPosition:[_leftTurntable position]];
+
+    leftMask = [CCClippingNode clippingNodeWithStencil:scissorRectLeft];
+    [leftMask setContentSize:self.contentSize];
+    [leftMask setContentSizeType:CCSizeTypeNormalized];
+    //[leftMask setPosition:[_leftTurntable position]];
+    [leftMask setPositionType:CCPositionTypeNormalized];
+    [leftMask setAlphaThreshold:0.0];
+    [leftMask setInverted:NO];
+    [self addChild:leftMask];
+    
+    double stentilWidthR = _rightTurntable.contentSize.width;
+    
+    //temporarily hardcode it here
+    //stentilWidthL -= 0.05;
+    
+    double stentilHeightR = _rightTurntable.contentSize.height;
+    CCNodeColor *scissorRectRight = [CCNodeColor nodeWithColor:[CCColor clearColor] width:stentilWidthR height:stentilHeightR];
+    [scissorRectRight setContentSizeType:CCSizeTypeNormalized];
+    [self addChild: scissorRectRight];
+    [scissorRectRight setAnchorPoint:[_rightTurntable anchorPoint]];
+    [scissorRectRight setPositionType:CCPositionTypeNormalized];
+    
+    //another temporarily hard code
+    CGPoint positionR = [_rightTurntable position];
+    //positionR.x += 0.05;
+    [scissorRectRight setPosition:positionR];
+    
+    
+    //temporarily hard code it here
+    
+    rightMask = [CCClippingNode clippingNodeWithStencil:scissorRectRight];
+    [rightMask setContentSize:self.contentSize];
+    [rightMask setContentSizeType:CCSizeTypeNormalized];
+    //[rightMask setPosition:[_rightTurntable position]];
+    [rightMask setPositionType:CCPositionTypeNormalized];
+    [rightMask setAlphaThreshold:0.0];
+    [rightMask setInverted:NO];
+    [self addChild:rightMask];
+    
+    
+    
     minimumValueToTriggerSP = 20;
     count = 0;
     totalTime = 0;
@@ -93,8 +153,8 @@
 - (void) initializeStage
 {
     theCL = [[ChartLoader alloc]init];
-    //[theCL loadChartFromFile:@"test"];
-    //[theCL saveChartToFile:@"test.tcf"];
+    [theCL loadChartFromFile:@"test"];
+    [theCL saveChartToFile:@"test.tcf"];
     [theCL loadChartFromFile:@"test.tcf"];
     NSString* path;
     NSBundle *mainBundle = [NSBundle mainBundle];
@@ -134,7 +194,15 @@
             [theNote setupSprite];
             [objectOnScreen addObject:theNote];
             theObject.appeared = true;
-            [self addChild:theNote.sprite];
+            if([theNote.note getTrackType] == trackLeft)
+            {
+                [leftMask addChild:theNote.sprite];
+            }
+            else
+            {
+                [rightMask addChild:theNote.sprite];
+            }
+            //[self addChild:theNote.sprite];
 
         }
     }
@@ -352,6 +420,18 @@
     return nil;
 }
 
+- (void) removeNoteSprite:(note*) obj
+{
+    if([obj.note getTrackType] == trackLeft)
+    {
+        [leftMask removeChild:obj.sprite];
+    }
+    else
+    {
+        [rightMask removeChild:obj.sprite];
+    }
+}
+
 // only timing judgments
 - (bool) doJudgment:(double) time withObject:(ChartObject*) obj onlyTooLate:(bool) flag
 {
@@ -369,7 +449,7 @@
                     [objectOnScreen removeObject:theNote];
                     [self displayJudgment:0];
                     [self refreshScoreList:0];
-                    [self removeChild:theNote.sprite];
+                    [self removeNoteSprite:theNote];
                     return true;
                 }
                 
@@ -400,7 +480,7 @@
                 if(theNote.note == obj)
                 {
                     [objectOnScreen removeObject:theNote];
-                    [self removeChild:theNote.sprite];
+                    [self removeNoteSprite:theNote];
                     [self displayJudgment:bestJudgment];
                     [self refreshScoreList:bestJudgment];
                     return true;

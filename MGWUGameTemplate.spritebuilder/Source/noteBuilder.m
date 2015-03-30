@@ -8,6 +8,7 @@
 
 #import "noteBuilder.h"
 #import "SingleNote.h"
+#import "LongNote.h"
 
 @implementation noteBuilder
 
@@ -16,6 +17,12 @@
     if(obj.objectType == noteSingleNote)
     {
         SingleNote* theNote = [[SingleNote alloc]init];
+        theNote.note = obj;
+        return theNote;
+    }
+    else if(obj.objectType == noteLongNote)
+    {
+        LongNote* theNote = [[LongNote alloc]init];
         theNote.note = obj;
         return theNote;
     }

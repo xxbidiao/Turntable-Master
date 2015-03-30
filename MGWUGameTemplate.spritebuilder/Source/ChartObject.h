@@ -15,6 +15,11 @@ typedef NS_ENUM(NSInteger, noteType) {
     noteLongNote
 };
 
+typedef NS_ENUM(NSInteger, trackType) {
+    trackLeft,
+    trackRight
+};
+
 // field for other objects to recognize which kind of chart object it is
 @property int objectType;
 @property int objectSubType;
@@ -40,5 +45,8 @@ typedef NS_ENUM(NSInteger, noteType) {
 -(NSMutableDictionary*) serialize;
 
 -(void) deserialize:(NSMutableDictionary*) obj;
+
+//get which track the note is on
+-(trackType) getTrackType;
 
 @end

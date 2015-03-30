@@ -23,12 +23,13 @@
     if([filename  isEqual: @"test"])
     {
         _theChart.chartInfo[@"Difficulty"]=@"1";
-        for(int i = 3; i < 10; i++)
+        for(int i = 10; i < 50; i++)
         {
             ChartObject* theObj = [[ChartObject alloc]init];
-            theObj.startingTime = i;
+            theObj.startingTime = ((double)i)/2;
             theObj.objectType = 0;
             theObj.objectSubType = i%2;
+            theObj.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:i%8];
             [_theChart.objects addObject:theObj];
         }
         return true;

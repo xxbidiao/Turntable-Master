@@ -45,4 +45,12 @@
     _objectPosition = obj[@"objectPosition"];
 }
 
+-(trackType) getTrackType;
+{
+    if(self.objectSubType == 0)
+        return trackLeft;
+    else
+        return trackRight;
+}
+
 @end

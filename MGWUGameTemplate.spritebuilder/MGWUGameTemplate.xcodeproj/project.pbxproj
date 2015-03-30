@@ -47,6 +47,7 @@
 		F34085251ABE81DF009FE4AE /* note.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085241ABE81DF009FE4AE /* note.m */; };
 		F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F34C5ECB1A99C9DB005968CC /* test.mp3 */; };
 		F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C5ECE1A9A488F005968CC /* SingleNote.m */; };
+		F3AF8EA31AC223BA00AED9F9 /* LongNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AF8EA21AC223BA00AED9F9 /* LongNote.m */; };
 		F3C5931F1AB8A44300864CEA /* holdedTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C5931E1AB8A44300864CEA /* holdedTouch.m */; };
 		F3E0E4A01AB234670010CD94 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E49F1AB234670010CD94 /* MainMenu.m */; };
 		F3E0E4AC1AB7495A0010CD94 /* Results.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E4AB1AB7495A0010CD94 /* Results.m */; };
@@ -258,7 +259,6 @@
 		B77F1B3D17B978D7009739AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
 		F3048F371A97E23A00C4C6E1 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Source/Stage.h; sourceTree = "<group>"; };
 		F3048F381A97E23A00C4C6E1 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Source/Stage.m; sourceTree = "<group>"; };
 		F3048F3A1A97E29E00C4C6E1 /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Source/Chart.h; sourceTree = "<group>"; };
@@ -523,7 +523,7 @@
 		F30490521A99B47F00C4C6E1 /* CCNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNode.m; sourceTree = "<group>"; };
 		F30490531A99B47F00C4C6E1 /* CCNode_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNode_Private.h; sourceTree = "<group>"; };
 		F30490541A99B47F00C4C6E1 /* CCNodeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCNodeColor.h; sourceTree = "<group>"; };
-		F30490551A99B47F00C4C6E1 /* CCNodeColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNodeColor.m; sourceTree = "<group>"; };
+		F30490551A99B47F00C4C6E1 /* CCNodeColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCNodeColor.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		F30490561A99B47F00C4C6E1 /* CCParallaxNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCParallaxNode.h; sourceTree = "<group>"; };
 		F30490571A99B47F00C4C6E1 /* CCParallaxNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCParallaxNode.m; sourceTree = "<group>"; };
 		F30490581A99B47F00C4C6E1 /* CCParticleBatchNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCParticleBatchNode.h; sourceTree = "<group>"; };
@@ -1841,6 +1841,8 @@
 		F34C5ECB1A99C9DB005968CC /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		F34C5ECD1A9A488F005968CC /* SingleNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleNote.h; path = Source/SingleNote.h; sourceTree = "<group>"; };
 		F34C5ECE1A9A488F005968CC /* SingleNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleNote.m; path = Source/SingleNote.m; sourceTree = "<group>"; };
+		F3AF8EA11AC223BA00AED9F9 /* LongNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongNote.h; path = Source/LongNote.h; sourceTree = "<group>"; };
+		F3AF8EA21AC223BA00AED9F9 /* LongNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongNote.m; path = Source/LongNote.m; sourceTree = "<group>"; };
 		F3C5931D1AB8A44300864CEA /* holdedTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = holdedTouch.h; path = Source/holdedTouch.h; sourceTree = "<group>"; };
 		F3C5931E1AB8A44300864CEA /* holdedTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = holdedTouch.m; path = Source/holdedTouch.m; sourceTree = "<group>"; };
 		F3E0E49E1AB234670010CD94 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
@@ -1951,7 +1953,6 @@
 				F304960F1A99B4DF00C4C6E1 /* SpeakHere */,
 				F3048F481A99B47E00C4C6E1 /* Source */,
 				8392007918EE8E3300B6C429 /* GLKit.framework */,
-				B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */,
 				B77F1B3117B978D7009739AE /* QuartzCore.framework */,
 				B77F1B3317B978D7009739AE /* OpenGLES.framework */,
 				B77F1B3517B978D7009739AE /* OpenAL.framework */,
@@ -1997,6 +1998,8 @@
 				F34085181ABE8114009FE4AE /* noteBuilder.m */,
 				F34085231ABE81DF009FE4AE /* note.h */,
 				F34085241ABE81DF009FE4AE /* note.m */,
+				F3AF8EA11AC223BA00AED9F9 /* LongNote.h */,
+				F3AF8EA21AC223BA00AED9F9 /* LongNote.m */,
 			);
 			name = MainSceneElements;
 			sourceTree = "<group>";
@@ -5281,6 +5284,7 @@
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				F34085191ABE8114009FE4AE /* noteBuilder.m in Sources */,
 				F34085251ABE81DF009FE4AE /* note.m in Sources */,
+				F3AF8EA31AC223BA00AED9F9 /* LongNote.m in Sources */,
 				F3E0E4AF1AB74A200010CD94 /* Judgment.m in Sources */,
 				F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */,
 				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
