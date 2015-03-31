@@ -15,7 +15,7 @@
 
 @property ChartObject* note;
 
-@property CCSprite* sprite;
+@property CCNode* sprite;
 
 -(void) setupSprite;
 

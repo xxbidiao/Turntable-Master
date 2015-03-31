@@ -27,9 +27,9 @@
 {
     int position = [((NSNumber*)self.note.objectPosition[@"SingleNotePosition"]) intValue];
     if(self.note.objectSubType == 0)
-    self.sprite.position = ccp((5-self.note.startingTime+currentTime)*0.1,0.25+position*0.05);
+    self.sprite.position = ccp((2-self.note.startingTime+currentTime)*0.25,0.05+position*0.05);
     else
-    self.sprite.position = ccp((5-self.note.startingTime+currentTime)*-0.1+1,0.25+position*0.05);
+    self.sprite.position = ccp((2-self.note.startingTime+currentTime)*-0.25+1,0.05+position*0.05);
 }
 
 

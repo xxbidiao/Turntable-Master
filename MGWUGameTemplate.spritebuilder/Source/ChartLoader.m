@@ -23,13 +23,25 @@
     if([filename  isEqual: @"test"])
     {
         _theChart.chartInfo[@"Difficulty"]=@"1";
-        for(int i = 10; i < 50; i++)
+        for(int i = 10; i <= 10; i++)
         {
             ChartObject* theObj = [[ChartObject alloc]init];
             theObj.startingTime = ((double)i)/2;
-            theObj.objectType = 0;
-            theObj.objectSubType = i%2;
-            theObj.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:i%8];
+            theObj.objectType = 1;
+            theObj.objectSubType = 1;
+            theObj.objectPosition[@"LongNoteNodePosition1"] = [NSNumber numberWithInt: 1];
+            theObj.objectPosition[@"LongNoteNodeTime1"] = [NSNumber numberWithDouble:0];
+            theObj.objectPosition[@"LongNoteNodePosition2"] = [NSNumber numberWithInt: 4];
+            theObj.objectPosition[@"LongNoteNodeTime2"] = [NSNumber numberWithDouble:0.05f];
+            theObj.objectPosition[@"LongNoteNodePosition3"] = [NSNumber numberWithInt: 7];
+            theObj.objectPosition[@"LongNoteNodeTime3"] = [NSNumber numberWithDouble:0.1f];
+            theObj.objectPosition[@"LongNoteNodePosition4"] = [NSNumber numberWithInt: 5];
+            theObj.objectPosition[@"LongNoteNodeTime4"] = [NSNumber numberWithDouble:0.15f];
+            theObj.objectPosition[@"LongNoteNodePosition5"] = [NSNumber numberWithInt: 2];
+            theObj.objectPosition[@"LongNoteNodeTime5"] = [NSNumber numberWithDouble:0.2f];
+            theObj.objectPosition[@"LongNoteNodePosition6"] = [NSNumber numberWithInt: 3];
+            theObj.objectPosition[@"LongNoteNodeTime6"] = [NSNumber numberWithDouble:0.25f];
+            theObj.objectPosition[@"LongNoteTotalNodeCount"] = [NSNumber numberWithInt:6];
             [_theChart.objects addObject:theObj];
         }
         return true;

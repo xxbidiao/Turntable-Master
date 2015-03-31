@@ -566,7 +566,7 @@
 		F304907D1A99B47F00C4C6E1 /* CCShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCShader.h; sourceTree = "<group>"; };
 		F304907E1A99B47F00C4C6E1 /* CCShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCShader.m; sourceTree = "<group>"; };
 		F304907F1A99B47F00C4C6E1 /* CCShader_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCShader_Private.h; sourceTree = "<group>"; };
-		F30490801A99B47F00C4C6E1 /* CCSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSprite.h; sourceTree = "<group>"; };
+		F30490801A99B47F00C4C6E1 /* CCSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSprite.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		F30490811A99B47F00C4C6E1 /* CCSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSprite.m; sourceTree = "<group>"; };
 		F30490821A99B47F00C4C6E1 /* CCSprite9Slice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCSprite9Slice.h; sourceTree = "<group>"; };
 		F30490831A99B47F00C4C6E1 /* CCSprite9Slice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCSprite9Slice.m; sourceTree = "<group>"; };
