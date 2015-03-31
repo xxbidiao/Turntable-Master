@@ -28,7 +28,7 @@
 float positionYStartingAt = 0.1;
 float positionYDelta = 0.08;
 
-float speedFactor = 1;
+float speedFactor = 0.1;
 
 -(float) getPositionY:(int) subTrack
 {
@@ -51,6 +51,15 @@ float speedFactor = 1;
 
 -(void) setupSprite
 {
+    float flipfactor = 0;
+    if(self.note.objectSubType == 0)
+    {
+        flipfactor = -1;
+    }
+    else if(self.note.objectSubType == 1)
+    {
+        flipfactor = 1;
+    }
     CCNode* wholeLongNote = [[CCNode alloc]init];
     [wholeLongNote setContentSize: CGSizeMake(1,1)];
     [wholeLongNote setContentSizeType:CCSizeTypeNormalized];
@@ -65,7 +74,7 @@ float speedFactor = 1;
         [ln1 setAnchorPoint:CGPointMake(0.5f,0.5f)];
         ln1.positionType = CCPositionTypeNormalized;
         int thePosition = [self getNodePosition:i];
-        ln1.position = CGPointMake([self getNodeTime:i]*speedFactor,[self getPositionY:thePosition]);
+        ln1.position = CGPointMake([self getNodeTime:i]*speedFactor*flipfactor,[self getPositionY:thePosition]);
         [wholeLongNote addChild: ln1];
         if(i >= 2)
         {
@@ -79,9 +88,9 @@ float speedFactor = 1;
             
             //[ln3 setScaleX:1.0f];
             //[ln3 setScaleY:1.0f];
-            [ln3 setRotation:[self getAngle:theModifier :deltaInPosition]+180];
+            [ln3 setRotation:flipfactor * [self getAngle:theModifier :deltaInPosition]+180];
             ln3.positionType = CCPositionTypeNormalized;
-            ln3.position = CGPointMake([self getNodeTime:i]*speedFactor,[self getPositionY:thePosition]);
+            ln3.position = CGPointMake([self getNodeTime:i]*speedFactor*flipfactor,[self getPositionY:thePosition]);
             [wholeLongNote addChild: ln3];
         }
     }
@@ -98,7 +107,7 @@ float speedFactor = 1;
     if(self.note.objectSubType == 0)
         self.sprite.position = ccp((0.5/speedFactor-self.note.startingTime+currentTime)*speedFactor+0,[self getPositionY:position]);
     else
-        self.sprite.position = ccp((0.5/speedFactor-self.note.startingTime+currentTime)*speedFactor+1,[self getPositionY:position]);
+        self.sprite.position = ccp((0.5/speedFactor-self.note.startingTime+currentTime)*-speedFactor+1,[self getPositionY:position]);
 }
 
 #pragma mark data extraction helpers
