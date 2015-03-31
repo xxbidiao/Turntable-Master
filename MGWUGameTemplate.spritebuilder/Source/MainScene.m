@@ -58,6 +58,10 @@
    
     NSMutableArray* holdedTouches;
     
+    float currentYLocation;
+    bool longNoteEnabled;
+    float longNoteExpectedYLocation;
+    
     //test
     SingleNote* noteNode;
     
@@ -549,7 +553,7 @@
 
 -(void) afterStage:(int)type
 {
-    NSLog([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]]);
+    //NSLog([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]]);
     [theBGMManager clearFinishStatus];
     CCScene *resultScene = (Results*)[CCBReader loadAsScene:@"Results"];
     Results *customObject = [[resultScene children] firstObject];

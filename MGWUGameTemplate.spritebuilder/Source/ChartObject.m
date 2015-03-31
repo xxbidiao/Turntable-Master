@@ -24,6 +24,18 @@
 
 -(double)length
 {
+    if(_objectType == noteSingleNote) return 0;
+    if(_objectType == noteLongNote)
+    {
+        int totalNodes =  [((NSNumber*)self.objectPosition[@"LongNoteTotalNodeCount"]) intValue];
+        NSString* lookupString1 = [NSString stringWithFormat:@"LongNoteNodeTime%d",1];
+        float result1 =  [((NSNumber*)self.objectPosition[lookupString1]) floatValue];
+        NSString* lookupString2 = [NSString stringWithFormat:@"LongNoteNodeTime%d",totalNodes];
+        float result2 =  [((NSNumber*)self.objectPosition[lookupString2]) floatValue];
+        return result2-result1;
+        
+        
+    }
     return 0;
 }
 
