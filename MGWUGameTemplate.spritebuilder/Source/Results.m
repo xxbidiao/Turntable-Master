@@ -11,6 +11,7 @@
 @implementation Results
 {
     CCLabelTTF* _testText;
+    CCLabelTTF* _judgmentText;
 }
 
 -(int) getJudgmentCount:(int) judgmentType
@@ -39,7 +40,17 @@
 -(void) onEnter
 {
     [super onEnter];
-    [_testText setString:([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]])];    
+    //[_testText setString:([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]])];
+    int score = [self getJudgmentCount:3]*2+[self getJudgmentCount:2];
+    int maxscore =[self getJudgmentCount:3]*2+[self getJudgmentCount:2]*2+[self getJudgmentCount:1]*2+[self getJudgmentCount:0]*2;
+    float rate = score/maxscore;
+    [_testText setString:[NSString stringWithFormat:@"%d",score]];
+    
+    //temporarily hard code it here
+    if(rate>0.8) [_judgmentText setString:@"A"];
+    else if(rate>0.6) [_judgmentText setString:@"B"];
+    else if(rate>0.4) [_judgmentText setString:@"C"];
+    else [_judgmentText setString:@"D"];
 }
 
 -(void) backButtonPressed

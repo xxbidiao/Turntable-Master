@@ -25,6 +25,12 @@
         _theChart.chartInfo[@"Difficulty"]=@"1";
         for(int i = 0; i <= 1; i++)
         {
+            ChartObject* theObjSingle = [[ChartObject alloc]init];
+            theObjSingle.startingTime = 3;
+            theObjSingle.objectType = 0;
+            theObjSingle.objectSubType = i;
+            theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:3];
+            [_theChart.objects addObject:theObjSingle];
             ChartObject* theObj = [[ChartObject alloc]init];
             theObj.startingTime = 5;
             theObj.objectType = 1;

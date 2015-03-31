@@ -40,6 +40,6 @@
 	<key>publishToZip</key>
 	<false/>
 	<key>resourceAutoScaleFactor</key>
-	<integer>-1</integer>
+	<integer>4</integer>
 </dict>
 </plist>

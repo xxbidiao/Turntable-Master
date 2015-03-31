@@ -17,6 +17,8 @@
 
 @property CCNode* sprite;
 
+@property float speedFactor;
+
 -(void) setupSprite;
 
 -(void) refreshSprite:(double) currentTime;

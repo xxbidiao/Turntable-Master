@@ -127,7 +127,7 @@
     count = 0;
     totalTime = 0;
     totalTime2 = 0;
-    speedFactor = 1;
+    speedFactor = 0.1;
     
     theJudgment = [[Judgment alloc]init];
     judgmentParameters = theJudgment.judgmentParameters;
@@ -202,13 +202,10 @@
             {
                 [rightMask addChild:theNote.sprite];
             }
-            //[self addChild:theNote.sprite];
-
         }
     }
     
     //refresh note locations
-    //temporarily hard-code it here
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
         note* theNote = [objectOnScreen objectAtIndex:i];

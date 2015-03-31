@@ -12,6 +12,7 @@
 
 -(id) init
 {
+    self.speedFactor = 0.1;
     return self;
 }
 
@@ -27,9 +28,9 @@
 {
     int position = [((NSNumber*)self.note.objectPosition[@"SingleNotePosition"]) intValue];
     if(self.note.objectSubType == 0)
-    self.sprite.position = ccp((2-self.note.startingTime+currentTime)*0.25,0.05+position*0.05);
+    self.sprite.position = ccp((0.5/self.speedFactor-self.note.startingTime+currentTime)*self.speedFactor,0.1+position*0.08);
     else
-    self.sprite.position = ccp((2-self.note.startingTime+currentTime)*-0.25+1,0.05+position*0.05);
+    self.sprite.position = ccp((0.5/self.speedFactor-self.note.startingTime+currentTime)*-self.speedFactor+1,0.1+position*0.08);
 }
 
 
