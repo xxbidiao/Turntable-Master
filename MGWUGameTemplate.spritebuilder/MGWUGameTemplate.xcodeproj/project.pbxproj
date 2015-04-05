@@ -47,6 +47,7 @@
 		F34085251ABE81DF009FE4AE /* note.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085241ABE81DF009FE4AE /* note.m */; };
 		F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F34C5ECB1A99C9DB005968CC /* test.mp3 */; };
 		F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C5ECE1A9A488F005968CC /* SingleNote.m */; };
+		F35CCEEF1AD19B4C007DC39D /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = F35CCEEE1AD19B4C007DC39D /* Constant.m */; };
 		F3AF8EA31AC223BA00AED9F9 /* LongNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AF8EA21AC223BA00AED9F9 /* LongNote.m */; };
 		F3C5931F1AB8A44300864CEA /* holdedTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C5931E1AB8A44300864CEA /* holdedTouch.m */; };
 		F3E0E4A01AB234670010CD94 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E49F1AB234670010CD94 /* MainMenu.m */; };
@@ -1841,6 +1842,8 @@
 		F34C5ECB1A99C9DB005968CC /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		F34C5ECD1A9A488F005968CC /* SingleNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleNote.h; path = Source/SingleNote.h; sourceTree = "<group>"; };
 		F34C5ECE1A9A488F005968CC /* SingleNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleNote.m; path = Source/SingleNote.m; sourceTree = "<group>"; };
+		F35CCEED1AD19B4C007DC39D /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = Source/Constant.h; sourceTree = "<group>"; };
+		F35CCEEE1AD19B4C007DC39D /* Constant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Constant.m; path = Source/Constant.m; sourceTree = "<group>"; };
 		F3AF8EA11AC223BA00AED9F9 /* LongNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LongNote.h; path = Source/LongNote.h; sourceTree = "<group>"; };
 		F3AF8EA21AC223BA00AED9F9 /* LongNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongNote.m; path = Source/LongNote.m; sourceTree = "<group>"; };
 		F3C5931D1AB8A44300864CEA /* holdedTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = holdedTouch.h; path = Source/holdedTouch.h; sourceTree = "<group>"; };
@@ -4967,6 +4970,8 @@
 			children = (
 				F3048F411A97E3F800C4C6E1 /* ChartLoader.h */,
 				F3048F421A97E3F800C4C6E1 /* ChartLoader.m */,
+				F35CCEED1AD19B4C007DC39D /* Constant.h */,
+				F35CCEEE1AD19B4C007DC39D /* Constant.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -5286,6 +5291,7 @@
 				F34085251ABE81DF009FE4AE /* note.m in Sources */,
 				F3AF8EA31AC223BA00AED9F9 /* LongNote.m in Sources */,
 				F3E0E4AF1AB74A200010CD94 /* Judgment.m in Sources */,
+				F35CCEEF1AD19B4C007DC39D /* Constant.m in Sources */,
 				F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */,
 				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
 				F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */,

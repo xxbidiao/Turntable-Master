@@ -29,7 +29,7 @@
             theObjSingle.startingTime = 3;
             theObjSingle.objectType = 0;
             theObjSingle.objectSubType = i;
-            theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:3];
+            theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:8];
             [_theChart.objects addObject:theObjSingle];
             ChartObject* theObj = [[ChartObject alloc]init];
             theObj.startingTime = 5;

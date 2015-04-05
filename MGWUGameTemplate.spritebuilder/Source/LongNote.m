@@ -7,12 +7,15 @@
 //
 
 #import "LongNote.h"
+#import "Constant.h"
 
 @implementation LongNote
 
 -(id) init
 {
     self.speedFactor = 0.1;
+    positionYStartingAt = Constant.kPositionYStartingAt;
+    positionYDelta = Constant.kPositionYDelta;
     return self;
 }
 

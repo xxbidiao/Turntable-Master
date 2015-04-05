@@ -18,6 +18,7 @@
 #import "Results.h"
 #import "holdedTouch.h"
 #import "noteBuilder.h"
+#import "Constant.h"
 
 @interface MainScene()
 
@@ -27,7 +28,6 @@
 
 @implementation MainScene
 {
-    
     CCLabelTTF* _testText;
     CCLabelTTF* _testText2;
     CCNode* _operationZone;
@@ -58,9 +58,9 @@
    
     NSMutableArray* holdedTouches;
     
-    float currentYLocation;
-    bool longNoteEnabled;
-    float longNoteExpectedYLocation;
+    float currentYLocationL,currentYLocationR;
+    bool longNoteEnabledL,longNoteEnabledR;
+    float longNoteExpectedYLocationL,longNoteExpectedYLocationR;
     
     //test
     SingleNote* noteNode;
@@ -252,6 +252,8 @@
     [self addChild:thisTouch.effect];
     [thisTouch generateHash];
     [holdedTouches addObject:thisTouch];
+    //long note part
+    [self triggerOperation:touchLocation withType:1];
 }
 
 - (void) touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -336,11 +338,12 @@
             relatedTouch.movingDistance = 0;
         }
     }
-    
     relatedTouch.moveStatus = newStatus;
     relatedTouch.lastX = touchLocation.x;
     relatedTouch.lastY = touchLocation.y;
-    //NSLog([NSString stringWithFormat:@"%lu/%lu", (unsigned long)touchNumber,holdedTouches.count]);
+    
+    //long note part
+    [self triggerOperation:touchLocation withType:1];
 }
 
 - (void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -398,21 +401,39 @@
             [self operation:1 touchLocation:touchLocation];
         }
     }
+    if(hitType == 1)
+    {
+        // If inside the operation zone
+        CGSize s = [CCDirector sharedDirector].viewSize;
+        float scaleW = s.width;
+        float scaleH = s.height;
+        float touchYLocationNormalized = touchLocation.y/scaleH;
+        float touchYLocationRelative = (touchYLocationNormalized-Constant.kPositionYStartingAt)/Constant.kPositionYDelta;
+        if (CGRectContainsPoint([_leftTurntable boundingBox], touchLocation))
+        {
+            currentYLocationL = touchYLocationRelative;
+        }
+        if (CGRectContainsPoint([_rightTurntable boundingBox],touchLocation))
+            currentYLocationR = touchYLocationRelative;
+        {
+            
+        }
+    }
 
 }
 
 - (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint
 {
-    [self doJudgment:[theBGMManager getPlaybackTime]withObject:[self getProperNotesForJudgment:zoneID withTime:[theBGMManager getPlaybackTime]] onlyTooLate:false];
+    [self doJudgment:[theBGMManager getPlaybackTime]withObject:[self getProperNotesForJudgment:noteSingleNote track:zoneID withTime:[theBGMManager getPlaybackTime]] onlyTooLate:false];
 }
 
-- (ChartObject*) getProperNotesForJudgment:(int)type withTime:(double)time
+- (ChartObject*) getProperNotesForJudgment:(int)type track:(int) subType withTime:(double)time
 {
     for(int i = 0; i < [objectOnScreen count]; i++)
     {
-        ChartObject* theObj = ((SingleNote*)[objectOnScreen objectAtIndex:i]).note;
+        ChartObject* theObj = ((note*)[objectOnScreen objectAtIndex:i]).note;
         if(theObj.disappeared) continue;
-        if(theObj.objectType == type)
+        if(theObj.objectSubType == subType && theObj.objectType == type)
         {
             return theObj;
         }
@@ -433,7 +454,7 @@
     }
 }
 
-// only timing judgments
+// only timing judgments, no movement judgments
 - (bool) doJudgment:(double) time withObject:(ChartObject*) obj onlyTooLate:(bool) flag
 {
     if(flag)
@@ -444,7 +465,7 @@
             obj.disappeared = true;
             for(int i = 0; i < [objectOnScreen count]; i++)
             {
-                SingleNote* theNote = [objectOnScreen objectAtIndex:i];
+                note* theNote = [objectOnScreen objectAtIndex:i];
                 if(theNote.note == obj)
                 {
                     [objectOnScreen removeObject:theNote];
@@ -477,7 +498,7 @@
             obj.disappeared = true;
             for(int i = 0; i < [objectOnScreen count]; i++)
             {
-                SingleNote* theNote = [objectOnScreen objectAtIndex:i];
+                note* theNote = [objectOnScreen objectAtIndex:i];
                 if(theNote.note == obj)
                 {
                     [objectOnScreen removeObject:theNote];
@@ -563,10 +584,5 @@
     
     [[CCDirector sharedDirector] replaceScene:resultScene];
 }
-
-
-
-
-
 @end
 
