@@ -66,6 +66,10 @@
     //test
     SingleNote* noteNode;
     
+    //stage clear or fail metric
+    float hitpoint;
+    float hitpointMax;
+    
     
 }
 
@@ -125,9 +129,6 @@
     [rightMask setAlphaThreshold:0.0];
     [rightMask setInverted:NO];
     [self addChild:rightMask];
-    
-    
-    
     minimumValueToTriggerSP = 20;
     count = 0;
     totalTime = 0;
@@ -141,22 +142,14 @@
     theJudgment = [[Judgment alloc]init];
     judgmentParameters = theJudgment.judgmentParameters;
     judgmentNames = theJudgment.judgmentNames;
-    
-    
     [self initializeStage];
-
     theBGMManager = [[BGMManager alloc ]init];
     [theBGMManager initializeBGM:theStage.parameters[@"BGMpath"]];
     [theBGMManager playBGM];
-    
-    
     objectOnScreen = [[NSMutableArray alloc]init];
     [_testText setString:@"Loaded!"];
     self.userInteractionEnabled = TRUE;
-    
-    
     [self setMultipleTouchEnabled:YES];
-    
 }
 
 - (void) initializeStage
@@ -172,6 +165,8 @@
     theStage.theChart = theCL.theChart;
     theStage.parameters[@"BGMpath"] = path;
     holdedTouches = [[NSMutableArray alloc]init];
+    hitpointMax = theJudgment.judgmentMaxHPFactor * [theStage.theChart.objects count];
+    hitpoint = hitpointMax;
     
 }
 
@@ -183,7 +178,8 @@
     totalTime2 += delta;
     NSString *test1 = [NSString stringWithFormat:@"%.2f %f %lu", count/totalTime, [theBGMManager getPlaybackTime],(unsigned long)[objectOnScreen count]];
     double bgmLocation = [theBGMManager getPlaybackTime];
-    [_testText setString:test1];
+    NSString *hitpointTest = [NSString stringWithFormat:@"HP:%f/%f",hitpoint,hitpointMax];
+    [_testText setString:hitpointTest];
     if(count >= 100)
     {
         count /= 4;
@@ -655,6 +651,10 @@ float lastLongNoteJudgmentTime;
             temp += 1;
             [theStage.scores setObject:[NSNumber numberWithInt:temp] forKey:coordinates];
         }
+        
+        hitpoint -= [theJudgment.judgmentHitPoint[type] floatValue];
+        if(hitpoint > hitpointMax) hitpoint=hitpointMax;
+        if(hitpoint < 0) hitpoint = 0;
     }
 }
 

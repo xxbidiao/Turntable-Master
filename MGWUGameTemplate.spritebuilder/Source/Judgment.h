@@ -12,6 +12,9 @@
 
 @property NSMutableArray* judgmentParameters;
 @property NSMutableArray* judgmentNames;
+@property NSMutableArray* judgmentHitPoint;
+
+@property float judgmentMaxHPFactor;
 
 
 @end
