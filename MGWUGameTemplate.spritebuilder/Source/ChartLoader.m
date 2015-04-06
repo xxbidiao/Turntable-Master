@@ -23,7 +23,7 @@
     if([filename  isEqual: @"test"])
     {
         _theChart.chartInfo[@"Difficulty"]=@"1";
-        for(int i = 0; i <= 1; i++)
+        for(int i = 0; i <= 0; i++)
         {
             ChartObject* theObjSingle = [[ChartObject alloc]init];
             theObjSingle.startingTime = 3;

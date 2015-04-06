@@ -41,6 +41,11 @@ typedef NS_ENUM(NSInteger, trackType) {
 // what the total length the note is.
 -(double) length;
 
+// get where the player should hit the note by the time.
+// return starting Location if time<0
+// return ending location if time>length
+-(double) getCurrentLocation: (double) time;
+
 // for json serialization
 -(NSMutableDictionary*) serialize;
 

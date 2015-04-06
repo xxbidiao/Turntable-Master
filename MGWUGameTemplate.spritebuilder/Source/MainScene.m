@@ -22,7 +22,8 @@
 
 @interface MainScene()
 
-- (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint;
+//- (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint;
+
 
 @end
 
@@ -60,7 +61,7 @@
     
     float currentYLocationL,currentYLocationR;
     bool longNoteEnabledL,longNoteEnabledR;
-    float longNoteExpectedYLocationL,longNoteExpectedYLocationR;
+    float longNoteTimeL,longNoteTimeR;
     
     //test
     SingleNote* noteNode;
@@ -394,11 +395,11 @@
         // If inside the operation zone
         if (CGRectContainsPoint([_leftTurntable boundingBox], touchLocation))
         {
-            [self operation:0 touchLocation:touchLocation];
+            [self operation:noteSingleNote zone:0 touchLocation:touchLocation];
         }
         if (CGRectContainsPoint([_rightTurntable boundingBox],touchLocation))
         {
-            [self operation:1 touchLocation:touchLocation];
+            [self operation:noteSingleNote zone:1 touchLocation:touchLocation];
         }
     }
     if(hitType == 1)
@@ -414,17 +415,16 @@
             currentYLocationL = touchYLocationRelative;
         }
         if (CGRectContainsPoint([_rightTurntable boundingBox],touchLocation))
-            currentYLocationR = touchYLocationRelative;
         {
-            
+            currentYLocationR = touchYLocationRelative;
         }
     }
 
 }
 
-- (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint
+- (void) operation:(int) type zone:(int) zoneID touchLocation:(CGPoint) thePoint
 {
-    [self doJudgment:[theBGMManager getPlaybackTime]withObject:[self getProperNotesForJudgment:noteSingleNote track:zoneID withTime:[theBGMManager getPlaybackTime]] onlyTooLate:false];
+    [self doJudgment:[theBGMManager getPlaybackTime]withObject:[self getProperNotesForJudgment:type track:zoneID withTime:[theBGMManager getPlaybackTime]] onlyTooLate:false];
 }
 
 - (ChartObject*) getProperNotesForJudgment:(int)type track:(int) subType withTime:(double)time
@@ -454,15 +454,28 @@
     }
 }
 
-// only timing judgments, no movement judgments
 - (bool) doJudgment:(double) time withObject:(ChartObject*) obj onlyTooLate:(bool) flag
 {
     if(flag)
     {
         double timeForMiss = [[judgmentParameters objectAtIndex:0] doubleValue];
+        if(obj.objectType == noteLongNote)
+        {
+            timeForMiss = 0;
+            
+            //Long note judgment part
+            
+            
+            
+            //NSLog(@"Current Pos:%f",[obj getCurrentLocation:time]);
+            //NSLog(@"LongNote");
+        }
+            
+
         if(time>obj.startingTime+[obj length]+timeForMiss)
         {
             obj.disappeared = true;
+
             for(int i = 0; i < [objectOnScreen count]; i++)
             {
                 note* theNote = [objectOnScreen objectAtIndex:i];

@@ -39,6 +39,51 @@
     return 0;
 }
 
+-(double) getCurrentLocation: (double) time
+{
+    if(_objectType == noteSingleNote)
+    {
+        return -1; //undefined for single note: hit everywhere is OK
+    }
+    if(_objectType == noteLongNote)
+    {
+        time -= self.startingTime;
+        int totalNodes =  [((NSNumber*)self.objectPosition[@"LongNoteTotalNodeCount"]) intValue];
+        int positions[totalNodes+1];
+        float times[totalNodes+1];
+        for(int i = 1; i <= totalNodes; i++)
+        {
+            NSString* lookupString1 = [NSString stringWithFormat:@"LongNoteNodePosition%d",i];
+            int result1 =  [((NSNumber*)self.objectPosition[lookupString1]) intValue];
+            positions[i] = result1;
+            
+            NSString* lookupString2 = [NSString stringWithFormat:@"LongNoteNodeTime%d",i];
+            float result2 =  [((NSNumber*)self.objectPosition[lookupString2]) floatValue];
+            times[i] = result2;
+        }
+        if(time<times[1]) return positions[1];
+        if(time>times[totalNodes]) return positions[totalNodes];
+        for(int i = 1; i < totalNodes; i++)
+        {
+            if(time<times[i+1])
+            {
+                float deltaPos = (float)positions[i+1] - (float)positions[i];
+                float deltaTime = times[i+1]-times[i];
+                float realDeltaTime = time - times[i];
+                if(deltaTime<0.0001) deltaTime = 0.0001;
+                float result = (float)positions[i] + realDeltaTime/deltaTime*deltaPos;
+                return result;
+            }
+        }
+        //uh,wow
+        NSLog(@"Should not run to here in note position calc");
+        return 0;
+        
+        
+    }
+    return 0;
+}
+
 -(NSMutableDictionary*) serialize
 {
     NSMutableDictionary* dict = [[NSMutableDictionary alloc]init];
