@@ -133,6 +133,10 @@
     totalTime = 0;
     totalTime2 = 0;
     speedFactor = 0.1;
+    currentYLocationR = 1;
+    currentYLocationL = 1;
+    longNoteTimeL = 0;
+    longNoteTimeR = 0;
     
     theJudgment = [[Judgment alloc]init];
     judgmentParameters = theJudgment.judgmentParameters;
@@ -218,8 +222,10 @@
     }
     
     
+    
     bool doJudgmentReturnVal= true;
 
+    /*
     while (doJudgmentReturnVal) {
         if([objectOnScreen count] == 0)
         {
@@ -229,6 +235,18 @@
         note* theNote = [objectOnScreen objectAtIndex:0];
         doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
     }
+     */
+    
+    
+    
+    for(int i = (int)[objectOnScreen count]-1; i >= 0; i--)
+    {
+        
+        note* theNote = [objectOnScreen objectAtIndex:i];
+        doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
+    }
+    
+    lastLongNoteJudgmentTime = bgmLocation;
     
     if([theBGMManager isFinished])
     {
@@ -454,6 +472,8 @@
     }
 }
 
+float lastLongNoteJudgmentTime;
+
 - (bool) doJudgment:(double) time withObject:(ChartObject*) obj onlyTooLate:(bool) flag
 {
     if(flag)
@@ -462,6 +482,53 @@
         if(obj.objectType == noteLongNote)
         {
             timeForMiss = 0;
+            if(obj.getTrackType == trackLeft)
+            {
+                bool isOnLongNoteL = false;
+                
+                NSLog(@"%f vs %f",[obj getCurrentLocation:time],currentYLocationL);
+                
+                if(fabsf([obj getCurrentLocation:time] - currentYLocationL) < [Constant kLongNoteThreshold])
+                {
+                    isOnLongNoteL = true;
+                }
+                if(time>=obj.startingTime && isOnLongNoteL)
+                {
+                    float timeEnd = time;
+                    if(timeEnd>obj.startingTime+[obj length])
+                    {
+                        timeEnd = obj.startingTime + [obj length];
+                    }
+                    float timeStart = lastLongNoteJudgmentTime;
+                    if(timeStart<obj.startingTime)
+                    {
+                        timeStart = obj.startingTime;
+                    }
+                    longNoteTimeL += timeEnd-timeStart;
+
+                }
+            }
+            NSLog(@"LongNoteTimeL = %f",longNoteTimeL);
+            
+            if(obj.getTrackType == trackRight)
+            {
+                if(time>=obj.startingTime)
+                {
+                    float timeEnd = time;
+                    if(timeEnd>obj.startingTime+[obj length])
+                    {
+                        timeEnd = obj.startingTime + [obj length];
+                    }
+                    float timeStart = lastLongNoteJudgmentTime;
+                    if(timeStart<obj.startingTime)
+                    {
+                        timeStart = obj.startingTime;
+                    }
+                    longNoteTimeR += timeEnd-timeStart;
+                    
+                }
+            }
+            NSLog(@"LongNoteTimeR = %f",longNoteTimeR);
             
             //Long note judgment part
             
@@ -469,6 +536,7 @@
             
             //NSLog(@"Current Pos:%f",[obj getCurrentLocation:time]);
             //NSLog(@"LongNote");
+
         }
             
 

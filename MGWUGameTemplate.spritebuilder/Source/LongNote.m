@@ -34,13 +34,13 @@
     sprite.scaleY = scaleH;
 }
 
-float positionYStartingAt = 0.1;
-float positionYDelta = 0.08;
+float positionYStartingAt;
+float positionYDelta;
 
 
 -(float) getPositionY:(int) subTrack
 {
-    return positionYStartingAt+subTrack*positionYDelta;
+    return positionYStartingAt+(subTrack)*positionYDelta;
 }
 
 // Y in position, not normalized value
@@ -110,12 +110,12 @@ float positionYDelta = 0.08;
 
 -(void) refreshSprite:(double) currentTime
 {
-    int position = [((NSNumber*)self.note.objectPosition[@"SingleNotePosition"]) intValue];
+    int position = 0;
     
     if(self.note.objectSubType == 0)
-        self.sprite.position = ccp((0.5/self.speedFactor-self.note.startingTime+currentTime)*self.speedFactor+0,[self getPositionY:position]);
+        self.sprite.position = ccp((0.5/self.speedFactor-self.note.startingTime+currentTime)*self.speedFactor+0,0);
     else
-        self.sprite.position = ccp((0.5/self.speedFactor-self.note.startingTime+currentTime)*-self.speedFactor+1,[self getPositionY:position]);
+        self.sprite.position = ccp((0.5/self.speedFactor-self.note.startingTime+currentTime)*-self.speedFactor+1,0);
 }
 
 #pragma mark data extraction helpers

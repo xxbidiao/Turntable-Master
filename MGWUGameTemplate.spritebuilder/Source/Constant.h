@@ -15,4 +15,6 @@
 
 +(float) kPositionYDelta;
 
++(float) kLongNoteThreshold;
+
 @end

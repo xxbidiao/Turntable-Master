@@ -10,6 +10,7 @@
 
 float PositionYStartingAt = 0.1;
 float PositionYDelta = 0.08;
+float longNoteThreshold = 1.0;
 
 @implementation Constant
 +(float) kPositionYStartingAt
@@ -20,5 +21,10 @@ float PositionYDelta = 0.08;
 +(float) kPositionYDelta
 {
     return PositionYDelta;
+}
+
++(float) kLongNoteThreshold
+{
+    return longNoteThreshold;
 }
 @end
