@@ -67,8 +67,8 @@
     SingleNote* noteNode;
     
     //stage clear or fail metric
-    float hitpoint;
-    float hitpointMax;
+    //float hitpoint;
+    //float hitpointMax;
     
     
 }
@@ -165,8 +165,8 @@
     theStage.theChart = theCL.theChart;
     theStage.parameters[@"BGMpath"] = path;
     holdedTouches = [[NSMutableArray alloc]init];
-    hitpointMax = theJudgment.judgmentMaxHPFactor * [theStage.theChart.objects count];
-    hitpoint = hitpointMax;
+    theStage.hitpointMax = theJudgment.judgmentMaxHPFactor * [theStage.theChart.objects count];
+    theStage.hitpoint = theStage.hitpointMax;
     
 }
 
@@ -178,7 +178,7 @@
     totalTime2 += delta;
     NSString *test1 = [NSString stringWithFormat:@"%.2f %f %lu", count/totalTime, [theBGMManager getPlaybackTime],(unsigned long)[objectOnScreen count]];
     double bgmLocation = [theBGMManager getPlaybackTime];
-    NSString *hitpointTest = [NSString stringWithFormat:@"HP:%f/%f",hitpoint,hitpointMax];
+    NSString *hitpointTest = [NSString stringWithFormat:@"HP:%f/%f",theStage.hitpoint,theStage.hitpointMax];
     [_testText setString:hitpointTest];
     if(count >= 100)
     {
@@ -652,9 +652,9 @@ float lastLongNoteJudgmentTime;
             [theStage.scores setObject:[NSNumber numberWithInt:temp] forKey:coordinates];
         }
         
-        hitpoint -= [theJudgment.judgmentHitPoint[type] floatValue];
-        if(hitpoint > hitpointMax) hitpoint=hitpointMax;
-        if(hitpoint < 0) hitpoint = 0;
+        theStage.hitpoint -= [theJudgment.judgmentHitPoint[type] floatValue];
+        if(theStage.hitpoint > theStage.hitpointMax) theStage.hitpoint=theStage.hitpointMax;
+        if(theStage.hitpoint < 0) theStage.hitpoint = 0;
     }
 }
 

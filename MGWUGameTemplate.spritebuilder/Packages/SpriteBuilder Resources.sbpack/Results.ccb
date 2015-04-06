@@ -692,7 +692,7 @@
 				<key>displayName</key>
 				<string>SpriteStageClear</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_spriteClear</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>

@@ -15,6 +15,9 @@
     _theChart = [[Chart alloc]init];
     _parameters = [[NSMutableDictionary alloc]init];
     _scores = [[NSMutableDictionary alloc]init];
+    _clearStatus = -1;
+    _hitpoint = 0;
+    _hitpointMax = 1;
     return self;
 }
 

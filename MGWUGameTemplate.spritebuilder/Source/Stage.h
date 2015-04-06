@@ -18,6 +18,12 @@
 
 @property NSMutableDictionary* scores;
 
+@property int clearStatus;
+
+@property float hitpoint;
+
+@property float hitpointMax;
+
 
 
 @end

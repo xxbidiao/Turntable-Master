@@ -12,6 +12,7 @@
 {
     CCLabelTTF* _testText;
     CCLabelTTF* _judgmentText;
+    CCSprite* _spriteClear;
 }
 
 -(int) getJudgmentCount:(int) judgmentType
@@ -19,6 +20,8 @@
     NSString *judgmentName = @"judgment";
     NSString *judgmentName2 = [[NSNumber numberWithInt:judgmentType] stringValue];
     NSString *coordinates = [NSString stringWithFormat:@"%@,%@", judgmentName, judgmentName2];
+    
+
     
     if ([_theStage.scores objectForKey:coordinates] == nil)
     {
@@ -45,12 +48,18 @@
     int maxscore =[self getJudgmentCount:3]*2+[self getJudgmentCount:2]*2+[self getJudgmentCount:1]*2+[self getJudgmentCount:0]*2;
     float rate = (float)score/(float)maxscore;
     [_testText setString:[NSString stringWithFormat:@"%d",score]];
-    NSLog(@"%d vs %d = %f",score,maxscore,rate);
+    //NSLog(@"%d vs %d = %f",score,maxscore,rate);
     //temporarily hard code it here
     if(rate>0.8) [_judgmentText setString:@"A"];
     else if(rate>0.6) [_judgmentText setString:@"B"];
     else if(rate>0.4) [_judgmentText setString:@"C"];
     else [_judgmentText setString:@"D"];
+    bool isStageCleared = false;
+    if((float)_theStage.hitpoint < (float)_theStage.hitpointMax * 0.3)
+    {
+        isStageCleared = true;
+    }
+    if(!isStageCleared) _spriteClear.visible = false;
 }
 
 -(void) backButtonPressed
