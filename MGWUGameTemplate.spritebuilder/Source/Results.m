@@ -43,9 +43,9 @@
     //[_testText setString:([NSString stringWithFormat:@"Music has finished! %d/%d/%d/%d",[self getJudgmentCount:3],[self getJudgmentCount:2],[self getJudgmentCount:1],[self getJudgmentCount:0]])];
     int score = [self getJudgmentCount:3]*2+[self getJudgmentCount:2];
     int maxscore =[self getJudgmentCount:3]*2+[self getJudgmentCount:2]*2+[self getJudgmentCount:1]*2+[self getJudgmentCount:0]*2;
-    float rate = score/maxscore;
+    float rate = (float)score/(float)maxscore;
     [_testText setString:[NSString stringWithFormat:@"%d",score]];
-    
+    NSLog(@"%d vs %d = %f",score,maxscore,rate);
     //temporarily hard code it here
     if(rate>0.8) [_judgmentText setString:@"A"];
     else if(rate>0.6) [_judgmentText setString:@"B"];
