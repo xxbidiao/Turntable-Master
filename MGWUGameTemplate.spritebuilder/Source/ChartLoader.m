@@ -23,7 +23,7 @@
     if([filename  isEqual: @"test"])
     {
         _theChart.chartInfo[@"Difficulty"]=@"1";
-        for(int i = 0; i <= 1; i++)
+        for(int i = 0; i <= 10; i++)
         {
             ChartObject* theObjSingle = [[ChartObject alloc]init];
             theObjSingle.startingTime = 3;
@@ -32,13 +32,13 @@
             theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:8];
             //[_theChart.objects addObject:theObjSingle];
             ChartObject* theObj = [[ChartObject alloc]init];
-            theObj.startingTime = 5;
+            theObj.startingTime = 5+i*2;
             theObj.objectType = 1;
-            theObj.objectSubType = i;
+            theObj.objectSubType = 0;
             theObj.objectPosition[@"LongNoteNodePosition1"] = [NSNumber numberWithInt: 1];
             theObj.objectPosition[@"LongNoteNodeTime1"] = [NSNumber numberWithDouble:0];
             theObj.objectPosition[@"LongNoteNodePosition2"] = [NSNumber numberWithInt: 1];
-            theObj.objectPosition[@"LongNoteNodeTime2"] = [NSNumber numberWithDouble:20.0f];
+            theObj.objectPosition[@"LongNoteNodeTime2"] = [NSNumber numberWithDouble:1.0f];
             theObj.objectPosition[@"LongNoteTotalNodeCount"] = [NSNumber numberWithInt:2];
             [_theChart.objects addObject:theObj];
         }

@@ -485,9 +485,6 @@ float lastLongNoteJudgmentTime;
             if(obj.getTrackType == trackLeft)
             {
                 bool isOnLongNoteL = false;
-                
-                NSLog(@"%f vs %f",[obj getCurrentLocation:time],currentYLocationL);
-                
                 if(fabsf([obj getCurrentLocation:time] - currentYLocationL) < [Constant kLongNoteThreshold])
                 {
                     isOnLongNoteL = true;
@@ -512,7 +509,12 @@ float lastLongNoteJudgmentTime;
             
             if(obj.getTrackType == trackRight)
             {
-                if(time>=obj.startingTime)
+                bool isOnLongNoteR = false;
+                if(fabsf([obj getCurrentLocation:time] - currentYLocationR) < [Constant kLongNoteThreshold])
+                {
+                    isOnLongNoteR = true;
+                }
+                if(time>=obj.startingTime && isOnLongNoteR)
                 {
                     float timeEnd = time;
                     if(timeEnd>obj.startingTime+[obj length])
@@ -528,14 +530,6 @@ float lastLongNoteJudgmentTime;
                     
                 }
             }
-            NSLog(@"LongNoteTimeR = %f",longNoteTimeR);
-            
-            //Long note judgment part
-            
-            
-            
-            //NSLog(@"Current Pos:%f",[obj getCurrentLocation:time]);
-            //NSLog(@"LongNote");
 
         }
             
@@ -549,11 +543,41 @@ float lastLongNoteJudgmentTime;
                 note* theNote = [objectOnScreen objectAtIndex:i];
                 if(theNote.note == obj)
                 {
-                    [objectOnScreen removeObject:theNote];
-                    [self displayJudgment:0];
-                    [self refreshScoreList:0];
-                    [self removeNoteSprite:theNote];
-                    return true;
+                    if(obj.objectType == noteSingleNote)
+                    {
+                        [objectOnScreen removeObject:theNote];
+                        [self displayJudgment:0];
+                        [self refreshScoreList:0];
+                        [self removeNoteSprite:theNote];
+                        return true;
+                    }
+                    else if(obj.objectType == noteLongNote)
+                    {
+                        [objectOnScreen removeObject:theNote];
+                        float thisNoteTime;
+                        if(obj.objectSubType == trackLeft)
+                        {
+                            thisNoteTime = longNoteTimeL;
+                            longNoteTimeL = 0;
+                        }
+                        else if(obj.objectSubType == trackRight)
+                        {
+                            thisNoteTime = longNoteTimeR;
+                            longNoteTimeR = 0;
+                        }
+                        
+                        float rate = thisNoteTime / [obj length];
+                        int judgment;
+                        if(rate>0.99) judgment = 3;
+                        else if(rate>0.5) judgment = 2;
+                        else if(rate>0.01) judgment = 1;
+                        else judgment = 0;
+                        [self displayJudgment:judgment];
+                        [self refreshScoreList:judgment];
+                        [self removeNoteSprite:theNote];
+                        return true;
+                    }
+
                 }
                 
             }
