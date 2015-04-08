@@ -65,17 +65,20 @@
     
     //test
     SingleNote* noteNode;
-    
-    //stage clear or fail metric
-    //float hitpoint;
-    //float hitpointMax;
-    
+
     
 }
 
 #pragma mark initialization
 -(void) didLoadFromCCB
 {
+
+}
+
+- (void) onEnter
+{
+    [super onEnter];
+    NSLog(_chartName);
     [_testText setString:@"Loading..."];
     
     //setup stentils
@@ -91,7 +94,7 @@
     [scissorRectLeft setAnchorPoint:[_leftTurntable anchorPoint]];
     [scissorRectLeft setPositionType:CCPositionTypeNormalized];
     [scissorRectLeft setPosition:[_leftTurntable position]];
-
+    
     leftMask = [CCClippingNode clippingNodeWithStencil:scissorRectLeft];
     [leftMask setContentSize:self.contentSize];
     [leftMask setContentSizeType:CCSizeTypeNormalized];
@@ -157,12 +160,14 @@
     theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
     [theCL saveChartToFile:@"test.tcf"];
-    [theCL loadChartFromFile:@"test.tcf"];
-    NSString* path;
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    path = [mainBundle pathForResource: @"test" ofType: @"mp3"];
+    [theCL loadChartFromFile:_chartName];
     theStage = [[Stage alloc] init];
     theStage.theChart = theCL.theChart;
+    NSString* pathFN = theCL.theChart.chartInfo[@"BGMFilename"];
+    NSString* pathExt = theCL.theChart.chartInfo[@"BGMExtension"];
+    NSString* path;
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    path = [mainBundle pathForResource: pathFN ofType: pathExt];
     theStage.parameters[@"BGMpath"] = path;
     holdedTouches = [[NSMutableArray alloc]init];
     theStage.hitpointMax = theJudgment.judgmentMaxHPFactor * [theStage.theChart.objects count];

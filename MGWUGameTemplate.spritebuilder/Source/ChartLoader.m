@@ -23,6 +23,8 @@
     if([filename  isEqual: @"test"])
     {
         _theChart.chartInfo[@"Difficulty"]=@"1";
+        _theChart.chartInfo[@"BGMFilename"]=@"test";
+        _theChart.chartInfo[@"BGMExtension"]=@"mp3";
         for(int i = 0; i <= 10; i++)
         {
             ChartObject* theObjSingle = [[ChartObject alloc]init];

@@ -10,6 +10,6 @@
 
 @interface MainScene : CCScene
 
-
+@property NSString* chartName;
 
 @end

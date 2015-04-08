@@ -12,7 +12,8 @@
 
 -(void)playPressed
 {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"StageSelection"];
+    //CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
