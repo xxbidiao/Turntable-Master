@@ -158,8 +158,6 @@
 - (void) initializeStage
 {
     theCL = [[ChartLoader alloc]init];
-    [theCL loadChartFromFile:@"test"];
-    [theCL saveChartToFile:@"test.tcf"];
     [theCL loadChartFromFile:_chartName];
     theStage = [[Stage alloc] init];
     theStage.theChart = theCL.theChart;

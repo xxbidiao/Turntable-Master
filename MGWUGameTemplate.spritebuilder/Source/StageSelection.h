@@ -10,6 +10,6 @@
 
 @interface StageSelection : CCScene
 
-- (void) selectSong:(int) myID;
+- (void) selectSong:(int) myID withFile:(NSString*) name;
 
 @end

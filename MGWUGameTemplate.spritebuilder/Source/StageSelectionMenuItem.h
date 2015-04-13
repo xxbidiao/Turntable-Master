@@ -14,5 +14,6 @@
 -(bool) setCaption:(NSString*) name withMeta: (NSString*) metadata;
 
 @property NSString* chartFile;
+@property int itemID;
 @property StageSelection* owner;
 @end

@@ -52,13 +52,17 @@
         NSString *documents = [directories firstObject];
         NSLog(@"DOCUMENTS > %@", documents);
         NSString *filePath = [documents stringByAppendingPathComponent:filename];
-        NSData *jsonData = [NSData dataWithContentsOfFile:filePath];
-        
+        NSFileManager *fm = [NSFileManager defaultManager];
+        bool readable = [fm isReadableFileAtPath:filePath];
         NSError *error = nil;
-        
+        NSData *jsonData = [NSData dataWithContentsOfFile:filePath options: 0 error: &error];
+        if (jsonData == nil)
+        {
+            NSLog(@"Failed to read file, error %@", error);
+        }
         // Get JSON data into a Foundation object
         id object = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
-        
+
         // Verify object retrieved is dictionary
         if ([object isKindOfClass:[NSDictionary class]] && error == nil)
         {
@@ -98,7 +102,14 @@
     NSString *documents = [directories firstObject];
     NSLog(@"DOCUMENTS > %@", documents);
     NSString *filePath = [documents stringByAppendingPathComponent:filename];
-    [json writeToFile:filePath atomically:true];
+    [json writeToFile:filePath atomically:false];
+        NSError* errorFM;
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[fm attributesOfItemAtPath:filePath error:&errorFM]];
+    [attributes setValue:[NSNumber numberWithShort:0777]
+                  forKey:NSFilePosixPermissions]; // chmod permissions 777
+
+    [fm setAttributes:attributes ofItemAtPath:filePath error:&errorFM];
     return true;
 }
 

@@ -34,7 +34,7 @@
 - (void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     NSLog(@"TOUCHENDED");
-    [_owner selectSong:123];
+    [_owner selectSong:1 withFile:@"test.tcf"];
 }
 
 -(bool) setCaption:(NSString*) name withMeta: (NSString*) metadata

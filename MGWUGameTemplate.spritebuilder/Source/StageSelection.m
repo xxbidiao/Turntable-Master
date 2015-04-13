@@ -9,27 +9,58 @@
 #import "StageSelection.h"
 #import "MainScene.h"
 #import "StageSelectionMenuItem.h"
+#import "ChartLoader.h"
+
 
 @implementation StageSelection
 {
     CCScrollView* _songSelectionContainer;
+    CCButton* _play;
+    
+    NSString* selectedSong;
+    int selectedID;
 }
 
-- (void) selectSong:(int) myID
+- (void) selectSong:(int) myID withFile:(NSString*) name
 {
-    NSLog(@"%d",myID);
+    selectedSong = name;
+    selectedID = myID;
+    _play.visible = true;
 }
 
 - (void) onEnter
 {
     [super onEnter];
-    NSLog(@"Enter song selection");
-    StageSelectionMenuItem* song = (StageSelectionMenuItem*)[CCBReader load:@"StageSelectionMenuItem" owner:self];
-    [song setCaption:@"test1" withMeta:@"Difficulty:10"];
-    song.chartFile = @"test.tcf";
-    song.owner = self;
+    ChartLoader* theCL = [[ChartLoader alloc]init];
+    [theCL loadChartFromFile:@"test"];
+    [theCL saveChartToFile:@"test.tcf"];
+    [theCL loadChartFromFile:@"test.tcf"];
+    [theCL saveChartToFile:@"test2.tcf"];
+    [theCL loadChartFromFile:@"test2.tcf"];
+    NSLog(@"Listing files...");
+    NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documents = [directories firstObject];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray *dirContents = [fm contentsOfDirectoryAtPath:documents error:nil];
+    NSPredicate *fltr = [NSPredicate predicateWithFormat:@"self ENDSWITH '.tcf'"];
+    NSArray *onlyTCFs = [dirContents filteredArrayUsingPredicate:fltr];
     CCLayoutBox* box = (CCLayoutBox*)[_songSelectionContainer getChildByName:@"menu" recursively:true];
-    [box addChild: song];
+    for(int i = 0; i < [onlyTCFs count]; i++)
+    {
+        StageSelectionMenuItem* song = (StageSelectionMenuItem*)[CCBReader load:@"StageSelectionMenuItem" owner:self];
+        
+        [theCL loadChartFromFile:onlyTCFs[i]];
+        //NSString* pathBGM = theCL.theChart.chartInfo[@"BGMFilename"];
+        NSString* difficulty = theCL.theChart.chartInfo[@"Difficulty"];
+        [song setCaption:onlyTCFs[i] withMeta:difficulty];
+        song.chartFile = onlyTCFs[i];
+        song.itemID = i;
+        song.owner = self;
+
+        [box addChild: song];
+    }
+    
+
     [box layout];
     CCNode* boxNode = [_songSelectionContainer getChildByName:@"menuNode" recursively:true];
     boxNode.contentSize = box.contentSize;
@@ -40,7 +71,7 @@
 {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     MainScene *customObject = [[gameplayScene children] firstObject];
-    customObject.chartName = @"test.tcf";
+    customObject.chartName = selectedSong;
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
 }
 
