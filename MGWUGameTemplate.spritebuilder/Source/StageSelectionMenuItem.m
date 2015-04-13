@@ -9,5 +9,41 @@
 #import "StageSelectionMenuItem.h"
 
 @implementation StageSelectionMenuItem
+{
+    CCLabelTTF* _songName;
+    CCLabelTTF* _songMetadata;
+    CCSprite* _songPicture;
+    NSString* theName;
+    NSString* theMetadata;
+    bool needSetting;
+}
+
+- (void) onEnter
+{
+    [super onEnter];
+    NSLog(@"test");
+    [self setCaption:theName withMeta:theMetadata];
+    self.userInteractionEnabled = TRUE;
+}
+
+- (void) touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    NSLog(@"touchbegan");
+}
+
+- (void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    NSLog(@"TOUCHENDED");
+    [_owner selectSong:123];
+}
+
+-(bool) setCaption:(NSString*) name withMeta: (NSString*) metadata
+{
+    theName = name;
+    theMetadata = metadata;
+    [_songName setString:name];
+    [_songMetadata setString:metadata];
+    return true;
+}
 
 @end

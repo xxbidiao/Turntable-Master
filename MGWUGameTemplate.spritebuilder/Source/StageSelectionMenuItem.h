@@ -7,7 +7,12 @@
 //
 
 #import "CCNode.h"
+#import "StageSelection.h"
 
 @interface StageSelectionMenuItem : CCNode
 
+-(bool) setCaption:(NSString*) name withMeta: (NSString*) metadata;
+
+@property NSString* chartFile;
+@property StageSelection* owner;
 @end

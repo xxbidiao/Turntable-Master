@@ -10,4 +10,6 @@
 
 @interface StageSelection : CCScene
 
+- (void) selectSong:(int) myID;
+
 @end
