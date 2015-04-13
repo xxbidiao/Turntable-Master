@@ -43,6 +43,7 @@
 		F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F451A97E43D00C4C6E1 /* TitleScene.m */; };
 		F30C60511A99B593005B977D /* BGMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C60501A99B593005B977D /* BGMManager.m */; };
 		F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C60531A99B933005B977D /* GBMusicTrack.m */; };
+		F33FDC541ADC2DA00074CF00 /* StageSelectionMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F33FDC531ADC2DA00074CF00 /* StageSelectionMenuItem.m */; };
 		F34085191ABE8114009FE4AE /* noteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085181ABE8114009FE4AE /* noteBuilder.m */; };
 		F34085251ABE81DF009FE4AE /* note.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085241ABE81DF009FE4AE /* note.m */; };
 		F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F34C5ECB1A99C9DB005968CC /* test.mp3 */; };
@@ -251,7 +252,7 @@
 		B73789861807631A0076A88C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = Source/Prefix.pch; sourceTree = SOURCE_ROOT; };
 		B7378992180767190076A88C /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Source/MainScene.h; sourceTree = "<group>"; };
 		B7378993180767190076A88C /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScene.m; path = Source/MainScene.m; sourceTree = "<group>"; };
-		B77F1B2E17B978D7009739AE /* MGWUGameTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGWUGameTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B77F1B2E17B978D7009739AE /* TurntableMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurntableMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77F1B3117B978D7009739AE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B77F1B3317B978D7009739AE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B77F1B3517B978D7009739AE /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1836,6 +1837,8 @@
 		F30C60501A99B593005B977D /* BGMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGMManager.m; path = Source/BGMManager.m; sourceTree = "<group>"; };
 		F30C60521A99B933005B977D /* GBMusicTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBMusicTrack.h; path = Source/GBMusicTrack.h; sourceTree = "<group>"; };
 		F30C60531A99B933005B977D /* GBMusicTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBMusicTrack.m; path = Source/GBMusicTrack.m; sourceTree = "<group>"; };
+		F33FDC521ADC2DA00074CF00 /* StageSelectionMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StageSelectionMenuItem.h; path = Source/StageSelectionMenuItem.h; sourceTree = "<group>"; };
+		F33FDC531ADC2DA00074CF00 /* StageSelectionMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StageSelectionMenuItem.m; path = Source/StageSelectionMenuItem.m; sourceTree = "<group>"; };
 		F34085171ABE8114009FE4AE /* noteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = noteBuilder.h; path = Source/noteBuilder.h; sourceTree = "<group>"; };
 		F34085181ABE8114009FE4AE /* noteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = noteBuilder.m; path = Source/noteBuilder.m; sourceTree = "<group>"; };
 		F34085231ABE81DF009FE4AE /* note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = note.h; path = Source/note.h; sourceTree = "<group>"; };
@@ -1948,7 +1951,7 @@
 		B77F1B2F17B978D7009739AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B77F1B2E17B978D7009739AE /* MGWUGameTemplate.app */,
+				B77F1B2E17B978D7009739AE /* TurntableMaster.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4955,6 +4958,7 @@
 		F3181EAB1A951F59004B0887 /* graphic */ = {
 			isa = PBXGroup;
 			children = (
+				F33FDC481ADC2D630074CF00 /* StageSelectionElements */,
 				F3E0E4AA1AB7495A0010CD94 /* Results.h */,
 				F3E0E4AB1AB7495A0010CD94 /* Results.m */,
 				F3048F471A9991E300C4C6E1 /* MainSceneElements */,
@@ -4981,6 +4985,15 @@
 			name = utility;
 			sourceTree = "<group>";
 		};
+		F33FDC481ADC2D630074CF00 /* StageSelectionElements */ = {
+			isa = PBXGroup;
+			children = (
+				F33FDC521ADC2DA00074CF00 /* StageSelectionMenuItem.h */,
+				F33FDC531ADC2DA00074CF00 /* StageSelectionMenuItem.m */,
+			);
+			name = StageSelectionElements;
+			sourceTree = "<group>";
+		};
 		F34C5EBA1A99C95E005968CC /* Music */ = {
 			isa = PBXGroup;
 			children = (
@@ -4991,9 +5004,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B77F1B2D17B978D7009739AE /* MGWUGameTemplate */ = {
+		B77F1B2D17B978D7009739AE /* TurntableMaster */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "MGWUGameTemplate" */;
+			buildConfigurationList = B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "TurntableMaster" */;
 			buildPhases = (
 				D2E0167A18D782EC00927430 /* Run Script */,
 				B77F1B2A17B978D7009739AE /* Sources */,
@@ -5006,9 +5019,9 @@
 				B7378989180764180076A88C /* PBXTargetDependency */,
 				F30B8B331A9AAC9B009FAC45 /* PBXTargetDependency */,
 			);
-			name = MGWUGameTemplate;
+			name = TurntableMaster;
 			productName = Example;
-			productReference = B77F1B2E17B978D7009739AE /* MGWUGameTemplate.app */;
+			productReference = B77F1B2E17B978D7009739AE /* TurntableMaster.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -5021,7 +5034,7 @@
 				ORGANIZATIONNAME = Apportable;
 				TargetAttributes = {
 					B77F1B2D17B978D7009739AE = {
-						DevelopmentTeam = SBVP8ED765;
+						DevelopmentTeam = 9VUC3R8D65;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -5030,7 +5043,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "MGWUGameTemplate" */;
+			buildConfigurationList = B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "TurntableMaster" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -5077,7 +5090,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				B77F1B2D17B978D7009739AE /* MGWUGameTemplate */,
+				B77F1B2D17B978D7009739AE /* TurntableMaster */,
 			);
 		};
 /* End PBXProject section */
@@ -5300,6 +5313,7 @@
 				F35CCEEF1AD19B4C007DC39D /* Constant.m in Sources */,
 				F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */,
 				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
+				F33FDC541ADC2DA00074CF00 /* StageSelectionMenuItem.m in Sources */,
 				F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F30C60511A99B593005B977D /* BGMManager.m in Sources */,
@@ -5463,8 +5477,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -5485,7 +5499,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = MGWUGameTemplate;
+				PRODUCT_NAME = TurntableMaster;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -5497,8 +5511,9 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Lee Lin (3P469U978H)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -5517,7 +5532,7 @@
 					"-lsqlite3",
 					"-ObjC",
 				);
-				PRODUCT_NAME = MGWUGameTemplate;
+				PRODUCT_NAME = TurntableMaster;
 				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -5527,7 +5542,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "MGWUGameTemplate" */ = {
+		B77F1B2917B978D7009739AE /* Build configuration list for PBXProject "TurntableMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B77F1CDC17B978D8009739AE /* Debug */,
@@ -5536,7 +5551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "MGWUGameTemplate" */ = {
+		B77F1CDE17B978D8009739AE /* Build configuration list for PBXNativeTarget "TurntableMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B77F1CDF17B978D8009739AE /* Debug */,

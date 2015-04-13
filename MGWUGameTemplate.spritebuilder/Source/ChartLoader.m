@@ -28,21 +28,21 @@
         for(int i = 0; i <= 10; i++)
         {
             ChartObject* theObjSingle = [[ChartObject alloc]init];
-            theObjSingle.startingTime = 3;
+            theObjSingle.startingTime = 3+(i/2)*2;
             theObjSingle.objectType = 0;
-            theObjSingle.objectSubType = i;
+            theObjSingle.objectSubType = (i+1)%2;
             theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:8];
-            //[_theChart.objects addObject:theObjSingle];
+            [_theChart.objects addObject:theObjSingle];
             ChartObject* theObj = [[ChartObject alloc]init];
-            theObj.startingTime = 5+i*2;
+            theObj.startingTime = 5+(i%2)*2;
             theObj.objectType = 1;
-            theObj.objectSubType = 0;
+            theObj.objectSubType = i%2;
             theObj.objectPosition[@"LongNoteNodePosition1"] = [NSNumber numberWithInt: 1];
             theObj.objectPosition[@"LongNoteNodeTime1"] = [NSNumber numberWithDouble:0];
             theObj.objectPosition[@"LongNoteNodePosition2"] = [NSNumber numberWithInt: 1];
             theObj.objectPosition[@"LongNoteNodeTime2"] = [NSNumber numberWithDouble:1.0f];
             theObj.objectPosition[@"LongNoteTotalNodeCount"] = [NSNumber numberWithInt:2];
-            [_theChart.objects addObject:theObj];
+            //[_theChart.objects addObject:theObj];
         }
         return true;
     }
