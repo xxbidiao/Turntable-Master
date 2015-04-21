@@ -22,27 +22,29 @@
     _theChart = [[Chart alloc]init];
     if([filename  isEqual: @"test"])
     {
-        _theChart.chartInfo[@"Difficulty"]=@"1";
+        _theChart.chartInfo[@"Difficulty"]=@"10";
         _theChart.chartInfo[@"BGMFilename"]=@"test";
         _theChart.chartInfo[@"BGMExtension"]=@"mp3";
         for(int i = 0; i <= 10; i++)
         {
             ChartObject* theObjSingle = [[ChartObject alloc]init];
-            theObjSingle.startingTime = 3+(i/2)*2;
+            theObjSingle.startingTime = 3+(i/2)*4;
             theObjSingle.objectType = 0;
             theObjSingle.objectSubType = (i+1)%2;
-            theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:8];
-            [_theChart.objects addObject:theObjSingle];
+            theObjSingle.objectPosition[@"SingleNotePosition"] = [NSNumber numberWithInt:5];
+            //[_theChart.objects addObject:theObjSingle];
             ChartObject* theObj = [[ChartObject alloc]init];
-            theObj.startingTime = 5+(i%2)*2;
+            theObj.startingTime = 3.5+i*2;
             theObj.objectType = 1;
-            theObj.objectSubType = i%2;
+            theObj.objectSubType = (i%2);
             theObj.objectPosition[@"LongNoteNodePosition1"] = [NSNumber numberWithInt: 1];
             theObj.objectPosition[@"LongNoteNodeTime1"] = [NSNumber numberWithDouble:0];
             theObj.objectPosition[@"LongNoteNodePosition2"] = [NSNumber numberWithInt: 1];
-            theObj.objectPosition[@"LongNoteNodeTime2"] = [NSNumber numberWithDouble:1.0f];
-            theObj.objectPosition[@"LongNoteTotalNodeCount"] = [NSNumber numberWithInt:2];
-            //[_theChart.objects addObject:theObj];
+            theObj.objectPosition[@"LongNoteNodeTime2"] = [NSNumber numberWithDouble:0.5f];
+            theObj.objectPosition[@"LongNoteNodePosition3"] = [NSNumber numberWithInt: 1];
+            theObj.objectPosition[@"LongNoteNodeTime3"] = [NSNumber numberWithDouble:1.0f];
+            theObj.objectPosition[@"LongNoteTotalNodeCount"] = [NSNumber numberWithInt:3];
+            [_theChart.objects addObject:theObj];
         }
         return true;
     }

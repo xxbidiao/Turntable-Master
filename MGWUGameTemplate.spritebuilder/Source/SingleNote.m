@@ -7,12 +7,13 @@
 //
 
 #import "SingleNote.h"
+#import "Config.h"
 
 @implementation SingleNote
 
 -(id) init
 {
-    self.speedFactor = 0.1;
+    self.speedFactor = [Config getSpeedFactor];
     return self;
 }
 

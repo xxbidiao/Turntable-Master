@@ -8,12 +8,13 @@
 
 #import "LongNote.h"
 #import "Constant.h"
+#import "Config.h"
 
 @implementation LongNote
 
 -(id) init
 {
-    self.speedFactor = 0.1;
+    self.speedFactor =[Config getSpeedFactor];
     positionYStartingAt = Constant.kPositionYStartingAt;
     positionYDelta = Constant.kPositionYDelta;
     return self;

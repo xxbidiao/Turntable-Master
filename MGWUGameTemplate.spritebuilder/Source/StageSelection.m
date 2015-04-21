@@ -10,6 +10,8 @@
 #import "MainScene.h"
 #import "StageSelectionMenuItem.h"
 #import "ChartLoader.h"
+#import "CCTransition.h"
+#import "Config.h"
 
 
 @implementation StageSelection
@@ -25,6 +27,7 @@
 {
     selectedSong = name;
     selectedID = myID;
+    NSLog(selectedSong);
     _play.visible = true;
 }
 
@@ -33,10 +36,7 @@
     [super onEnter];
     ChartLoader* theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
-    [theCL saveChartToFile:@"test.tcf"];
-    [theCL loadChartFromFile:@"test.tcf"];
-    [theCL saveChartToFile:@"test2.tcf"];
-    [theCL loadChartFromFile:@"test2.tcf"];
+    [theCL saveChartToFile:@"test3.tcf"];
     NSLog(@"Listing files...");
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documents = [directories firstObject];
@@ -52,6 +52,7 @@
         [theCL loadChartFromFile:onlyTCFs[i]];
         //NSString* pathBGM = theCL.theChart.chartInfo[@"BGMFilename"];
         NSString* difficulty = theCL.theChart.chartInfo[@"Difficulty"];
+        if(difficulty == nil) difficulty = @"Unknown";
         [song setCaption:onlyTCFs[i] withMeta:difficulty];
         song.chartFile = onlyTCFs[i];
         song.itemID = i;
@@ -69,10 +70,11 @@
 
 -(void)playPressed
 {
+    [Config setSpeedFactor:1];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     MainScene *customObject = [[gameplayScene children] firstObject];
     customObject.chartName = selectedSong;
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
 }
 
 @end

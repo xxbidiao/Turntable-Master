@@ -21,7 +21,6 @@
 - (void) onEnter
 {
     [super onEnter];
-    NSLog(@"test");
     [self setCaption:theName withMeta:theMetadata];
     self.userInteractionEnabled = TRUE;
 }
@@ -34,7 +33,7 @@
 - (void) touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     NSLog(@"TOUCHENDED");
-    [_owner selectSong:1 withFile:@"test.tcf"];
+    [_owner selectSong:1 withFile:theName];
 }
 
 -(bool) setCaption:(NSString*) name withMeta: (NSString*) metadata

@@ -75,9 +75,9 @@
 
 }
 
-- (void) onEnter
+- (void) onEnterTransitionDidFinish
 {
-    [super onEnter];
+    [super onEnterTransitionDidFinish];
     NSLog(_chartName);
     [_testText setString:@"Loading..."];
     
@@ -154,6 +154,7 @@
     self.userInteractionEnabled = TRUE;
     [self setMultipleTouchEnabled:YES];
 }
+
 
 - (void) initializeStage
 {
