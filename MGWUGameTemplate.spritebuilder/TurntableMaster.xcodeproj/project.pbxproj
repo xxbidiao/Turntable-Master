@@ -43,6 +43,7 @@
 		F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F451A97E43D00C4C6E1 /* TitleScene.m */; };
 		F30C60511A99B593005B977D /* BGMManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C60501A99B593005B977D /* BGMManager.m */; };
 		F30C60541A99B933005B977D /* GBMusicTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C60531A99B933005B977D /* GBMusicTrack.m */; };
+		F33DC1261AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F33DC1251AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 */; };
 		F33FDC541ADC2DA00074CF00 /* StageSelectionMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F33FDC531ADC2DA00074CF00 /* StageSelectionMenuItem.m */; };
 		F34085191ABE8114009FE4AE /* noteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085181ABE8114009FE4AE /* noteBuilder.m */; };
 		F34085251ABE81DF009FE4AE /* note.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085241ABE81DF009FE4AE /* note.m */; };
@@ -52,6 +53,7 @@
 		F3AA4E1B1AD4954D0005F569 /* StageSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AA4E1A1AD4954D0005F569 /* StageSelection.m */; };
 		F3AF8EA31AC223BA00AED9F9 /* LongNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F3AF8EA21AC223BA00AED9F9 /* LongNote.m */; };
 		F3C5931F1AB8A44300864CEA /* holdedTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C5931E1AB8A44300864CEA /* holdedTouch.m */; };
+		F3CA91351AE05CEF0015F882 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = F3CA91341AE05CEF0015F882 /* Config.m */; };
 		F3E0E4A01AB234670010CD94 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E49F1AB234670010CD94 /* MainMenu.m */; };
 		F3E0E4AC1AB7495A0010CD94 /* Results.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E4AB1AB7495A0010CD94 /* Results.m */; };
 		F3E0E4AF1AB74A200010CD94 /* Judgment.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E0E4AE1AB74A200010CD94 /* Judgment.m */; };
@@ -1837,6 +1839,7 @@
 		F30C60501A99B593005B977D /* BGMManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BGMManager.m; path = Source/BGMManager.m; sourceTree = "<group>"; };
 		F30C60521A99B933005B977D /* GBMusicTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GBMusicTrack.h; path = Source/GBMusicTrack.h; sourceTree = "<group>"; };
 		F30C60531A99B933005B977D /* GBMusicTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GBMusicTrack.m; path = Source/GBMusicTrack.m; sourceTree = "<group>"; };
+		F33DC1251AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sweet_Dream_-_Lin-G.mp3"; sourceTree = "<group>"; };
 		F33FDC521ADC2DA00074CF00 /* StageSelectionMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StageSelectionMenuItem.h; path = Source/StageSelectionMenuItem.h; sourceTree = "<group>"; };
 		F33FDC531ADC2DA00074CF00 /* StageSelectionMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StageSelectionMenuItem.m; path = Source/StageSelectionMenuItem.m; sourceTree = "<group>"; };
 		F34085171ABE8114009FE4AE /* noteBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = noteBuilder.h; path = Source/noteBuilder.h; sourceTree = "<group>"; };
@@ -1854,6 +1857,8 @@
 		F3AF8EA21AC223BA00AED9F9 /* LongNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LongNote.m; path = Source/LongNote.m; sourceTree = "<group>"; };
 		F3C5931D1AB8A44300864CEA /* holdedTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = holdedTouch.h; path = Source/holdedTouch.h; sourceTree = "<group>"; };
 		F3C5931E1AB8A44300864CEA /* holdedTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = holdedTouch.m; path = Source/holdedTouch.m; sourceTree = "<group>"; };
+		F3CA91331AE05CEF0015F882 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		F3CA91341AE05CEF0015F882 /* Config.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Config.m; sourceTree = "<group>"; };
 		F3E0E49E1AB234670010CD94 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		F3E0E49F1AB234670010CD94 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		F3E0E4AA1AB7495A0010CD94 /* Results.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Results.h; path = Source/Results.h; sourceTree = "<group>"; };
@@ -1978,6 +1983,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F33DC1251AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 */,
 				F34C5ECB1A99C9DB005968CC /* test.mp3 */,
 				F34C5EBA1A99C95E005968CC /* Music */,
 				B73789911807667A0076A88C /* Icons */,
@@ -4981,6 +4987,8 @@
 				F3048F421A97E3F800C4C6E1 /* ChartLoader.m */,
 				F35CCEED1AD19B4C007DC39D /* Constant.h */,
 				F35CCEEE1AD19B4C007DC39D /* Constant.m */,
+				F3CA91331AE05CEF0015F882 /* Config.h */,
+				F3CA91341AE05CEF0015F882 /* Config.m */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -5271,6 +5279,7 @@
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
+				F33DC1261AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 			);
@@ -5319,6 +5328,7 @@
 				F30C60511A99B593005B977D /* BGMManager.m in Sources */,
 				F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */,
 				F3E0E4AC1AB7495A0010CD94 /* Results.m in Sources */,
+				F3CA91351AE05CEF0015F882 /* Config.m in Sources */,
 				F3C5931F1AB8A44300864CEA /* holdedTouch.m in Sources */,
 				F3E0E4A01AB234670010CD94 /* MainMenu.m in Sources */,
 			);

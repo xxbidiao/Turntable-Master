@@ -35,6 +35,8 @@
     CCNode* _leftTurntable;
     CCNode* _rightTurntable;
     CCSprite* _judgmentPicture;
+    CCSprite* _judgmentPanelLeft;
+    CCSprite* _judgmentPanelRight;
     
     CCClippingNode* rightMask;
     CCClippingNode* leftMask;
@@ -62,6 +64,8 @@
     float currentYLocationL,currentYLocationR;
     bool longNoteEnabledL,longNoteEnabledR;
     float longNoteTimeL,longNoteTimeR;
+    
+    
     
     //test
     SingleNote* noteNode;
@@ -431,10 +435,14 @@
         if (CGRectContainsPoint([_leftTurntable boundingBox], touchLocation))
         {
             currentYLocationL = touchYLocationRelative;
+            CGFloat posX = [_judgmentPanelLeft position].x;
+            [_judgmentPanelLeft setPosition:CGPointMake(posX, touchYLocationNormalized)];
         }
         if (CGRectContainsPoint([_rightTurntable boundingBox],touchLocation))
         {
             currentYLocationR = touchYLocationRelative;
+            CGFloat posX = [_judgmentPanelRight position].x;
+            [_judgmentPanelRight setPosition:CGPointMake(posX, touchYLocationNormalized)];
         }
     }
 
@@ -607,6 +615,7 @@ float lastLongNoteJudgmentTime;
                 if(theNote.note == obj)
                 {
                     [objectOnScreen removeObject:theNote];
+                    [self playSingleNoteHitAnimation];
                     [self removeNoteSprite:theNote];
                     [self displayJudgment:bestJudgment];
                     [self refreshScoreList:bestJudgment];
@@ -619,6 +628,14 @@ float lastLongNoteJudgmentTime;
         return false;
     }
     //return false;
+}
+
+- (void) playSingleNoteHitAnimation
+{
+    // the animation manager of each node is stored in the 'animationManager' property
+    CCAnimationManager* animationManager = self.animationManager;
+    // timelines can be referenced and run by name
+    [animationManager runAnimationsForSequenceNamed:@"JudgmentLineHit"];
 }
 
 - (void) displayJudgment:(int) type

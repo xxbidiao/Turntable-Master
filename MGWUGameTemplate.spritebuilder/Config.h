@@ -10,4 +10,8 @@
 
 @interface Config : NSObject
 
++(double)getSpeedFactor;
+
++(void)setSpeedFactor:(double)value;
+
 @end

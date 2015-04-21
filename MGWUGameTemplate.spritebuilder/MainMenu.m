@@ -7,6 +7,7 @@
 //
 
 #import "MainMenu.h"
+#import "CCTransition.h"
 
 @implementation MainMenu
 
@@ -14,7 +15,7 @@
 {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"StageSelection"];
     //CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
 }
 
 @end

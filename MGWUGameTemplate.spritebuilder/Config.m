@@ -10,4 +10,16 @@
 
 @implementation Config
 
+double speedFactor;
+
++(double)getSpeedFactor
+{
+    return speedFactor;
+}
+
++(void)setSpeedFactor:(double)value
+{
+    speedFactor = value;
+}
+
 @end
