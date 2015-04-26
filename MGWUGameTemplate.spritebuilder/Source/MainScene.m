@@ -2,7 +2,7 @@
 //  MainScene.m
 //  PROJECTNAME
 //
-//  Created by Viktor on 10/10/13.
+//  Created by Zhiyu Lin on 10/10/13.
 //  Copyright (c) 2013 Apportable. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 #import "holdedTouch.h"
 #import "noteBuilder.h"
 #import "Constant.h"
+#import "HPBar.h"
 
 @interface MainScene()
 
@@ -37,6 +38,8 @@
     CCSprite* _judgmentPicture;
     CCSprite* _judgmentPanelLeft;
     CCSprite* _judgmentPanelRight;
+    
+    CCNode* _HPBarNode;
     
     CCClippingNode* rightMask;
     CCClippingNode* leftMask;
@@ -64,6 +67,8 @@
     float currentYLocationL,currentYLocationR;
     bool longNoteEnabledL,longNoteEnabledR;
     float longNoteTimeL,longNoteTimeR;
+    
+    HPBar *theHPBar;
     
     //combo number.
     int combo;
@@ -140,6 +145,15 @@
     [rightMask setAlphaThreshold:0.0];
     [rightMask setInverted:NO];
     [self addChild:rightMask];
+    
+    CCScene* HPBarScene = [CCBReader loadAsScene:@"HPBar"];
+    theHPBar = [[HPBar alloc]initWithSprite: HPBarScene.children[0]];
+    theHPBar.positionType = CCPositionTypeNormalized;
+    theHPBar.position = CGPointMake(0,0);
+    [_HPBarNode addChild:theHPBar];
+    
+    
+    
     minimumValueToTriggerSP = 20;
     count = 0;
     totalTime = 0;
@@ -191,7 +205,8 @@
     NSString *test1 = [NSString stringWithFormat:@"%.2f %f %lu", count/totalTime, [theBGMManager getPlaybackTime],(unsigned long)[objectOnScreen count]];
     double bgmLocation = [theBGMManager getPlaybackTime];
     NSString *hitpointTest = [NSString stringWithFormat:@"HP:%f/%f",theStage.hitpoint,theStage.hitpointMax];
-    [_testText setString:hitpointTest];
+    [theHPBar setPercentage:100.0f*theStage.hitpoint/theStage.hitpointMax];
+    //[_testText setString:hitpointTest];
     if(count >= 100)
     {
         count /= 4;

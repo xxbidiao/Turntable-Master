@@ -42,6 +42,7 @@
 		F30394161AE861B600BFD3FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394101AE861B600BFD3FF /* SystemConfiguration.framework */; };
 		F30394171AE861B600BFD3FF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394111AE861B600BFD3FF /* libc++.dylib */; };
 		F30394181AE861B600BFD3FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394121AE861B600BFD3FF /* libz.dylib */; };
+		F303AC941AED68E000F6727D /* HPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F303AC931AED68E000F6727D /* HPBar.m */; };
 		F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F381A97E23A00C4C6E1 /* Stage.m */; };
 		F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3B1A97E29E00C4C6E1 /* Chart.m */; };
 		F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */; };
@@ -276,6 +277,8 @@
 		F30394101AE861B600BFD3FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F30394111AE861B600BFD3FF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		F30394121AE861B600BFD3FF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		F303AC921AED68E000F6727D /* HPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HPBar.h; path = Source/HPBar.h; sourceTree = "<group>"; };
+		F303AC931AED68E000F6727D /* HPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPBar.m; path = Source/HPBar.m; sourceTree = "<group>"; };
 		F3048F371A97E23A00C4C6E1 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Source/Stage.h; sourceTree = "<group>"; };
 		F3048F381A97E23A00C4C6E1 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Source/Stage.m; sourceTree = "<group>"; };
 		F3048F3A1A97E29E00C4C6E1 /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Source/Chart.h; sourceTree = "<group>"; };
@@ -2039,6 +2042,8 @@
 				F34085241ABE81DF009FE4AE /* note.m */,
 				F3AF8EA11AC223BA00AED9F9 /* LongNote.h */,
 				F3AF8EA21AC223BA00AED9F9 /* LongNote.m */,
+				F303AC921AED68E000F6727D /* HPBar.h */,
+				F303AC931AED68E000F6727D /* HPBar.m */,
 			);
 			name = MainSceneElements;
 			sourceTree = "<group>";
@@ -5362,6 +5367,7 @@
 				F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */,
 				F33FDC541ADC2DA00074CF00 /* StageSelectionMenuItem.m in Sources */,
 				F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */,
+				F303AC941AED68E000F6727D /* HPBar.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F30C60511A99B593005B977D /* BGMManager.m in Sources */,
 				F3048F461A97E43D00C4C6E1 /* TitleScene.m in Sources */,
