@@ -65,7 +65,7 @@
 -(void) backButtonPressed
 {
     CCScene *mainMenuScene = [CCBReader loadAsScene:@"MainMenu"];
-    [[CCDirector sharedDirector] replaceScene:mainMenuScene];
+    [[CCDirector sharedDirector] replaceScene:mainMenuScene withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
 }
 
 @end

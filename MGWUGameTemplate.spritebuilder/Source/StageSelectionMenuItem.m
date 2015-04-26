@@ -27,6 +27,7 @@
 
 - (void) touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+    
     NSLog(@"touchbegan");
 }
 
@@ -34,6 +35,10 @@
 {
     NSLog(@"TOUCHENDED");
     [_owner selectSong:1 withFile:theName];
+    // the animation manager of each node is stored in the 'animationManager' property
+    CCAnimationManager* animationManager = self.animationManager;
+    // timelines can be referenced and run by name
+    [animationManager runAnimationsForSequenceNamed:@"Select"];
 }
 
 -(bool) setCaption:(NSString*) name withMeta: (NSString*) metadata

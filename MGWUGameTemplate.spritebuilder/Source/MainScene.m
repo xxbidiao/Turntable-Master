@@ -172,7 +172,7 @@
     [theBGMManager initializeBGM:theStage.parameters[@"BGMpath"]];
     [theBGMManager playBGM];
     objectOnScreen = [[NSMutableArray alloc]init];
-    [_testText setString:@"Loaded!"];
+    [_testText setString:@"0"];
     self.userInteractionEnabled = TRUE;
     [self setMultipleTouchEnabled:YES];
 }
@@ -297,6 +297,10 @@
     [self addChild:thisTouch.effect];
     [thisTouch generateHash];
     [holdedTouches addObject:thisTouch];
+    
+    //do a single note judgment at touch began
+    [self triggerOperation:touchLocation withType:0];
+    
     //long note part
     [self triggerOperation:touchLocation withType:1];
 }
@@ -705,6 +709,8 @@ float lastLongNoteJudgmentTime;
         theStage.hitpoint -= [theJudgment.judgmentHitPoint[type] floatValue];
         if(theStage.hitpoint > theStage.hitpointMax) theStage.hitpoint=theStage.hitpointMax;
         if(theStage.hitpoint < 0) theStage.hitpoint = 0;
+        int score = [self getJudgmentCount:3]*2+[self getJudgmentCount:2];
+        [_testText setString: [NSString stringWithFormat:@"%d",score]];
     }
 }
 
@@ -737,7 +743,7 @@ float lastLongNoteJudgmentTime;
     customObject.theJudgment = theJudgment;
     customObject.theStage = theStage;
     
-    [[CCDirector sharedDirector] replaceScene:resultScene];
+    [[CCDirector sharedDirector] replaceScene:resultScene withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
 }
 @end
 

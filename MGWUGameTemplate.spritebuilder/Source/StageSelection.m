@@ -70,7 +70,7 @@
 
 -(void)playPressed
 {
-    [Config setSpeedFactor:1];
+    [Config setSpeedFactor:0.3];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     MainScene *customObject = [[gameplayScene children] firstObject];
     customObject.chartName = selectedSong;
