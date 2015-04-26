@@ -16,5 +16,7 @@
 
 @property float judgmentMaxHPFactor;
 
++(bool) breaksCombo:(int)type;
+
 
 @end

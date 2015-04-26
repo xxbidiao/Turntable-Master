@@ -48,6 +48,20 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>626187ec964681cbeee03174520dba5c86f09c91</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIPrerenderedIcon</key>

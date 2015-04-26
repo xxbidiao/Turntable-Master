@@ -65,6 +65,9 @@
     bool longNoteEnabledL,longNoteEnabledR;
     float longNoteTimeL,longNoteTimeR;
     
+    //combo number.
+    int combo;
+    
     
     
     //test
@@ -76,7 +79,8 @@
 #pragma mark initialization
 -(void) didLoadFromCCB
 {
-
+    //initialization
+    combo = 0;
 }
 
 - (void) onEnterTransitionDidFinish
@@ -251,6 +255,9 @@
     }
     
     lastLongNoteJudgmentTime = bgmLocation;
+    
+    //refresh the combo counter
+      [_testText2 setString:[NSString stringWithFormat:@"%d",combo]];
     
     if([theBGMManager isFinished])
     {
@@ -641,8 +648,7 @@ float lastLongNoteJudgmentTime;
 - (void) displayJudgment:(int) type
 {
     NSString* judgment = [judgmentNames objectAtIndex:type];
-    NSLog(judgment);
-    [_testText2 setString:judgment];
+  
     
     CCTexture* tex = [CCTexture textureWithFile:[NSString stringWithFormat:@"Resources/judgment/judgment-%@.png",judgment]];
     
@@ -658,6 +664,14 @@ float lastLongNoteJudgmentTime;
 {
     if(type >= 0)
     {
+        if([Judgment breaksCombo:type])
+        {
+            combo = 0;
+        }
+        else
+        {
+            combo++;
+        }
         NSString *judgmentName = @"judgment";
         NSString *judgmentName2 = [[NSNumber numberWithInt:type] stringValue];
         NSString *coordinates = [NSString stringWithFormat:@"%@,%@", judgmentName, judgmentName2];

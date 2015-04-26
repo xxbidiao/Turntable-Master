@@ -43,4 +43,10 @@
     return self;
 }
 
++(bool) breaksCombo:(int)type
+{
+    if(type == 0) return true;
+    else return false;
+}
+
 @end

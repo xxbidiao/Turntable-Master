@@ -14,6 +14,7 @@
 -(void)playPressed
 {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"StageSelection"];
+    NSLog(@"Hello world from Turntable Master!");
     //CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
 }

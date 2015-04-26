@@ -36,6 +36,12 @@
 		B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3D17B978D7009739AE /* Foundation.framework */; };
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
+		F30394131AE861B600BFD3FF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F303940D1AE861B600BFD3FF /* Crashlytics.framework */; };
+		F30394141AE861B600BFD3FF /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F303940E1AE861B600BFD3FF /* Fabric.framework */; };
+		F30394151AE861B600BFD3FF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F303940F1AE861B600BFD3FF /* Security.framework */; };
+		F30394161AE861B600BFD3FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394101AE861B600BFD3FF /* SystemConfiguration.framework */; };
+		F30394171AE861B600BFD3FF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394111AE861B600BFD3FF /* libc++.dylib */; };
+		F30394181AE861B600BFD3FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394121AE861B600BFD3FF /* libz.dylib */; };
 		F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F381A97E23A00C4C6E1 /* Stage.m */; };
 		F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3B1A97E29E00C4C6E1 /* Chart.m */; };
 		F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */; };
@@ -264,6 +270,12 @@
 		B77F1B3D17B978D7009739AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B77F1B3F17B978D7009739AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		F303940D1AE861B600BFD3FF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		F303940E1AE861B600BFD3FF /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		F303940F1AE861B600BFD3FF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F30394101AE861B600BFD3FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F30394111AE861B600BFD3FF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		F30394121AE861B600BFD3FF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F3048F371A97E23A00C4C6E1 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Source/Stage.h; sourceTree = "<group>"; };
 		F3048F381A97E23A00C4C6E1 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Source/Stage.m; sourceTree = "<group>"; };
 		F3048F3A1A97E29E00C4C6E1 /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Source/Chart.h; sourceTree = "<group>"; };
@@ -1873,15 +1885,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
+				F30394161AE861B600BFD3FF /* SystemConfiguration.framework in Frameworks */,
 				B737898A1807642B0076A88C /* libcocos2d.a in Frameworks */,
+				F30394181AE861B600BFD3FF /* libz.dylib in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
 				B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */,
+				F30394151AE861B600BFD3FF /* Security.framework in Frameworks */,
 				B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */,
 				B77F1B3817B978D7009739AE /* AudioToolbox.framework in Frameworks */,
 				B77F1B3A17B978D7009739AE /* AVFoundation.framework in Frameworks */,
 				B77F1B3C17B978D7009739AE /* UIKit.framework in Frameworks */,
+				F30394141AE861B600BFD3FF /* Fabric.framework in Frameworks */,
 				B77F1B3E17B978D7009739AE /* Foundation.framework in Frameworks */,
 				B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */,
+				F30394131AE861B600BFD3FF /* Crashlytics.framework in Frameworks */,
+				F30394171AE861B600BFD3FF /* libc++.dylib in Frameworks */,
 				B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1906,6 +1924,12 @@
 				F3181EA91A951F2C004B0887 /* core */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
+				F303940D1AE861B600BFD3FF /* Crashlytics.framework */,
+				F303940E1AE861B600BFD3FF /* Fabric.framework */,
+				F303940F1AE861B600BFD3FF /* Security.framework */,
+				F30394101AE861B600BFD3FF /* SystemConfiguration.framework */,
+				F30394111AE861B600BFD3FF /* libc++.dylib */,
+				F30394121AE861B600BFD3FF /* libz.dylib */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -5020,6 +5044,7 @@
 				B77F1B2A17B978D7009739AE /* Sources */,
 				B77F1B2B17B978D7009739AE /* Frameworks */,
 				B77F1B2C17B978D7009739AE /* Resources */,
+				F30394031AE8613A00BFD3FF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -5302,6 +5327,19 @@
 			shellPath = /bin/sh;
 			shellScript = "# osascript -e 'tell application \"System Events\"' -e 'set ProcessList to name of every process' -e 'if \"SpriteBuilder\" is in ProcessList then' -e 'tell application \"SpriteBuilder\" to publish' -e 'end if' -e 'end tell'";
 		};
+		F30394031AE8613A00BFD3FF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#./Fabric.framework/run 626187ec964681cbeee03174520dba5c86f09c91 90f559bf62e8928d482b77930f566f892956e88016852daea9e65e32b3d7b53f";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -5490,6 +5528,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
@@ -5525,6 +5567,10 @@
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Lee Lin (3P469U978H)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Source/Prefix.pch;
 				HEADER_SEARCH_PATHS = (
