@@ -10,6 +10,19 @@
 
 @implementation HPBar
 
+
+
+-(void)onEnter
+{
+    [super onEnter];
+    self.type=CCProgressNodeTypeBar;
+    self.midpoint = CGPointMake(0,0);
+    self.barChangeRate = CGPointMake(1,0);
+    self.scaleX = 3;
+    self.scaleY = 0.3;
+    NSLog(@"SET");
+}
+
 -(void)setPercentage:(float)percentage
 {
     [super setPercentage:percentage];

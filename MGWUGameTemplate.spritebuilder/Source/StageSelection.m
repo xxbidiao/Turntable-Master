@@ -25,15 +25,25 @@
 
 - (void) selectSong:(int) myID withFile:(NSString*) name
 {
-    selectedSong = name;
-    selectedID = myID;
-    NSLog(selectedSong);
-    _play.visible = true;
+    if(selectedSong == name)
+    {
+        [self playPressed];
+    }
+    else
+    {
+        selectedSong = name;
+        selectedID = myID;
+        //NSLog(selectedSong);
+        _play.visible = true;
+    }
+
+    
 }
 
 - (void) onEnter
 {
     [super onEnter];
+    selectedSong=@" ---";
     ChartLoader* theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
     [theCL saveChartToFile:@"test3.tcf"];

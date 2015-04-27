@@ -690,6 +690,9 @@ float lastLongNoteJudgmentTime;
         else
         {
             combo++;
+            CCAnimationManager* animationManager = self.animationManager;
+            // timelines can be referenced and run by name
+            [animationManager runAnimationsForSequenceNamed:@"ScoreChanged"];
         }
         NSString *judgmentName = @"judgment";
         NSString *judgmentName2 = [[NSNumber numberWithInt:type] stringValue];
@@ -710,6 +713,7 @@ float lastLongNoteJudgmentTime;
         if(theStage.hitpoint > theStage.hitpointMax) theStage.hitpoint=theStage.hitpointMax;
         if(theStage.hitpoint < 0) theStage.hitpoint = 0;
         int score = [self getJudgmentCount:3]*2+[self getJudgmentCount:2];
+        
         [_testText setString: [NSString stringWithFormat:@"%d",score]];
     }
 }
