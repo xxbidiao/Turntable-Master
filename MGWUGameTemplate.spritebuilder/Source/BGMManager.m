@@ -41,6 +41,12 @@
     return true;
 }
 
+-(BOOL) stopBGM
+{
+    [gb close];
+    return true;
+}
+
 -(double) getPlaybackTime
 {
     return [gb getPlaybackLocation];

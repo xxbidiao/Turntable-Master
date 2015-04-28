@@ -262,7 +262,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Play</string>
+							<string>Start DJing!</string>
 							<false/>
 						</array>
 					</dict>
@@ -282,7 +282,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Resources/Gems_01_256x256_013.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -293,7 +293,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>Resources/Gems_01_256x256_013.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -353,7 +353,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Helvetica</string>
+						<string>Courier-Oblique</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -362,7 +362,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>17</real>
+							<real>40</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -480,8 +480,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -590,6 +588,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>seqExpanded</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

@@ -17,4 +17,7 @@
 
 -(BOOL) saveChartToFile:(NSString*) filename;
 
+//for easy parsing
+-(NSString*) getBGMpath;
+
 @end

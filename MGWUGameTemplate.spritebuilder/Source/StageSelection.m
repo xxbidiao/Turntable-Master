@@ -12,6 +12,8 @@
 #import "ChartLoader.h"
 #import "CCTransition.h"
 #import "Config.h"
+#import "ChartLoader.h"
+#import "BGMManager.h"
 
 
 @implementation StageSelection
@@ -19,14 +21,22 @@
     CCScrollView* _songSelectionContainer;
     CCButton* _play;
     
+    CCLayoutBox* _information;
+    CCLabelTTF* _songNameLabel;
+    CCLabelTTF* _songMetadataLabel;
+    CCNode* _informationOuterNode;
+    
     NSString* selectedSong;
     int selectedID;
+    
+    BGMManager* theBGMManager;
 }
 
 - (void) selectSong:(int) myID withFile:(NSString*) name
 {
     if(selectedSong == name)
     {
+        [theBGMManager stopBGM];
         [self playPressed];
     }
     else
@@ -35,6 +45,22 @@
         selectedID = myID;
         //NSLog(selectedSong);
         _play.visible = true;
+        [_songMetadataLabel setString:name];
+        [_songNameLabel setString:@"Touch again to play!"];
+        
+        ChartLoader* theCL = [[ChartLoader alloc]init];
+        [theCL loadChartFromFile:name];
+        NSString* path = [theCL getBGMpath];
+        [theBGMManager stopBGM];
+        [theBGMManager initializeBGM:path];
+        [theBGMManager playBGM];
+        
+                              
+                        
+        
+
+
+        
     }
 
     
@@ -43,6 +69,13 @@
 - (void) onEnter
 {
     [super onEnter];
+    
+    theBGMManager = [[BGMManager alloc ]init];
+
+    
+    //set the information layout parameters
+    
+    
     selectedSong=@" ---";
     ChartLoader* theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];

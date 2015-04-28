@@ -18,6 +18,8 @@
 
 -(BOOL) pauseBGM;
 
+-(BOOL) stopBGM;
+
 -(double) getPlaybackTime;
 
 -(BOOL) isFinished;

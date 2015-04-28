@@ -115,4 +115,14 @@
     return true;
 }
 
+-(NSString*) getBGMpath
+{
+    NSString* pathFN = _theChart.chartInfo[@"BGMFilename"];
+    NSString* pathExt = _theChart.chartInfo[@"BGMExtension"];
+    NSString* path;
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    path = [mainBundle pathForResource: pathFN ofType: pathExt];
+    return path;
+}
+
 @end

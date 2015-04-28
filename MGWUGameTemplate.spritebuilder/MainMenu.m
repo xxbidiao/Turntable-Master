@@ -11,6 +11,12 @@
 
 @implementation MainMenu
 
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    
+    [self playPressed];
+}
+
 -(void)playPressed
 {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"StageSelection"];
