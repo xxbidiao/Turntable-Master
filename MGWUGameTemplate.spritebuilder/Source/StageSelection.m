@@ -79,7 +79,7 @@
     selectedSong=@" ---";
     ChartLoader* theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
-    [theCL saveChartToFile:@"testsamesong.tcf"];
+    [theCL saveChartToFile:@"testsamesongmore.tcf"];
     NSLog(@"Listing files...");
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documents = [directories firstObject];

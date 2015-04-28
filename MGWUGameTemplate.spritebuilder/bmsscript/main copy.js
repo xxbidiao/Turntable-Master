@@ -69,68 +69,34 @@ var debug = 1;
 
 allEvents.sort(function(a,b){return (a.measure+a.position-b.measure-b.position)});
 
-  var tempLongEvents = [];
+  var tempLongEvents = {};
 
 for(var i = realObjectsStartingAt; i < allEvents.length; i++)
 {
-  var thisOneStillNeedConsideration = 0; //false
+  var singleObject = {};
+  singleObject.objectType = 0;
+  singleObject.objectSubType = Math.floor(Math.random() * (2));;
+  singleObject.objectPosition={};
+  singleObject.objectPosition["SingleNotePosition"]=Math.floor(Math.random() * (8));;
   var time = measureSize * (allEvents[i].measure+allEvents[i].position)- offset;
-  if(time-lastTime < 0.01)
+  if(time-lastTime<0.01)
   {
-    //simply skip this one
+    //ignore for now
     objectSkipped++;
   }
-  else if(time-lastTime < measureSize / 7.999)
-  {
-    //add this note into the queue
-    tempLongEvents.push(allEvents[i]);
-  }
+
   else
   {
-    //finish this note
-    var count = tempLongEvents.length;
-    if(count == 1)
-    {
-      var theTime = measureSize * (tempLongEvents[0].measure+tempLongEvents[0].position)- offset;
-      var singleObject = {};
-      singleObject.objectType = 0;
-      singleObject.objectSubType = Math.floor(Math.random() * (2));;
-      singleObject.objectPosition={};
-      singleObject.objectPosition["SingleNotePosition"]=Math.floor(Math.random() * (8));;
-      singleObject.startingTime=theTime;
-      objects.push(singleObject);
-      objectCreated++;    
-    }
-    else
-    {
-      var firstTime = measureSize * (tempLongEvents[0].measure+tempLongEvents[0].position)- offset;
-      var longObject = {};
-      longObject.objectType = 1;
-      longObject.objectSubType = Math.floor(Math.random() * (2));
-      longObject.objectPosition={};
-      longObject.objectPosition["LongNoteTotalNodeCount"]=count;
-      var ii;
-      for(ii = 0; ii < count; ii++)
-      {
-        var thisNoteTime = measureSize*(tempLongEvents[ii].measure+tempLongEvents[ii].position)- offset;
-        var deltaTime = thisNoteTime - firstTime;
-        var labelNumber = ii+1;
-        var possiblePosition = (tempLongEvents[ii].channel-10)%8;
-        longObject.objectPosition["LongNoteNodePosition"+labelNumber] = Math.floor(Math.random() * (5));
-        longObject.objectPosition["LongNoteNodeTime"+labelNumber] = deltaTime;
-      }
-      longObject.startingTime=firstTime;
-      objects.push(longObject);
-      objectCreated++;    
+    //finish the long note
 
-    }
-    //current one starts a new note
-    tempLongEvents = [];
-    tempLongEvents.push(allEvents[i]);
-
+    //do this single note thing
+    singleObject.startingTime=time;
+    objects.push(singleObject);
+    objectCreated++;     
   }
+   
 
-
+  //console.log("object at time:"+time);
   lastTime = time;
 }
 console.log("[Log]"+objectCreated+" Objects created, "+objectSkipped+" Objects skipped");
