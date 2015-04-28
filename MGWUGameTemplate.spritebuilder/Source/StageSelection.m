@@ -36,7 +36,7 @@
 {
     if(selectedSong == name)
     {
-        [theBGMManager stopBGM];
+
         [self playPressed];
     }
     else
@@ -79,7 +79,7 @@
     selectedSong=@" ---";
     ChartLoader* theCL = [[ChartLoader alloc]init];
     [theCL loadChartFromFile:@"test"];
-    [theCL saveChartToFile:@"test3.tcf"];
+    [theCL saveChartToFile:@"testsamesong.tcf"];
     NSLog(@"Listing files...");
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documents = [directories firstObject];
@@ -113,6 +113,7 @@
 
 -(void)playPressed
 {
+            [theBGMManager stopBGM];
     [Config setSpeedFactor:0.3];
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     MainScene *customObject = [[gameplayScene children] firstObject];
