@@ -23,7 +23,7 @@
     if([filename  isEqual: @"test"])
     {
         _theChart.chartInfo[@"Difficulty"]=@"5";
-        _theChart.chartInfo[@"BGMFilename"]=@"Sweet_Dream_-_Lin-G";
+        _theChart.chartInfo[@"BGMFilename"]=@"test";
         _theChart.chartInfo[@"BGMExtension"]=@"mp3";
         for(int i = 0; i <= 10; i++)
         {

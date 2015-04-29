@@ -43,6 +43,7 @@
 		F30394171AE861B600BFD3FF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394111AE861B600BFD3FF /* libc++.dylib */; };
 		F30394181AE861B600BFD3FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394121AE861B600BFD3FF /* libz.dylib */; };
 		F303AC941AED68E000F6727D /* HPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F303AC931AED68E000F6727D /* HPBar.m */; };
+		F303AC971AF05C8A00F6727D /* SongSplash.m in Sources */ = {isa = PBXBuildFile; fileRef = F303AC961AF05C8A00F6727D /* SongSplash.m */; };
 		F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F381A97E23A00C4C6E1 /* Stage.m */; };
 		F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3B1A97E29E00C4C6E1 /* Chart.m */; };
 		F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */; };
@@ -279,6 +280,8 @@
 		F30394121AE861B600BFD3FF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F303AC921AED68E000F6727D /* HPBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HPBar.h; path = Source/HPBar.h; sourceTree = "<group>"; };
 		F303AC931AED68E000F6727D /* HPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPBar.m; path = Source/HPBar.m; sourceTree = "<group>"; };
+		F303AC951AF05C8A00F6727D /* SongSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongSplash.h; path = Source/SongSplash.h; sourceTree = "<group>"; };
+		F303AC961AF05C8A00F6727D /* SongSplash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongSplash.m; path = Source/SongSplash.m; sourceTree = "<group>"; };
 		F3048F371A97E23A00C4C6E1 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Source/Stage.h; sourceTree = "<group>"; };
 		F3048F381A97E23A00C4C6E1 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Source/Stage.m; sourceTree = "<group>"; };
 		F3048F3A1A97E29E00C4C6E1 /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Source/Chart.h; sourceTree = "<group>"; };
@@ -5005,6 +5008,8 @@
 				F3048F451A97E43D00C4C6E1 /* TitleScene.m */,
 				F3AA4E191AD4954D0005F569 /* StageSelection.h */,
 				F3AA4E1A1AD4954D0005F569 /* StageSelection.m */,
+				F303AC951AF05C8A00F6727D /* SongSplash.h */,
+				F303AC961AF05C8A00F6727D /* SongSplash.m */,
 			);
 			name = graphic;
 			sourceTree = "<group>";
@@ -5353,6 +5358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */,
+				F303AC971AF05C8A00F6727D /* SongSplash.m in Sources */,
 				F3048F431A97E3F800C4C6E1 /* ChartLoader.m in Sources */,
 				F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,

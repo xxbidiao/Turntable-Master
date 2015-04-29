@@ -14,6 +14,7 @@
 #import "Config.h"
 #import "ChartLoader.h"
 #import "BGMManager.h"
+#import "SongSplash.h"
 
 
 @implementation StageSelection
@@ -113,10 +114,10 @@
 
 -(void)playPressed
 {
-            [theBGMManager stopBGM];
+    [theBGMManager stopBGM];
     [Config setSpeedFactor:0.3];
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-    MainScene *customObject = [[gameplayScene children] firstObject];
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"SongSplash"];
+    SongSplash *customObject = [[gameplayScene children] firstObject];
     customObject.chartName = selectedSong;
     [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionCrossFadeWithDuration:0.5f]];
 }
