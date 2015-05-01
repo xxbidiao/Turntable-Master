@@ -23,8 +23,6 @@
 
 @interface MainScene()
 
-//- (void) operation:(int) zoneID touchLocation:(CGPoint) thePoint;
-
 
 @end
 
@@ -69,6 +67,10 @@
     float longNoteTimeL,longNoteTimeR;
     
     HPBar *theHPBar;
+    CCParticleSystem* longNoteHitEffectL;
+    CCParticleSystem* longNoteHitEffectR;
+    
+    
     
     //combo number.
     int combo;
@@ -151,6 +153,17 @@
     theHPBar.positionType = CCPositionTypeNormalized;
     theHPBar.position = CGPointMake(0,0);
     [_HPBarNode addChild:theHPBar];
+    
+    longNoteHitEffectL = (CCParticleSystem *)[CCBReader load:@"Effects/holdJudgmentLineEffect"];
+    longNoteHitEffectL.position = _judgmentPanelLeft.position;
+    longNoteHitEffectL.positionType = _judgmentPanelLeft.positionType;
+    longNoteHitEffectL.angle = longNoteHitEffectL.angle+180;
+    [self addChild:longNoteHitEffectL];
+    longNoteHitEffectR = (CCParticleSystem *)[CCBReader load:@"Effects/holdJudgmentLineEffect"];
+    longNoteHitEffectR.position = _judgmentPanelRight.position;
+    longNoteHitEffectR.positionType = _judgmentPanelRight.positionType;
+    [self addChild:longNoteHitEffectR];
+    
     
     
     
@@ -247,18 +260,14 @@
     
     
     bool doJudgmentReturnVal= true;
-
-    /*
-    while (doJudgmentReturnVal) {
-        if([objectOnScreen count] == 0)
-        {
-            doJudgmentReturnVal = false;
-            break;
-        }
-        note* theNote = [objectOnScreen objectAtIndex:0];
-        doJudgmentReturnVal = [self doJudgment:bgmLocation withObject:theNote.note onlyTooLate:true];
-    }
-     */
+    
+    //change long note hold effect location
+    longNoteHitEffectL.position = _judgmentPanelLeft.position;
+    longNoteHitEffectL.positionType = _judgmentPanelLeft.positionType;
+    longNoteHitEffectL.visible = false;
+    longNoteHitEffectR.position = _judgmentPanelRight.position;
+    longNoteHitEffectR.positionType = _judgmentPanelRight.positionType;
+    longNoteHitEffectR.visible = false;
     
     
     
@@ -536,7 +545,15 @@ float lastLongNoteJudgmentTime;
                         timeStart = obj.startingTime;
                     }
                     longNoteTimeL += timeEnd-timeStart;
+                    
+                    //set effect to visible
+                    if(!longNoteHitEffectL.visible)
+                    longNoteHitEffectL.visible = true;
 
+                }
+                else
+                {
+                    longNoteHitEffectL.visible = false;
                 }
             }
             NSLog(@"LongNoteTimeL = %f",longNoteTimeL);
@@ -561,7 +578,13 @@ float lastLongNoteJudgmentTime;
                         timeStart = obj.startingTime;
                     }
                     longNoteTimeR += timeEnd-timeStart;
-                    
+                    //set effect to visible
+                    if(!longNoteHitEffectR.visible)
+                        longNoteHitEffectR.visible = true;
+                }
+                else
+                {
+                    longNoteHitEffectR.visible = false;
                 }
             }
 
@@ -593,16 +616,18 @@ float lastLongNoteJudgmentTime;
                         {
                             thisNoteTime = longNoteTimeL;
                             longNoteTimeL = 0;
+                            longNoteHitEffectL.visible = false;
                         }
                         else if(obj.objectSubType == trackRight)
                         {
                             thisNoteTime = longNoteTimeR;
                             longNoteTimeR = 0;
+                            longNoteHitEffectR.visible = false;
                         }
                         
                         float rate = thisNoteTime / [obj length];
                         int judgment;
-                        if(rate>0.99) judgment = 3;
+                        if(rate>0.90) judgment = 3;
                         else if(rate>0.5) judgment = 2;
                         else if(rate>0.01) judgment = 1;
                         else judgment = 0;
@@ -641,7 +666,7 @@ float lastLongNoteJudgmentTime;
                 if(theNote.note == obj)
                 {
                     [objectOnScreen removeObject:theNote];
-                    [self playSingleNoteHitAnimation];
+                    [self playSingleNoteHitAnimation:theNote];
                     [self removeNoteSprite:theNote];
                     [self displayJudgment:bestJudgment];
                     [self refreshScoreList:bestJudgment];
@@ -656,12 +681,14 @@ float lastLongNoteJudgmentTime;
     //return false;
 }
 
-- (void) playSingleNoteHitAnimation
+- (void) playSingleNoteHitAnimation:(note*)theNote
 {
-    // the animation manager of each node is stored in the 'animationManager' property
-    CCAnimationManager* animationManager = self.animationManager;
-    // timelines can be referenced and run by name
-    [animationManager runAnimationsForSequenceNamed:@"JudgmentLineHit"];
+    CCParticleSystem* singleNoteHitEffect = (CCParticleSystem *)[CCBReader load:@"Effects/touchJudgmentLineEffect"];
+    singleNoteHitEffect.position = theNote.sprite.position;
+    singleNoteHitEffect.positionType = theNote.sprite.positionType;
+    [self addChild: singleNoteHitEffect];
+    
+
 }
 
 - (void) displayJudgment:(int) type

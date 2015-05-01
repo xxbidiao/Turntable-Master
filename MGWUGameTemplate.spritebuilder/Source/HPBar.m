@@ -18,8 +18,8 @@
     self.type=CCProgressNodeTypeBar;
     self.midpoint = CGPointMake(0,0);
     self.barChangeRate = CGPointMake(1,0);
-    self.scaleX = 3;
-    self.scaleY = 0.3;
+    self.scaleX = 0.4;
+    self.scaleY = 0.05;
     NSLog(@"SET");
 }
 

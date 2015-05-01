@@ -20,7 +20,7 @@
     //hard code judgments temporarily
     [_judgmentParameters addObject:@0.120];
     [_judgmentParameters addObject:@0.120];
-    [_judgmentParameters addObject:@0.060];
+    [_judgmentParameters addObject:@0.090];
     [_judgmentParameters addObject:@0.030];
     [_judgmentParameters addObject:@-1];
 

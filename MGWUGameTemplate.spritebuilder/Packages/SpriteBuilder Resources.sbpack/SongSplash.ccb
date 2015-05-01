@@ -72,7 +72,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.40000000596046448</real>
+							<real>0.30000001192092896</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -245,6 +245,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -316,7 +318,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Touch and swipe your fingers!</string>
+							<string>Touch and swipe with your fingers!</string>
 							<false/>
 						</array>
 					</dict>
@@ -335,7 +337,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>36</real>
+							<real>30</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -617,8 +619,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
