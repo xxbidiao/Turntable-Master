@@ -72,6 +72,14 @@
     [super onEnter];
     
     theBGMManager = [[BGMManager alloc ]init];
+    
+    [theBGMManager stopBGM];
+    NSString* path;
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    path = [mainBundle pathForResource: @"selection" ofType:@"mp3"];
+    [theBGMManager initializeBGM:path];
+    [theBGMManager setLoop:true];
+    [theBGMManager playBGM];
 
     
     //set the information layout parameters
@@ -79,8 +87,8 @@
     
     selectedSong=@" ---";
     ChartLoader* theCL = [[ChartLoader alloc]init];
-    [theCL loadChartFromFile:@"test"];
-    [theCL saveChartToFile:@"testsamesongmore.tcf"];
+    //[theCL loadChartFromFile:@"test"];
+    //[theCL saveChartToFile:@"z_advertisement_song.tcf"];
     NSLog(@"Listing files...");
     NSArray *directories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documents = [directories firstObject];

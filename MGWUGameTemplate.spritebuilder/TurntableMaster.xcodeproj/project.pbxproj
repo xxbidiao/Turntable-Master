@@ -44,6 +44,7 @@
 		F30394181AE861B600BFD3FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F30394121AE861B600BFD3FF /* libz.dylib */; };
 		F303AC941AED68E000F6727D /* HPBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F303AC931AED68E000F6727D /* HPBar.m */; };
 		F303AC971AF05C8A00F6727D /* SongSplash.m in Sources */ = {isa = PBXBuildFile; fileRef = F303AC961AF05C8A00F6727D /* SongSplash.m */; };
+		F303AC991AF4A5DE00F6727D /* pod.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F303AC981AF4A5DE00F6727D /* pod.mp3 */; };
 		F3048F391A97E23A00C4C6E1 /* Stage.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F381A97E23A00C4C6E1 /* Stage.m */; };
 		F3048F3C1A97E29E00C4C6E1 /* Chart.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3B1A97E29E00C4C6E1 /* Chart.m */; };
 		F3048F401A97E3C500C4C6E1 /* ChartObject.m in Sources */ = {isa = PBXBuildFile; fileRef = F3048F3F1A97E3C500C4C6E1 /* ChartObject.m */; };
@@ -55,6 +56,10 @@
 		F33FDC541ADC2DA00074CF00 /* StageSelectionMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F33FDC531ADC2DA00074CF00 /* StageSelectionMenuItem.m */; };
 		F34085191ABE8114009FE4AE /* noteBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085181ABE8114009FE4AE /* noteBuilder.m */; };
 		F34085251ABE81DF009FE4AE /* note.m in Sources */ = {isa = PBXBuildFile; fileRef = F34085241ABE81DF009FE4AE /* note.m */; };
+		F343B2071AF4B03300CAA91A /* result.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F343B2061AF4B03300CAA91A /* result.mp3 */; };
+		F343B2091AF4B04500CAA91A /* title.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F343B2081AF4B04500CAA91A /* title.mp3 */; };
+		F343B20B1AF4B4AD00CAA91A /* selection.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F343B20A1AF4B4AD00CAA91A /* selection.mp3 */; };
+		F343B20D1AF4BC8A00CAA91A /* FoxSay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F343B20C1AF4BC8A00CAA91A /* FoxSay.mp3 */; };
 		F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F34C5ECB1A99C9DB005968CC /* test.mp3 */; };
 		F34C5ECF1A9A488F005968CC /* SingleNote.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C5ECE1A9A488F005968CC /* SingleNote.m */; };
 		F35CCEEF1AD19B4C007DC39D /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = F35CCEEE1AD19B4C007DC39D /* Constant.m */; };
@@ -282,6 +287,7 @@
 		F303AC931AED68E000F6727D /* HPBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HPBar.m; path = Source/HPBar.m; sourceTree = "<group>"; };
 		F303AC951AF05C8A00F6727D /* SongSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SongSplash.h; path = Source/SongSplash.h; sourceTree = "<group>"; };
 		F303AC961AF05C8A00F6727D /* SongSplash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SongSplash.m; path = Source/SongSplash.m; sourceTree = "<group>"; };
+		F303AC981AF4A5DE00F6727D /* pod.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pod.mp3; sourceTree = "<group>"; };
 		F3048F371A97E23A00C4C6E1 /* Stage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stage.h; path = Source/Stage.h; sourceTree = "<group>"; };
 		F3048F381A97E23A00C4C6E1 /* Stage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stage.m; path = Source/Stage.m; sourceTree = "<group>"; };
 		F3048F3A1A97E29E00C4C6E1 /* Chart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chart.h; path = Source/Chart.h; sourceTree = "<group>"; };
@@ -1864,6 +1870,10 @@
 		F34085181ABE8114009FE4AE /* noteBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = noteBuilder.m; path = Source/noteBuilder.m; sourceTree = "<group>"; };
 		F34085231ABE81DF009FE4AE /* note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = note.h; path = Source/note.h; sourceTree = "<group>"; };
 		F34085241ABE81DF009FE4AE /* note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = note.m; path = Source/note.m; sourceTree = "<group>"; };
+		F343B2061AF4B03300CAA91A /* result.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = result.mp3; sourceTree = "<group>"; };
+		F343B2081AF4B04500CAA91A /* title.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = title.mp3; sourceTree = "<group>"; };
+		F343B20A1AF4B4AD00CAA91A /* selection.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = selection.mp3; sourceTree = "<group>"; };
+		F343B20C1AF4BC8A00CAA91A /* FoxSay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FoxSay.mp3; sourceTree = "<group>"; };
 		F34C5ECB1A99C9DB005968CC /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
 		F34C5ECD1A9A488F005968CC /* SingleNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleNote.h; path = Source/SingleNote.h; sourceTree = "<group>"; };
 		F34C5ECE1A9A488F005968CC /* SingleNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SingleNote.m; path = Source/SingleNote.m; sourceTree = "<group>"; };
@@ -2013,6 +2023,11 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F343B20C1AF4BC8A00CAA91A /* FoxSay.mp3 */,
+				F343B20A1AF4B4AD00CAA91A /* selection.mp3 */,
+				F343B2081AF4B04500CAA91A /* title.mp3 */,
+				F343B2061AF4B03300CAA91A /* result.mp3 */,
+				F303AC981AF4A5DE00F6727D /* pod.mp3 */,
 				F33DC1251AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 */,
 				F34C5ECB1A99C9DB005968CC /* test.mp3 */,
 				F34C5EBA1A99C95E005968CC /* Music */,
@@ -5302,16 +5317,21 @@
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
+				F343B2071AF4B03300CAA91A /* result.mp3 in Resources */,
+				F343B20B1AF4B4AD00CAA91A /* selection.mp3 in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				F34C5ECC1A99C9DB005968CC /* test.mp3 in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
+				F343B2091AF4B04500CAA91A /* title.mp3 in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
+				F303AC991AF4A5DE00F6727D /* pod.mp3 in Resources */,
+				F343B20D1AF4BC8A00CAA91A /* FoxSay.mp3 in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				F33DC1261AE5A16A00020750 /* Sweet_Dream_-_Lin-G.mp3 in Resources */,

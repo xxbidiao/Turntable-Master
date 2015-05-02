@@ -100,7 +100,7 @@ for(var i = realObjectsStartingAt; i < allEvents.length; i++)
     else
     objectSkipped++;
   }
-  else if(time-lastTime < measureSize / 7.999)
+  else if(time-lastTime < measureSize / 7.999 && tempLongEvents.length<16)
   {
     longNoteJustFinished = false;
     haveAlreadyPutAnotherSingleNote = false;
@@ -112,6 +112,11 @@ for(var i = realObjectsStartingAt; i < allEvents.length; i++)
     haveAlreadyPutAnotherSingleNote = false;
     //finish this note
     var count = tempLongEvents.length;
+    if(count == 0)
+    {
+      //intentionally left blank
+    }
+    else
     if(count == 1)
     {
       var theTime = measureSize * (tempLongEvents[0].measure+tempLongEvents[0].position)- offset;
@@ -134,6 +139,7 @@ for(var i = realObjectsStartingAt; i < allEvents.length; i++)
     }
     else
     {
+
       var firstTime = measureSize * (tempLongEvents[0].measure+tempLongEvents[0].position)- offset;
       var longObject = {};
       longObject.objectType = 1;

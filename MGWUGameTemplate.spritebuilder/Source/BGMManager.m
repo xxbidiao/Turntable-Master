@@ -28,6 +28,11 @@
     return true;
 }
 
+-(BOOL) setLoop:(BOOL) value
+{
+    [gb setRepeat:value];
+}
+
 -(BOOL) playBGM
 {
     [gb play];

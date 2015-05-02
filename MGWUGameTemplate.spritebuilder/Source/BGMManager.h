@@ -26,4 +26,6 @@
 
 -(void) clearFinishStatus;
 
+-(BOOL) setLoop:(BOOL) value;
+
 @end
