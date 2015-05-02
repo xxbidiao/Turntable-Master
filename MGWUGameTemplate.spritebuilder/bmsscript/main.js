@@ -71,6 +71,10 @@ allEvents.sort(function(a,b){return (a.measure+a.position-b.measure-b.position)}
 
   var tempLongEvents = [];
 
+var haveAlreadyPutAnotherSingleNote = false;
+var pendingNoteAdded = false;
+var pendingExtraNote = {};
+var longNoteJustFinished = false;
 for(var i = realObjectsStartingAt; i < allEvents.length; i++)
 {
   var thisOneStillNeedConsideration = 0; //false
@@ -78,15 +82,34 @@ for(var i = realObjectsStartingAt; i < allEvents.length; i++)
   if(time-lastTime < 0.01)
   {
     //simply skip this one
+    if(!haveAlreadyPutAnotherSingleNote)
+    {
+      var theTime = time;
+      var singleObject = {};
+      singleObject.objectType = 0;
+      singleObject.objectSubType = 1;
+      singleObject.objectPosition={};
+      singleObject.objectPosition["SingleNotePosition"]=2;
+      singleObject.startingTime=theTime;
+      pendingExtraNote = singleObject;
+      //objects.push(singleObject);
+      //objectCreated++;
+      haveAlreadyPutAnotherSingleNote = true;
+      pendingNoteAdded = false;      
+    }
+    else
     objectSkipped++;
   }
   else if(time-lastTime < measureSize / 7.999)
   {
+    longNoteJustFinished = false;
+    haveAlreadyPutAnotherSingleNote = false;
     //add this note into the queue
     tempLongEvents.push(allEvents[i]);
   }
   else
   {
+    haveAlreadyPutAnotherSingleNote = false;
     //finish this note
     var count = tempLongEvents.length;
     if(count == 1)
@@ -94,34 +117,66 @@ for(var i = realObjectsStartingAt; i < allEvents.length; i++)
       var theTime = measureSize * (tempLongEvents[0].measure+tempLongEvents[0].position)- offset;
       var singleObject = {};
       singleObject.objectType = 0;
-      singleObject.objectSubType = Math.floor(Math.random() * (2));;
+      singleObject.objectSubType = 0
       singleObject.objectPosition={};
-      singleObject.objectPosition["SingleNotePosition"]=Math.floor(Math.random() * (8));;
+      singleObject.objectPosition["SingleNotePosition"]=2;
       singleObject.startingTime=theTime;
       objects.push(singleObject);
-      objectCreated++;    
+      objectCreated++;
+      if(!pendingNoteAdded)   
+      {
+         objects.push(pendingExtraNote);
+        objectCreated++;
+        pendingNoteAdded = true;       
+      }
+      longNoteJustFinished = false;
+    
     }
     else
     {
       var firstTime = measureSize * (tempLongEvents[0].measure+tempLongEvents[0].position)- offset;
       var longObject = {};
       longObject.objectType = 1;
-      longObject.objectSubType = Math.floor(Math.random() * (2));
+      longObject.objectSubType = 1;
       longObject.objectPosition={};
       longObject.objectPosition["LongNoteTotalNodeCount"]=count;
       var ii;
+      var lastPosition = 0;
+      var lastChannel = 0;
       for(ii = 0; ii < count; ii++)
       {
         var thisNoteTime = measureSize*(tempLongEvents[ii].measure+tempLongEvents[ii].position)- offset;
         var deltaTime = thisNoteTime - firstTime;
         var labelNumber = ii+1;
-        var possiblePosition = (tempLongEvents[ii].channel-10)%8;
-        longObject.objectPosition["LongNoteNodePosition"+labelNumber] = Math.floor(Math.random() * (5));
+        var chan = (tempLongEvents[ii].channel);
+        var thisObjPosition;
+        if(chan >= lastChannel)
+        {
+          thisObjPosition = lastPosition + 1;
+
+          if(thisObjPosition > 5) thisObjPosition = 5;
+                    lastPosition = thisObjPosition;
+
+        }
+        else
+        {
+          thisObjPosition = lastPosition - 1;
+
+          if(thisObjPosition < 0) thisObjPosition = 0;
+                    lastPosition = thisObjPosition;
+        }
+
+        lastChannel = chan;
+        longObject.objectPosition["LongNoteNodePosition"+labelNumber] = thisObjPosition;
         longObject.objectPosition["LongNoteNodeTime"+labelNumber] = deltaTime;
+        
       }
       longObject.startingTime=firstTime;
       objects.push(longObject);
-      objectCreated++;    
+      objectCreated++;
+      longNoteJustFinished = true;
+      pendingExtraNote = {};
+      pendingNoteAdded = true; //for safety issues    
 
     }
     //current one starts a new note
